@@ -1,0 +1,47 @@
+// Router configuration
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => HomeScreen(),
+      routes: [
+        GoRoute(
+          path: 'profile/:userId',
+          builder: (context, state) {
+            final userId = state.pathParameters['userId']!;
+            return ProfileScreen(userId: userId);
+          },
+        ),
+        GoRoute(
+          path: 'settings',
+          builder: (context, state) => SettingsScreen(),
+        ),
+      ],
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => LoginScreen(),
+    ),
+  ],
+  redirect: (context, state) {
+    final isLoggedIn = authProvider.isLoggedIn;
+    final isLoginRoute = state.matchedLocation == '/login';
+    
+    if (!isLoggedIn && !isLoginRoute) {
+      return '/login';
+    }
+    if (isLoggedIn && isLoginRoute) {
+      return '/';
+    }
+    return null;
+  },
+);
+
+// Usage in MaterialApp
+MaterialApp.router(
+  routerConfig: router,
+)
+
+// Programmatic navigation
+context.go('/profile/123');
+context.push('/settings');

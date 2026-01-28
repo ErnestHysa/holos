@@ -1,0 +1,18 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                          
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> Inconsistent JVM Target Compatibility Between Java and Kotlin Tasks
+    Inconsistent JVM Target Compatibility Between Java and Kotlin Tasks
+      Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (17) and 'compileDebugKotlin' (21).
+
+* Try:
+> Consider using JVM Toolchain: https://kotl.in/gradle/jvm/toolchain
+> Run with --scan to get full insights.
+
+BUILD FAILED in 1m 37s
+Running Gradle task 'assembleDebug'...                             97.8s
+Error: Gradle task assembleDebug failed with exit code 1

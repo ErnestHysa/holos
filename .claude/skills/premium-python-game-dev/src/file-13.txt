@@ -1,0 +1,28 @@
+class SceneTransition:
+    def __init__(self, duration=0.3):
+        self.duration = duration
+        self.progress = 0.0
+        self.active = False
+        self.next_scene = None
+    
+    def start(self, next_scene):
+        self.next_scene = next_scene
+        self.active = True
+        self.progress = 0.0
+    
+    def update(self, delta_time):
+        if self.active:
+            self.progress += delta_time / self.duration
+            return self.progress >= 1.0
+        return False
+    
+    def draw(self, surface):
+        if self.active:
+            # Fade to black
+            alpha = int(255 * min(1.0, self.progress * 2))
+            if self.progress > 0.5:
+                alpha = int(255 * (1.0 - (self.progress - 0.5) * 2))
+            
+            overlay = pygame.Surface(surface.get_size(), pygame.SRCALPHA)
+            overlay.fill((0, 0, 0, alpha))
+            surface.blit(overlay, (0, 0))

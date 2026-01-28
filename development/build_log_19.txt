@@ -1,0 +1,155 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                             10.6s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,562ms
+D/FlutterJNI(22852): Beginning load of flutter...
+D/FlutterJNI(22852): flutter (null) was loaded normally!
+I/flutter (22852): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (22852): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (22852): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (22852): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (22852): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (22852): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (22852): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (22852): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (22852): , null)
+Syncing files to device SM S918B...                             
+I/Choreographer(22852): Skipped 35 frames!  The application may be doing too much work on its main thread.
+I/BLASTBufferQueue_Java(22852): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007d7ecb4000 sc.mNativeObject= 0xb400007d2c13e100 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/VRI[MainActivity]@439998c(22852): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=2 res=0x1 s={true 0xb400007d8af8c500} ch=false seqId=0
+I/VRI[MainActivity]@439998c(22852): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@7218a1c sc=Surface(name=Bounds for - com.example.holos/com.example.holos.MainActivity@0)/@0xf048625 frame=1
+D/VRI[MainActivity]@439998c(22852): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue(22852): [d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(22852): apply transaction with the first frame. layerId: 43119, bufferData(ID: 98148592648204, frameNumber: 1)
+I/SurfaceView(22852): 224781171 finishedDrawing
+D/VRI[MainActivity]@439998c(22852): Setup new sync=wmsSync-VRI[MainActivity]@439998c#1
+I/VRI[MainActivity]@439998c(22852): Creating new active sync group VRI[MainActivity]@439998c#2
+D/VRI[MainActivity]@439998c(22852): Draw frame after cancel
+D/VRI[MainActivity]@439998c(22852): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(22852): 224781171 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[224781171 MainActivity](22852): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[224781171 MainActivity](22852): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[224781171 MainActivity](22852): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@f1c5fa1 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@439998c(22852): mWNT: t=0xb400007d85e59480 mBlastBufferQueue=0xb400007d7ecb4000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@439998c(22852): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@439998c(22852): mWNT: t=0xb400007d2c0a1700 mBlastBufferQueue=0xb400007d7ecb4000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@439998c(22852): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(22852): [VRI[MainActivity]@439998c#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(22852): apply transaction with the first frame. layerId: 43114, bufferData(ID: 98148592648209, frameNumber: 1)
+I/VRI[MainActivity]@439998c(22852): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (22852): CFMS:: SetUp Pid : 22852    Tid : 22915
+D/VRI[MainActivity]@439998c(22852): reportDrawFinished seqId=0
+D/VRI[MainActivity]@439998c(22852): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d8af8c500}
+D/InputMethodManagerUtils(22852): startInputInner - Id : 0
+I/InputMethodManager(22852): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(22852): handleMessage: setImeVisibility visible=false
+D/InsetsController(22852): hide(ime(), fromIme=false)
+I/ImeTracker(22852): com.example.holos:bb67dbd0: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(22852): Input channel constructed: 'ClientS', fd=167
+Syncing files to device SM S918B...                                144ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on SM S918B is available at: http://127.0.0.1:54413/wbMMlssy2sw=/
+The Flutter DevTools debugger and profiler on SM S918B is available at: http://127.0.0.1:54413/wbMMlssy2sw=/devtools/?uri=ws://127.0.0.1:54413/wbMMlssy2sw=/ws
+D/ProfileInstaller(22852): Installing profile for com.example.holos
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(22852): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@cb6d78f
+W/WindowOnBackDispatcher(22852): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@cb6d78f
+
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 0.666 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///C:/Users/ErnestHome/clawd/holos/development/lib/screens/onboarding/health_connection.dart:264:26
+
+To inspect this widget in Flutter DevTools, visit:
+http://127.0.0.1:54413/wbMMlssy2sw=/devtools//#/inspector?uri=http%3A%2F%2F127.0.0.1%3A54413%2FwbMMlssy2sw%3D%2F&inspectorRef=inspector-0
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#6e985 relayoutBoundary=up21 OVERFLOWING:
+  creator: Row ← Padding ← DecoratedBox ← Container ← Column ← Padding ← Listener ← RawGestureDetector
+    ← GestureDetector ← Semantics ← DefaultSelectionStyle ← Builder ← ⋯
+  parentData: offset=Offset(8.0, 4.0) (can use size)
+  constraints: BoxConstraints(0.0<=w<=62.7, 0.0<=h<=Infinity)
+  size: Size(62.7, 13.0)
+  direction: horizontal
+  mainAxisAlignment: start
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/flutter (22852): No health platforms connected
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: A RenderFlex overflowed by 35 pixels on the right.
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(22852): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: This widget has been unmounted, so the State no longer has a context (and should be considered defunct). 
+Another exception was thrown: GoError: There is nothing to pop
+I/ImeFocusController(22852): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(22852): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(22852): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(22852): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](22852): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(22852): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(22852): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376607680045568)/@0x5fadcd8
+D/SurfaceComposerClient(22852): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43118 cornerRadius=0.000000
+I/SurfaceView(22852): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](22852): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](22852): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](22852): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(22852): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(22852): 27918052 windowPositionLost, frameNr = 0
+D/HWUI    (22852): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(22852): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=10 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](22852): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](22852): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](22852): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(22852): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](22852): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](22852): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(22852): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(22852): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(22852): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(22852): mWNT: t=0xb400007d85e0b680 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (22852): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(22852): stopped(true) old = false
+D/VRI[MainActivity]@439998c(22852): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (22852): CacheManager::trimMemory(20)
+D/SV[224781171 MainActivity](22852): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](22852): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(22852): applyTransactionOnDraw applyImmediately
+D/InputTransport(22852): Input channel destroyed: 'ClientS', fd=167
+D/SV[224781171 MainActivity](22852): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](22852): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(22852): applyTransactionOnDraw applyImmediately
+D/BBA2    (22852): setIsFg isFg = false; delayValue 3999ms
+W/WindowOnBackDispatcher(22852): sendCancelIfRunning: isInProgress=false callback=android.app.Activity$$ExternalSyntheticLambda0@e91c6b7
+Lost connection to device.

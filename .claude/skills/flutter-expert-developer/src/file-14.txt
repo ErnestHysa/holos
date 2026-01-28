@@ -1,0 +1,31 @@
+// Source screen
+Hero(
+  tag: 'product-hero-${product.id}',
+  child: ProductImage(product: product),
+)
+
+// Destination screen
+Hero(
+  tag: 'product-hero-${product.id}',
+  child: ProductDetailImage(product: product),
+)
+
+// Custom hero animation
+Hero(
+  tag: 'custom-hero',
+  createRectTween: (begin, end) {
+    return MaterialRectCenterArcTween(begin: begin, end: end);
+  },
+  flightShuttleBuilder: (flightContext, animation, direction, fromContext, toContext) {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) {
+        return Transform.rotate(
+          angle: animation.value * 0.5,
+          child: child,
+        );
+      },
+    );
+  },
+  child: Container(...),
+)

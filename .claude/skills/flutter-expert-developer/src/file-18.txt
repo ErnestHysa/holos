@@ -1,0 +1,89 @@
+// Firebase initialization
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+
+// Authentication
+class AuthService extends ChangeNotifier {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  
+  User? get currentUser => _auth.currentUser;
+  
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
+  
+  Future<UserCredential> signInWithEmail(String email, String password) async {
+    try {
+      final credential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      AnalyticsService.logLogin('email');
+      return credential;
+    } on FirebaseAuthException catch (e) {
+      throw AuthException.fromCode(e.code);
+    }
+  }
+  
+  Future<void> signOut() async {
+    await _auth.signOut();
+    AnalyticsService.logLogout();
+  }
+}
+
+// Firestore with streams
+class ProductRepository {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  
+  Stream<List<Product>> getProducts() {
+    return _firestore
+        .collection('products')
+        .where('isActive', isEqualTo: true)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) => snapshot.docs
+            .map((doc) => Product.fromFirestore(doc))
+            .toList());
+  }
+  
+  Future<void> addProduct(Product product) async {
+    await _firestore
+        .collection('products')
+        .add(product.toFirestore());
+  }
+}
+
+// Cloud Functions
+class CloudFunctionsService {
+  static final functions = FirebaseFunctions.instance;
+  
+  static Future<String> createPaymentIntent({
+    required String amount,
+    required String currency,
+  }) async {
+    final callable = functions.httpsCallable('createPaymentIntent');
+    
+    final result = await callable.call({
+      'amount': amount,
+      'currency': currency,
+    });
+    
+    return result.data['clientSecret'];
+  }
+}
+
+// Remote Config
+class RemoteConfigService {
+  static final RemoteConfig _remoteConfig = RemoteConfig.instance;
+  
+  static Future<void> initialize() async {
+    await _remoteConfig.setConfigSettings(RemoteConfigSettings(
+      fetchTimeout: Duration(minutes: 1),
+      minimumFetchInterval: Duration(hours: 1),
+    ));
+    
+    await _remoteConfig.fetchAndActivate();
+  }
+  
+  static bool get featureEnabled => _remoteConfig.getBool('new_feature_enabled');
+  static String get apiUrl => _remoteConfig.getString('api_url');
+}

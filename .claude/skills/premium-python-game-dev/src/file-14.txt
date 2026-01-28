@@ -1,0 +1,29 @@
+class AssetManager:
+    def __init__(self):
+        self.images = {}
+        self.sounds = {}
+        self.fonts = {}
+    
+    def load_image(self, path: str) -> pygame.Surface:
+        if path not in self.images:
+            self.images[path] = pygame.image.load(path).convert_alpha()
+        return self.images[path]
+    
+    def load_sound(self, path: str) -> pygame.mixer.Sound:
+        if path not in self.sounds:
+            self.sounds[path] = pygame.mixer.Sound(path)
+        return self.sounds[path]
+    
+    def load_font(self, path: str, size: int) -> pygame.font.Font:
+        key = f"{path}:{size}"
+        if key not in self.fonts:
+            self.fonts[key] = pygame.font.Font(path, size)
+        return self.fonts[key]
+    
+    def cleanup(self):
+        """Release all loaded assets."""
+        for sound in self.sounds.values():
+            sound.stop()
+        self.images.clear()
+        self.sounds.clear()
+        self.fonts.clear()

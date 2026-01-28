@@ -1,0 +1,41 @@
+// test/widget/profile_card_test.dart
+void main() {
+  testWidgets('ProfileCard renders user information', (tester) async {
+    final user = User(
+      name: 'John Doe',
+      email: 'john@example.com',
+      avatarUrl: 'https://example.com/avatar.jpg',
+    );
+    
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: ProfileCard(user: user),
+        ),
+      ),
+    );
+    
+    expect(find.text('John Doe'), findsOneWidget);
+    expect(find.text('john@example.com'), findsOneWidget);
+  });
+  
+  testGoldens('ProfileCard golden test', (tester) async {
+    final builder = GoldenBuilder.grid(
+      columns: 2,
+      widthToHeightRatio: 1,
+    )
+      ..addScenario('Default', ProfileCard(user: testUser))
+      ..addScenario('With Long Name', ProfileCard(user: longNameUser))
+      ..addScenario('Without Avatar', ProfileCard(user: noAvatarUser));
+    
+    await tester.pumpWidgetBuilder(
+      builder.build(),
+      wrapper: materialAppWrapper(theme: ThemeData.light()),
+    );
+    
+    await expectLater(
+      find.byType(ProfileCard),
+      matchesGoldenFile('goldens/profile_card.png'),
+    );
+  });
+}

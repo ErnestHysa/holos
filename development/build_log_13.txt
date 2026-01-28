@@ -1,0 +1,21 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                          
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':firebase_core:compileDebugJavaWithJavac'.
+> Could not resolve all files for configuration ':firebase_core:androidJdkImage'.
+   > Failed to transform core-for-system-modules.jar to match attributes {artifactType=_internal_android_jdk_image, org.gradle.libraryelements=jar, org.gradle.usage=java-runtime}.
+      > Execution failed for JdkImageTransform: D:\platforms\android-34\core-for-system-modules.jar.
+         > jlink executable D:\PyCharm\jbr\bin\jlink.exe does not exist.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 13s
+Running Gradle task 'assembleDebug'...                             13.8s
+Error: Gradle task assembleDebug failed with exit code 1

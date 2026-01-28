@@ -1,0 +1,47 @@
+// Hive for simple key-value storage
+class HiveService {
+  static const String _boxName = 'app_storage';
+  static late Box _box;
+  
+  static Future<void> init() async {
+    await Hive.initFlutter();
+    _box = await Hive.openBox(_boxName);
+  }
+  
+  static Future<void> setString(String key, String value) async {
+    await _box.put(key, value);
+  }
+  
+  static String? getString(String key) => _box.get(key);
+  
+  static Future<void> setModel<T>(String key, T value) async {
+    await _box.put(key, value);
+  }
+  
+  static T? getModel<T>(String key) => _box.get(key);
+}
+
+// Drift (SQLite) for complex relational data
+part 'database.g.dart';
+
+@DriftDatabase(tables: [Products, Categories])
+class AppDatabase extends _$AppDatabase {
+  AppDatabase(QueryExecutor e) : super(e);
+  
+  @override
+  int get schemaVersion => 1;
+  
+  Future<List<Product>> getAllProducts() => select(products).get();
+  
+  Future<Product> getProductById(int id) =>
+      (select(products)..where((p) => p.id.equals(id))).getSingle();
+  
+  Future<void> addProduct(Product product) => into(products).insert(product);
+  
+  Stream<List<Product>> watchProductsByCategory(int categoryId) {
+    return (select(products)
+          ..where((p) => p.categoryId.equals(categoryId))
+          ..orderBy([(p) => OrderingTerm.asc(p.name)]))
+        .watch();
+  }
+}

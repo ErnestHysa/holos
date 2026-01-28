@@ -1,0 +1,33 @@
+// 1. Never store sensitive data in SharedPreferences/Hive
+// Use flutter_secure_storage for sensitive data
+
+final storage = FlutterSecureStorage();
+await storage.write(key: 'api_key', value: secretKey);
+
+// 2. Validate all inputs
+class InputValidator {
+  static String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email is required';
+    }
+    if (!EmailValidator.validate(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+}
+
+// 3. Use certificate pinning for network requests
+final dio = Dio();
+(dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
+  client.badCertificateCallback = (cert, host, port) {
+    return _isValidCertificate(cert);
+  };
+  return client;
+};
+
+// 4. Obfuscate production builds
+// Run: flutter build apk --obfuscate --split-debug-info=./symbols
+
+// 5. Use environment variables for configuration
+const apiKey = String.fromEnvironment('API_KEY');

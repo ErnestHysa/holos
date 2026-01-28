@@ -1,0 +1,42 @@
+// State provider for simple values
+final counterProvider = StateProvider<int>((ref) => 0);
+
+// Async provider for data fetching
+final productsProvider = FutureProvider.autoDispose<List<Product>>((ref) async {
+  final repository = ref.watch(productRepositoryProvider);
+  return repository.fetchProducts();
+});
+
+// Notifier provider for complex state
+@riverpod
+class AuthController extends _$AuthController {
+  @override
+  AuthState build() => const AuthState.initial();
+  
+  Future<void> login(String email, String password) async {
+    state = const AuthState.loading();
+    try {
+      final user = await ref.read(authRepositoryProvider).login(email, password);
+      state = AuthState.authenticated(user);
+    } catch (e) {
+      state = AuthState.error(e.toString());
+    }
+  }
+}
+
+// Consumption in widget
+class ProductList extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final productsAsync = ref.watch(productsProvider);
+    
+    return productsAsync.when(
+      data: (products) => ListView.builder(
+        itemCount: products.length,
+        itemBuilder: (context, index) => ProductCard(product: products[index]),
+      ),
+      loading: () => const CircularProgressIndicator(),
+      error: (err, stack) => Text('Error: $err'),
+    );
+  }
+}

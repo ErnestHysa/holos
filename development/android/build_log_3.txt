@@ -1,0 +1,140 @@
+> Task :gradle:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle:compileKotlin UP-TO-DATE
+> Task :gradle:compileJava NO-SOURCE
+> Task :gradle:compileGroovy NO-SOURCE
+> Task :gradle:pluginDescriptors UP-TO-DATE
+> Task :gradle:processResources UP-TO-DATE
+> Task :gradle:classes UP-TO-DATE
+> Task :gradle:jar UP-TO-DATE
+> Task :app:DebugMinSdkCheck
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :app:compileFlutterBuildDebug
+lib/screens/health_integration/health_permissions_screen.dart:2:8: Error: Error when reading '/C:/flutter/packages/flutter/lib/cupertino_icons.dart': The system cannot find the file specified
+import 'package:flutter/cupertino_icons.dart'; // For iOS-style icons
+       ^
+lib/screens/ai_suggestion/ai_suggestion_screen.dart:157:36: Error: A value of type 'Object' can't be assigned to a variable of type 'bool'.
+ - 'Object' is from 'dart:core'.
+    if (_healthData?.sleepDuration ?? 0 < 6) {
+                                   ^
+lib/services/health_service.dart:62:53: Error: A value of type 'Object' can't be returned from an async function with return type 'Future<bool>'.
+ - 'Object' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+        return _appleHealthService?.hasPermission() ?? false;
+                                                    ^
+lib/services/health_service.dart:64:51: Error: A value of type 'Object' can't be returned from an async function with return type 'Future<bool>'.
+ - 'Object' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+        return _googleFitService?.hasPermission() ?? false;
+                                                  ^
+lib/services/health_service.dart:66:55: Error: A value of type 'Object' can't be returned from an async function with return type 'Future<bool>'.
+ - 'Object' is from 'dart:core'.
+ - 'Future' is from 'dart:async'.
+        return _samsungHealthService?.hasPermission() ?? false;
+                                                      ^
+lib/services/apple_health_service.dart:116:44: Error: The method 'healthDataChanges' isn't defined for the type 'Health'.
+ - 'Health' is from 'package:health/health.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/health-10.2.0/lib/health.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'healthDataChanges'.
+      _healthUpdateSubscription = _health!.healthDataChanges().listen((dataPoints) {
+                                           ^^^^^^^^^^^^^^^^^
+lib/services/apple_health_service.dart:252:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/apple_health_service.dart:277:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/apple_health_service.dart:302:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/apple_health_service.dart:328:78: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> inBedData = await _health!.getHealthDataFromTypes(
+                                                                             ^
+lib/services/apple_health_service.dart:334:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> asleepData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/apple_health_service.dart:340:82: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> deepSleepData = await _health!.getHealthDataFromTypes(
+                                                                                 ^
+lib/services/apple_health_service.dart:405:80: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> workoutData = await _health!.getHealthDataFromTypes(
+                                                                               ^
+lib/services/apple_health_service.dart:423:25: Error: The getter 'uuid' isn't defined for the type 'HealthDataPoint'.
+ - 'HealthDataPoint' is from 'package:health/health.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/health-10.2.0/lib/health.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'uuid'.
+          id: dataPoint.uuid ?? DateTime.now().millisecondsSinceEpoch.toString(),
+                        ^^^^
+lib/services/apple_health_service.dart:442:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/google_fit_service.dart:124:44: Error: The method 'healthDataChanges' isn't defined for the type 'Health'.
+ - 'Health' is from 'package:health/health.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/health-10.2.0/lib/health.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'healthDataChanges'.
+      _healthUpdateSubscription = _health!.healthDataChanges().listen((dataPoints) {
+                                           ^^^^^^^^^^^^^^^^^
+lib/services/google_fit_service.dart:258:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/google_fit_service.dart:282:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/google_fit_service.dart:306:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/google_fit_service.dart:330:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> asleepData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+lib/services/google_fit_service.dart:376:80: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> workoutData = await _health!.getHealthDataFromTypes(
+                                                                               ^
+lib/services/google_fit_service.dart:393:25: Error: The getter 'uuid' isn't defined for the type 'HealthDataPoint'.
+ - 'HealthDataPoint' is from 'package:health/health.dart' ('../../../AppData/Local/Pub/Cache/hosted/pub.dev/health-10.2.0/lib/health.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'uuid'.
+          id: dataPoint.uuid ?? DateTime.now().millisecondsSinceEpoch.toString(),
+                        ^^^^
+lib/services/google_fit_service.dart:412:79: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+      List<HealthDataPoint> healthData = await _health!.getHealthDataFromTypes(
+                                                                              ^
+Target kernel_snapshot_program failed: Exception
+
+
+> Task :app:compileFlutterBuildDebug FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/ErnestHome/clawd/holos/development/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'C:\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 15s
+6 actionable tasks: 2 executed, 4 up-to-date

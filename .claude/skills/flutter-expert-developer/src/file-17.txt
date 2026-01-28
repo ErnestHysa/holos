@@ -1,0 +1,83 @@
+// Error boundary widget
+class ErrorBoundary extends StatelessWidget {
+  final Widget child;
+  final void Function(Object error, StackTrace stack)? onError;
+  
+  const ErrorBoundary({
+    super.key,
+    required this.child,
+    this.onError,
+  });
+  
+  @override
+  Widget build(BuildContext context) {
+    return ErrorWidget.builder((details) {
+      onError?.call(details.exception, details.stack);
+      
+      return Material(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.error_outline, size: 64, color: Colors.red),
+              SizedBox(height: 16),
+              Text(
+                'Something went wrong',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              SizedBox(height: 8),
+              ElevatedButton(
+                onPressed: () => RestartWidget.restartApp(context),
+                child: Text('Restart App'),
+              ),
+            ],
+          ),
+        ),
+      );
+    });
+  }
+}
+
+// Global error handler
+void main() {
+  // Flutter framework errors
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    Crashlytics.instance.recordError(
+      details.exception,
+      details.stack,
+      fatal: true,
+    );
+  };
+  
+  // Async errors
+  PlatformDispatcher.instance.onError = (error, stack) {
+    Crashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+  
+  runApp(MyApp());
+}
+
+// Safe async execution
+extension SafeFuture on Future {
+  static void safe<T>(
+    Future<T> future, {
+    void Function(T)? onSuccess,
+    void Function(Object error, StackTrace stackTrace)? onError,
+  }) {
+    future.then(
+      (value) => onSuccess?.call(value),
+      onError: (error, stackTrace) {
+        onError?.call(error, stackTrace);
+      },
+    );
+  }
+}
+
+// Usage
+SafeFuture.safe(
+  api.fetchData(),
+  onSuccess: (data) => setState(() => _data = data),
+  onError: (error, stack) => _showError(error),
+);

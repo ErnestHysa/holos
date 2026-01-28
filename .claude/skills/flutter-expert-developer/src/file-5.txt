@@ -1,0 +1,27 @@
+// ✅ Use ListView.builder for long lists
+ListView.builder(
+  itemCount: items.length,
+  itemExtent: 72, // Fixed height improves performance
+  cacheExtent: 500, // Pre-render items off-screen
+  itemBuilder: (context, index) {
+    return ListTile(title: Text(items[index]));
+  },
+)
+
+// ✅ Use AutomaticKeepAliveClientMixin for stateful list items
+class PersistentListItem extends StatefulWidget {
+  @override
+  _PersistentListItemState createState() => _PersistentListItemState();
+}
+
+class _PersistentListItemState extends State<PersistentListItem>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+  
+  @override
+  Widget build(BuildContext context) {
+    super.build(context); // Required for AutomaticKeepAliveClientMixin
+    return ListTile(title: Text('Persistent'));
+  }
+}

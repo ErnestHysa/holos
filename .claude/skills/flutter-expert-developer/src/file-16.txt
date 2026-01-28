@@ -1,0 +1,42 @@
+// Android - AndroidManifest.xml
+<intent-filter>
+  <action android:name="android.intent.action.VIEW" />
+  <category android:name="android.intent.category.DEFAULT" />
+  <category android:name="android.intent.category.BROWSABLE" />
+  <data android:scheme="myapp" android:host="product" />
+</intent-filter>
+
+// iOS - Info.plist
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>myapp</string>
+    </array>
+  </dict>
+</array>
+
+// Handle incoming links
+class DeepLinkHandler {
+  static final deepLinkStream = StreamController<Uri>.broadcast();
+  
+  static void initUniLinks() async {
+    // App links
+    final appLink = await getInitialLink();
+    if (appLink != null) {
+      deepLinkStream.add(Uri.parse(appLink));
+    }
+    
+    // Listen for links while app is running
+    uriLinkStream.listen((uri) {
+      deepLinkStream.add(uri);
+    });
+  }
+}
+
+// Integration with GoRouter
+final router = GoRouter(
+  routes: [...],
+  initialLocation: DeepLinkHandler.getInitialLocation(),
+);

@@ -1,0 +1,46 @@
+// Semantic labels for screen readers
+Semantics(
+  label: 'Add item to shopping cart',
+  button: true,
+  onTap: () => _addToCart(),
+  child: Icon(Icons.add_shopping_cart),
+)
+
+// Accessible form fields
+TextField(
+  decoration: InputDecoration(
+    labelText: 'Email Address',
+    hintText: 'Enter your email',
+    errorText: _emailError,
+  ),
+  keyboardType: TextInputType.emailAddress,
+  textInputAction: TextInputAction.next,
+  onChanged: (value) => _validateEmail(value),
+)
+
+// Custom accessibility actions
+class CustomAccessibleWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: 'Product card',
+      hint: 'Double tap to view details, swipe left to delete',
+      value: 'Nike Air Max, $129.99',
+      increasedValue: 'Price increased to $139.99',
+      decreasedValue: 'Price decreased to $119.99',
+      onTap: () => _viewDetails(),
+      onLongPress: () => _showContextMenu(),
+      child: Card(
+        child: ListTile(
+          title: Text('Nike Air Max'),
+          subtitle: Text('\$129.99'),
+        ),
+      ),
+    );
+  }
+}
+
+// Exclude from semantics
+ExcludeSemantics(
+  child: DecorativeIcon(),
+)

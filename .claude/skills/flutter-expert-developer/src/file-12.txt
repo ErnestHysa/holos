@@ -1,0 +1,19 @@
+// Simple implicit animation
+AnimatedContainer(
+  duration: Duration(milliseconds: 300),
+  curve: Curves.easeInOut,
+  width: _isExpanded ? 200 : 100,
+  height: _isExpanded ? 200 : 100,
+  color: _isExpanded ? Colors.blue : Colors.red,
+  child: Center(child: Text('Tap me')),
+)
+
+// Animated cross-fade
+AnimatedCrossFade(
+  firstChild: Icon(Icons.check, size: 50),
+  secondChild: Icon(Icons.close, size: 50),
+  crossFadeState: _isSuccess 
+      ? CrossFadeState.showFirst 
+      : CrossFadeState.showSecond,
+  duration: Duration(milliseconds: 300),
+)

@@ -1,0 +1,404 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                             10.0s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,273ms
+D/FlutterJNI(26378): Beginning load of flutter...
+D/FlutterJNI(26378): flutter (null) was loaded normally!
+I/flutter (26378): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (26378): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (26378): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (26378): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (26378): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (26378): , null)
+Syncing files to device SM S918B...                                134ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on SM S918B is available at: http://127.0.0.1:51380/VOaA8Qkhzo0=/
+The Flutter DevTools debugger and profiler on SM S918B is available at: http://127.0.0.1:51380/VOaA8Qkhzo0=/devtools/?uri=ws://127.0.0.1:51380/VOaA8Qkhzo0=/ws
+I/InsetsSourceConsumer(26378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+D/ProfileInstaller(26378): Installing profile for com.example.holos
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(26378): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(26378): Permission launcher not found
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/flutter (26378): No health platforms connected
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+
+══╡ EXCEPTION CAUGHT BY GESTURE ╞═══════════════════════════════════════════════════════════════════
+The following GoError was thrown while handling a gesture:
+There is nothing to pop
+
+When the exception was thrown, this was the stack:
+#0      GoRouterDelegate.pop (package:go_router/src/delegate.dart:101:7)
+#1      GoRouter.pop (package:go_router/src/router.dart:504:20)
+#2      GoRouterHelper.pop (package:go_router/src/misc/extensions.dart:74:65)
+#3      _AiSuggestionScreenState._buildAppBar.<anonymous closure> (package:holos/screens/ai_suggestion/ai_suggestion_screen.dart:496:34)
+#4      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1222:21)
+#5      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#6      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:758:11)
+#7      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:383:5)
+#8      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:314:7)
+#9      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:721:9)
+#10     PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#11     PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:142:9)
+#12     _LinkedHashMapMixin.forEach (dart:_compact_hash:765:13)
+#13     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:140:18)
+#14     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:130:7)
+#15     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:528:19)
+#16     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:498:22)
+#17     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#18     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#19     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#20     GestureBinding._flushPointerEventQueue (package:flutter/src/gestures/binding.dart:341:7)
+#21     GestureBinding._handlePointerDataPacket (package:flutter/src/gestures/binding.dart:308:9)
+#22     _invoke1 (dart:ui/hooks.dart:372:13)
+#23     PlatformDispatcher._dispatchPointerDataPacket (dart:ui/platform_dispatcher.dart:467:7)
+#24     _dispatchPointerDataPacket (dart:ui/hooks.dart:307:31)
+
+Handler: "onTap"
+Recognizer:
+  TapGestureRecognizer#1f7b9
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+D/WindowOnBackDispatcher(26378): onBackInvoked, callback=android.view.ViewRootImpl$$ExternalSyntheticLambda16@b80844a
+I/VRI[MainActivity]@439998c(26378): ViewPostIme key 0
+D/Activity(26378): onKeyDown(KEYCODE_BACK), activity=com.example.holos.MainActivity@9430fbb
+I/VRI[MainActivity]@439998c(26378): ViewPostIme key 1
+I/ImeFocusController(26378): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(26378): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+D/InputTransport(26378): Input channel destroyed: 'ClientS', fd=168
+I/VRI[MainActivity]@439998c(26378): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(26378): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](26378): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(26378): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(26378): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376607884426752)/@0x5fadcd8
+D/SurfaceComposerClient(26378): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43459 cornerRadius=0.000000
+I/SurfaceView(26378): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](26378): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](26378): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(26378): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(26378): 154343633 windowPositionLost, frameNr = 0
+D/HWUI    (26378): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(26378): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=7 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](26378): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](26378): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(26378): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](26378): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(26378): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(26378): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(26378): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(26378): mWNT: t=0xb400007d85e0b680 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (26378): CacheManager::trimMemory(40)
+I/VRI[MainActivity]@439998c(26378): stopped(true) old = false
+D/VRI[MainActivity]@439998c(26378): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/SV[224781171 MainActivity](26378): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(26378): applyTransactionOnDraw applyImmediately
+W/WindowOnBackDispatcher(26378): sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda16@b80844a
+I/SurfaceView(26378): 224781171 Detaching SV
+D/SV[224781171 MainActivity](26378): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(26378): applyTransactionOnDraw applyImmediately
+I/SV[224781171 MainActivity](26378): onDetachedFromWindow: tryReleaseSurfaces()
+I/SV[224781171 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(26378): applyTransactionOnDraw applyImmediately
+D/ViewRootImpl(26378): Skipping stats log for color mode
+I/VRI[MainActivity]@439998c(26378): dispatchDetachedFromWindow
+D/InputTransport(26378): Input channel destroyed: 'b65385c', fd=138
+D/BBA2    (26378): setIsFg isFg = false; delayValue 3999ms
+D/BBA2    (26378): setIsFg isFg = true
+D/ActivityThread(26378): com.example.holos will use render engine as VK
+I/AdrenoGLES-0(26378): QUALCOMM build                   : dc3d4da3a2, Idd45c2c082
+I/AdrenoGLES-0(26378): Build Date                       : 05/30/25
+I/AdrenoGLES-0(26378): OpenGL ES Shader Compiler Version: E031.41.03.62
+I/AdrenoGLES-0(26378): Local Branch                     : 
+I/AdrenoGLES-0(26378): Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.13.2.0.11.00.00.856.062
+I/AdrenoGLES-0(26378): Remote Branch                    : NONE
+I/AdrenoGLES-0(26378): Reconstruct Branch               : NOTHING
+I/AdrenoGLES-0(26378): Build Config                     : S P 14.1.4 AArch64
+I/AdrenoGLES-0(26378): Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+I/AdrenoGLES-0(26378): Driver Version                   : 0676.73
+I/AdrenoGLES-0(26378): PFP: 0x01740181, ME: 0x00000000
+W/Adreno-AppProfiles(26378): Could not find QSPM HAL service. Skipping adreno profile processing.
+I/AdrenoVK-0(26378): QUALCOMM build          : dc3d4da3a2, Idd45c2c082
+I/AdrenoVK-0(26378): Build Date              : 05/30/25
+I/AdrenoVK-0(26378): Shader Compiler Version : E031.41.03.62
+I/AdrenoVK-0(26378): Local Branch            : 
+I/AdrenoVK-0(26378): Remote Branch           : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.13.2.0.11.00.00.856.062
+I/AdrenoVK-0(26378): Remote Branch           : NONE
+I/AdrenoVK-0(26378): Reconstruct Branch      : NOTHING
+I/AdrenoVK-0(26378): Build Config            : S P 14.1.4 AArch64
+I/AdrenoVK-0(26378): Driver Path             : /vendor/lib64/hw/vulkan.adreno.so
+I/AdrenoVK-0(26378): Driver Version          : 0676.73
+I/AdrenoVK-0(26378): PFP                     : 0x01740181
+I/AdrenoVK-0(26378): ME                      : 0x00000000
+I/AdrenoVK-0(26378): Application Name    : Impeller
+I/AdrenoVK-0(26378): Application Version : 0x00800000
+I/AdrenoVK-0(26378): Engine Name         : Impeller
+I/AdrenoVK-0(26378): Engine Version      : 0x00400000
+I/AdrenoVK-0(26378): Api Version         : 0x00401000
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3b9ff250 provided to vkGetPhysicalDeviceFeatures2
+I/AdrenoVK-0(26378): Unknown struct with type 0x3ba17508 provided to vkGetPhysicalDeviceFeatures2
+I/flutter (26378): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+E/GeneratedPluginRegistrant(26378): Error registering plugin health, cachet.plugins.health.HealthPlugin
+E/GeneratedPluginRegistrant(26378): java.lang.ClassCastException: com.example.holos.MainActivity cannot be cast to androidx.activity.ComponentActivity
+E/GeneratedPluginRegistrant(26378): 	at cachet.plugins.health.HealthPlugin.onAttachedToActivity(HealthPlugin.kt:199)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.embedding.engine.FlutterEngineConnectionRegistry.add(FlutterEngineConnectionRegistry.java:157)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.plugins.GeneratedPluginRegistrant.registerWith(GeneratedPluginRegistrant.java:44)
+E/GeneratedPluginRegistrant(26378): 	at java.lang.reflect.Method.invoke(Native Method)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.embedding.engine.plugins.util.GeneratedPluginRegister.registerGeneratedPlugins(GeneratedPluginRegister.java:80)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.embedding.android.FlutterActivity.configureFlutterEngine(FlutterActivity.java:1359)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.onAttach(FlutterActivityAndFragmentDelegate.java:226)
+E/GeneratedPluginRegistrant(26378): 	at io.flutter.embedding.android.FlutterActivity.onCreate(FlutterActivity.java:646)
+E/GeneratedPluginRegistrant(26378): 	at android.app.Activity.performCreate(Activity.java:9519)
+E/GeneratedPluginRegistrant(26378): 	at android.app.Activity.performCreate(Activity.java:9488)
+E/GeneratedPluginRegistrant(26378): 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1524)
+E/GeneratedPluginRegistrant(26378): 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4692)
+E/GeneratedPluginRegistrant(26378): 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4941)
+E/GeneratedPluginRegistrant(26378): 	at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:222)
+E/GeneratedPluginRegistrant(26378): 	at android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem(TransactionExecutor.java:133)
+E/GeneratedPluginRegistrant(26378): 	at android.app.servertransaction.TransactionExecutor.executeTransactionItems(TransactionExecutor.java:103)
+E/GeneratedPluginRegistrant(26378): 	at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:80)
+E/GeneratedPluginRegistrant(26378): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:3150)
+E/GeneratedPluginRegistrant(26378): 	at android.os.Handler.dispatchMessage(Handler.java:110)
+E/GeneratedPluginRegistrant(26378): 	at android.os.Looper.loopOnce(Looper.java:273)
+E/GeneratedPluginRegistrant(26378): 	at android.os.Looper.loop(Looper.java:363)
+E/GeneratedPluginRegistrant(26378): 	at android.app.ActivityThread.main(ActivityThread.java:10060)
+E/GeneratedPluginRegistrant(26378): 	at java.lang.reflect.Method.invoke(Native Method)
+E/GeneratedPluginRegistrant(26378): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:632)
+E/GeneratedPluginRegistrant(26378): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:975)
+I/DecorView(26378): setWindowBackground: isPopOver=false color=ff000000 d=android.graphics.drawable.ColorDrawable@b8f5935
+D/ViewRootImpl(26378): desktopMode is false
+I/ViewRootImpl(26378): dVRR is disabled
+D/NativeCustomFrequencyManager(26378): [NativeCFMS] BpCustomFrequencyManager::BpCustomFrequencyManager()
+D/InputTransport(26378): Input channel constructed: '790084e', fd=138
+I/InsetsController(26378): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@d3551ca(26378): synced displayState. AttachInfo displayState=2
+I/VRI[MainActivity]@d3551ca(26378): setView = com.android.internal.policy.DecorView@56953b1 IsHRR=false mFlingFrameRateChange=0 TM=true
+D/HWUI    (26378): HWUI - treat SMPTE_170M as sRGB
+I/SV[131435203 MainActivity](26378): onWindowVisibilityChanged(0) true io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ......I. 0,0-0,0} of VRI[MainActivity]@d3551ca
+D/SurfaceView(26378): 131435203 updateSurface: has no frame
+W/libc    (26378): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(26378): [](id:670a00000002,api:0,p:-1966061280,c:26378) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(26378): new BLASTBufferQueue, mName= VRI[MainActivity]@d3551ca mNativeObject= 0xb400007dc4df3000 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+I/BLASTBufferQueue_Java(26378): update, w= 1440 h= 3088 mName = VRI[MainActivity]@d3551ca mNativeObject= 0xb400007dc4df3000 sc.mNativeObject= 0xb400007d8ae12c00 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+W/libc    (26378): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/VRI[MainActivity]@d3551ca(26378): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=4 res=0x3 s={true 0xb400007d7eca4200} ch=true seqId=0
+I/VRI[MainActivity]@d3551ca(26378): performConfigurationChange setNightDimText nightDimLevel=0
+D/VRI[MainActivity]@d3551ca(26378): mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007d7eca4200} hwInitialized=true
+D/SurfaceView(26378): 131435203 updateSurface: has no frame
+I/SV[131435203 MainActivity](26378): windowStopped(false) true io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@d3551ca
+D/SurfaceView(26378): 131435203 updateSurface: has no frame
+D/VRI[MainActivity]@d3551ca(26378): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/SurfaceView(26378): 131435203 Changes: creating=true format=true size=true visible=true alpha=false hint=false left=true top=true z=false attached=true lifecycleStrategy=false
+W/libc    (26378): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(26378): [](id:670a00000003,api:0,p:0,c:26378) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(26378): new BLASTBufferQueue, mName= 7d58ac3 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d7eb95000 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.lambda$new$0:280 android.view.SurfaceView.$r8$lambda$NfZyM_TG8F8lqzaOVZ7noREFjzU:0 android.view.SurfaceView$$ExternalSyntheticLambda1.onPreDraw:0 android.view.ViewTreeObserver.dispatchOnPreDraw:1229 android.view.ViewRootImpl.performTraversals:5448 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/BLASTBufferQueue_Java(26378): update, w= 1440 h= 3088 mName = 7d58ac3 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d7eb95000 sc.mNativeObject= 0xb400007d8ae12cc0 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.lambda$new$0:280 android.view.SurfaceView.$r8$lambda$NfZyM_TG8F8lqzaOVZ7noREFjzU:0 android.view.SurfaceView$$ExternalSyntheticLambda1.onPreDraw:0 android.view.ViewTreeObserver.dispatchOnPreDraw:1229 
+I/SurfaceView(26378): 131435203 Cur surface: Surface(name=null mNativeObject=0)/@0x70e79ed
+D/SurfaceComposerClient(26378): setCornerRadius ## 7d58ac3 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43527 cornerRadius=0.000000
+I/SV[131435203 MainActivity](26378): pST: sr = Rect(0, 0 - 1440, 3088) sw = 1440 sh = 3088
+D/SurfaceView(26378): 131435203 performSurfaceTransaction RenderWorker position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+W/libc    (26378): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/SV[131435203 MainActivity](26378): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[131435203 MainActivity](26378): updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+I/SurfaceView(26378): 131435203 visibleChanged -- surfaceCreated
+I/SV[131435203 MainActivity](26378): surfaceCreated 1 #8 io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ......ID 0,0-1440,3088}
+E/qdgralloc(26378): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(26378): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(26378): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(26378): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(26378): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+E/qdgralloc(26378): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(26378): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(26378): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(26378): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(26378): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+W/qdgralloc(26378): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(26378): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(26378): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(26378): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(26378): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+I/SurfaceView(26378): 131435203 surfaceChanged -- format=4 w=1440 h=3088
+I/SV[131435203 MainActivity](26378): surfaceChanged (1440,3088) 1 #8 io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ......ID 0,0-1440,3088}
+I/SurfaceView(26378): 131435203 surfaceRedrawNeeded
+V/SurfaceView(26378): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/VRI[MainActivity]@d3551ca(26378): Canceling draw. cancelDueToPreDrawListener=true cancelDueToSync=false
+D/WindowLayoutComponentImpl(26378): Register WindowLayoutInfoListener on Context=com.example.holos.MainActivity@15f5004, of which baseContext=android.app.ContextImpl@e65c7e9
+I/flutter (26378): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (26378): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (26378): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (26378): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (26378): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (26378): , null)
+I/InsetsSourceConsumer(26378): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(26378): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/BLASTBufferQueue_Java(26378): update, w= 1440 h= 3088 mName = VRI[MainActivity]@d3551ca mNativeObject= 0xb400007dc4df3000 sc.mNativeObject= 0xb400007d8af70940 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/VRI[MainActivity]@d3551ca(26378): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=2 res=0x1 s={true 0xb400007d7eca4200} ch=false seqId=0
+I/VRI[MainActivity]@d3551ca(26378): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@8e9b9c sc=Surface(name=Bounds for - com.example.holos/com.example.holos.MainActivity@0)/@0x6c9f9a5 frame=1
+D/VRI[MainActivity]@d3551ca(26378): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue(26378): [7d58ac3 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#3](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(26378): apply transaction with the first frame. layerId: 43528, bufferData(ID: 113292647333918, frameNumber: 1)
+I/SurfaceView(26378): 131435203 finishedDrawing
+D/VRI[MainActivity]@d3551ca(26378): Setup new sync=wmsSync-VRI[MainActivity]@d3551ca#4
+I/VRI[MainActivity]@d3551ca(26378): Creating new active sync group VRI[MainActivity]@d3551ca#5
+D/VRI[MainActivity]@d3551ca(26378): Draw frame after cancel
+D/VRI[MainActivity]@d3551ca(26378): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(26378): 131435203 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[131435203 MainActivity](26378): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[131435203 MainActivity](26378): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[131435203 MainActivity](26378): aOrMT: VRI[MainActivity]@d3551ca t = android.view.SurfaceControl$Transaction@c858b21 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@d3551ca(26378): mWNT: t=0xb400007d85e5a200 mBlastBufferQueue=0xb400007dc4df3000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@d3551ca(26378): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@d3551ca(26378): mWNT: t=0xb400007d2c011f80 mBlastBufferQueue=0xb400007dc4df3000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@d3551ca(26378): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(26378): [VRI[MainActivity]@d3551ca#2](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(26378): apply transaction with the first frame. layerId: 43523, bufferData(ID: 113292647333923, frameNumber: 1)
+I/VRI[MainActivity]@d3551ca(26378): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (26378): CFMS:: SetUp Pid : 26378    Tid : 26468
+D/VRI[MainActivity]@d3551ca(26378): reportDrawFinished seqId=0
+D/VRI[MainActivity]@d3551ca(26378): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d7eca4200}
+D/InputMethodManagerUtils(26378): startInputInner - Id : 0
+I/InputMethodManager(26378): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(26378): handleMessage: setImeVisibility visible=false
+D/InsetsController(26378): hide(ime(), fromIme=false)
+I/ImeTracker(26378): com.example.holos:8061ec9d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(26378): Input channel constructed: 'ClientS', fd=169
+I/VRI[MainActivity]@d3551ca(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@d3551ca
+I/VRI[MainActivity]@d3551ca(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@d3551ca
+I/VRI[MainActivity]@d3551ca(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@d3551ca
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(26378): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(26378): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/VRI[MainActivity]@d3551ca(26378): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@d3551ca
+I/VRI[MainActivity]@d3551ca(26378): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@d3551ca
+I/ImeFocusController(26378): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(26378): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@d3551ca(26378): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@d3551ca(26378): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[131435203 MainActivity](26378): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@d3551ca
+I/SurfaceView(26378): 131435203 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(26378): 131435203 Cur surface: Surface(name=null mNativeObject=-5476376607884420352)/@0x70e79ed
+D/SurfaceComposerClient(26378): setCornerRadius ## 7d58ac3 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43527 cornerRadius=0.000000
+I/SurfaceView(26378): 131435203 surfaceDestroyed
+I/SV[131435203 MainActivity](26378): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ........ 0,0-1440,3088}
+I/SV[131435203 MainActivity](26378): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[131435203 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@d3551ca
+V/SurfaceView(26378): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(26378): 67373567 windowPositionLost, frameNr = 0
+D/HWUI    (26378): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@d3551ca(26378): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=9 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[131435203 MainActivity](26378): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{7d58ac3 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@d3551ca
+D/SV[131435203 MainActivity](26378): updateSurface: surface is not valid
+I/SV[131435203 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@d3551ca
+D/VRI[MainActivity]@d3551ca(26378): applyTransactionOnDraw applyImmediately
+D/SV[131435203 MainActivity](26378): updateSurface: surface is not valid
+I/SV[131435203 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@d3551ca
+D/VRI[MainActivity]@d3551ca(26378): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@d3551ca(26378): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@d3551ca(26378): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@d3551ca(26378): mWNT: t=0xb400007d85e0a900 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (26378): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@d3551ca(26378): stopped(true) old = false
+D/VRI[MainActivity]@d3551ca(26378): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (26378): CacheManager::trimMemory(20)
+D/SV[131435203 MainActivity](26378): updateSurface: surface is not valid
+I/SV[131435203 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@d3551ca
+D/VRI[MainActivity]@d3551ca(26378): applyTransactionOnDraw applyImmediately
+D/InputTransport(26378): Input channel destroyed: 'ClientS', fd=169
+D/SV[131435203 MainActivity](26378): updateSurface: surface is not valid
+I/SV[131435203 MainActivity](26378): releaseSurfaces: viewRoot = VRI[MainActivity]@d3551ca
+D/VRI[MainActivity]@d3551ca(26378): applyTransactionOnDraw applyImmediately
+D/BBA2    (26378): setIsFg isFg = false; delayValue 3999ms
+Lost connection to device.

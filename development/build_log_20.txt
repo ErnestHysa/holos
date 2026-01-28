@@ -1,0 +1,87 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                             10.4s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,213ms
+D/FlutterJNI(24564): Beginning load of flutter...
+D/FlutterJNI(24564): flutter (null) was loaded normally!
+I/flutter (24564): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (24564): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (24564): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (24564): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (24564): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (24564): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (24564): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (24564): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (24564): , null)
+Syncing files to device SM S918B...                             
+D/VRI[MainActivity]@439998c(24564): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2ad2c900}
+D/InputMethodManagerUtils(24564): startInputInner - Id : 0
+I/InputMethodManager(24564): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(24564): handleMessage: setImeVisibility visible=false
+D/InsetsController(24564): hide(ime(), fromIme=false)
+I/ImeTracker(24564): com.example.holos:c9773e31: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(24564): Input channel constructed: 'ClientS', fd=168
+Syncing files to device SM S918B...                                137ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on SM S918B is available at: http://127.0.0.1:60432/i8kC0oKDbu0=/
+The Flutter DevTools debugger and profiler on SM S918B is available at: http://127.0.0.1:60432/i8kC0oKDbu0=/devtools/?uri=ws://127.0.0.1:60432/i8kC0oKDbu0=/ws
+I/VRI[MainActivity]@439998c(24564): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+D/ProfileInstaller(24564): Installing profile for com.example.holos
+I/VRI[MainActivity]@439998c(24564): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(24564): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=io.flutter.embedding.android.FlutterActivity$1@41061d9
+I/VRI[MainActivity]@439998c(24564): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(24564): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/ImeFocusController(24564): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(24564): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(24564): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(24564): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](24564): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(24564): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(24564): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376609293147648)/@0x5fadcd8
+D/SurfaceComposerClient(24564): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43278 cornerRadius=0.000000
+I/SurfaceView(24564): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](24564): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](24564): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](24564): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(24564): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(24564): 227536810 windowPositionLost, frameNr = 0
+D/HWUI    (24564): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(24564): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=10 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](24564): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](24564): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](24564): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(24564): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](24564): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](24564): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(24564): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(24564): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(24564): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(24564): mWNT: t=0xb400007d85e59180 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (24564): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(24564): stopped(true) old = false
+D/VRI[MainActivity]@439998c(24564): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (24564): CacheManager::trimMemory(20)
+D/SV[224781171 MainActivity](24564): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](24564): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(24564): applyTransactionOnDraw applyImmediately
+D/InputTransport(24564): Input channel destroyed: 'ClientS', fd=168
+D/SV[224781171 MainActivity](24564): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](24564): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(24564): applyTransactionOnDraw applyImmediately
+D/BBA2    (24564): setIsFg isFg = false; delayValue 3999ms
+W/WindowOnBackDispatcher(24564): sendCancelIfRunning: isInProgress=false callback=android.app.Activity$$ExternalSyntheticLambda0@e91c6b7
+Lost connection to device.

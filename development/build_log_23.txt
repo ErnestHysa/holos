@@ -1,0 +1,23 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                          
+lib/screens/onboarding/health_connection.dart:69:29: Error: A value of type 'bool?' can't be assigned to a variable of type 'bool'.
+      bool hasPermissions = await _health.hasPermissions(_dataTypes, permissions: _permissions).catchError((_) => false);
+                            ^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'C:\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 5s
+Running Gradle task 'assembleDebug'...                              6.0s
+Error: Gradle task assembleDebug failed with exit code 1

@@ -1,0 +1,24 @@
+# Apple-inspired color system with semantic naming
+COLORS = {
+    # Semantic colors (adapt for light/dark mode)
+    'background': '#F5F5F7',        # Apple light gray
+    'background_dark': '#1C1C1E',   # Dark mode background
+    'surface': '#FFFFFF',           # Card/panel background
+    'surface_dark': '#2C2C2E',      # Dark mode surface
+    
+    # Accents
+    'primary': '#007AFF',           # Apple blue
+    'success': '#34C759',           # Apple green
+    'warning': '#FF9500',           # Apple orange
+    'danger': '#FF3B30',            # Apple red
+    
+    # Text
+    'text_primary': '#1D1D1F',
+    'text_secondary': '#86868B',
+    'text_tertiary': '#AEAEB2',
+    
+    # Effects
+    'glass_overlay': (255, 255, 255, 0.7),
+    'shadow_light': (0, 0, 0, 0.08),
+    'shadow_medium': (0, 0, 0, 0.12),
+}

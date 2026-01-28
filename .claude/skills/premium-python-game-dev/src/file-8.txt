@@ -1,0 +1,97 @@
+"""
+Main entry point for premium Python game.
+Optimized for Windows 11 with Apple-inspired aesthetics.
+"""
+import pygame
+import sys
+from typing import Optional
+
+from config import GameConfig
+from ui.themes import load_theme
+from game.engine import GameEngine
+
+class Application:
+    def __init__(self):
+        # Initialize Pygame with optimal settings
+        pygame.init()
+        
+        # Windows 11 high DPI awareness
+        self._setup_high_dpi()
+        
+        # Load configuration and theme
+        self.config = GameConfig()
+        self.theme = load_theme(self.config.theme)
+        
+        # Create display surface
+        self.screen = self._create_display()
+        
+        # Initialize game engine
+        self.engine = GameEngine(self.screen, self.config, self.theme)
+        
+        # Clock for consistent framerate
+        self.clock = pygame.time.Clock()
+        
+        # Running state
+        self.running = True
+    
+    def _setup_high_dpi(self):
+        """Configure for Windows 11 high DPI displays."""
+        try:
+            import ctypes
+            ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        except:
+            pass
+    
+    def _create_display(self) -> pygame.Surface:
+        """Create display with Windows 11 optimizations."""
+        # Use hardware acceleration
+        pygame.display.set_mode(
+            (self.config.window_width, self.config.window_height),
+            pygame.HWSURFACE | pygame.DOUBLEBUF
+        )
+        
+        # Set window properties
+        pygame.display.set_caption(self.config.window_title)
+        
+        # Set icon if available
+        # icon = pygame.image.load('assets/images/icon.ico')
+        # pygame.display.set_icon(icon)
+        
+        return pygame.display.get_surface()
+    
+    def run(self):
+        """Main game loop."""
+        while self.running:
+            # Handle events
+            self._handle_events()
+            
+            # Update game state
+            delta_time = self.clock.tick(self.config.target_fps) / 1000.0
+            self.engine.update(delta_time)
+            
+            # Render
+            self.engine.render()
+            pygame.display.flip()
+        
+        # Cleanup
+        self._cleanup()
+        pygame.quit()
+        sys.exit()
+    
+    def _handle_events(self):
+        """Process all pending events."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+            
+            # Pass events to engine
+            self.engine.handle_event(event)
+    
+    def _cleanup(self):
+        """Clean up resources."""
+        self.engine.cleanup()
+
+
+if __name__ == '__main__':
+    app = Application()
+    app.run()

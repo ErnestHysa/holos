@@ -1,0 +1,10 @@
+# .env.local
+DATABASE_URL="postgresql://user:password@localhost:5432/your_db"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+NEXT_PUBLIC_SOCKET_URL="http://localhost:3000"
+
+# Optional: Use Pusher instead of custom WebSocket
+# NEXT_PUBLIC_PUSHER_KEY=""
+# PUSHER_APP_ID=""
+# PUSHER_SECRET=""
+# PUSHER_CLUSTER=""

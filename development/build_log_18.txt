@@ -1,0 +1,680 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                          
+Checking the license for package CMake 3.22.1 in C:\Users\ErnestHome\AppData\Local\Android\Sdk\licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in C:\Users\ErnestHome\AppData\Local\Android\Sdk\cmake\3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+Running Gradle task 'assembleDebug'...                             50.9s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,809ms
+D/FlutterJNI(21195): Beginning load of flutter...
+D/FlutterJNI(21195): flutter (null) was loaded normally!
+I/flutter (21195): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (21195): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (21195): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (21195): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (21195): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (21195): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (21195): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (21195): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (21195): , null)
+I/Choreographer(21195): Skipped 30 frames!  The application may be doing too much work on its main thread.
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007d8af20000 sc.mNativeObject= 0xb400007d2c224c80 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=2 res=0x1 s={true 0xb400007d2b3f1900} ch=false seqId=0
+I/VRI[MainActivity]@439998c(21195): updateBoundsLayer: t=android.view.SurfaceControl$Transaction@cb6d78f sc=Surface(name=Bounds for - com.example.holos/com.example.holos.MainActivity@0)/@0x7218a1c frame=1
+D/VRI[MainActivity]@439998c(21195): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue(21195): [d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#1](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 42919, bufferData(ID: 91031831838732, frameNumber: 1)
+I/SurfaceView(21195): 224781171 finishedDrawing
+D/VRI[MainActivity]@439998c(21195): Setup new sync=wmsSync-VRI[MainActivity]@439998c#1
+I/VRI[MainActivity]@439998c(21195): Creating new active sync group VRI[MainActivity]@439998c#2
+D/VRI[MainActivity]@439998c(21195): Draw frame after cancel
+D/VRI[MainActivity]@439998c(21195): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(21195): 224781171 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[224781171 MainActivity](21195): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[224781171 MainActivity](21195): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[224781171 MainActivity](21195): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@7cb2c08 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e59c00 mBlastBufferQueue=0xb400007d8af20000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@439998c(21195): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ab180 mBlastBufferQueue=0xb400007d8af20000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@439998c(21195): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(21195): [VRI[MainActivity]@439998c#0](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 42915, bufferData(ID: 91031831838737, frameNumber: 1)
+I/VRI[MainActivity]@439998c(21195): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+D/HWUI    (21195): CFMS:: SetUp Pid : 21195    Tid : 21235
+D/VRI[MainActivity]@439998c(21195): reportDrawFinished seqId=0
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3f1900}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:7bb4c3ca: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=168
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1952][1440,3088] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=false, type=ime, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/ImeTracker(21195): system_server:1179e619: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+E/ImeBackDispatcher(21195): Ime callback not found. Ignoring unregisterReceivedCallback. callbackId: 168885419
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1798][1440,3088] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+Syncing files to device SM S918B...                             
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Syncing files to device SM S918B...                                204ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on SM S918B is available at: http://127.0.0.1:61857/PMd9S8KSe1M=/
+The Flutter DevTools debugger and profiler on SM S918B is available at: http://127.0.0.1:61857/PMd9S8KSe1M=/devtools/?uri=ws://127.0.0.1:61857/PMd9S8KSe1M=/ws
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(21195): stopped(true) old = false
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (21195): CacheManager::trimMemory(20)
+D/SurfaceView(21195): 68182489 windowPositionLost, frameNr = 0
+I/SV[224781171 MainActivity](21195): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@f9ff79e fN = 0 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:2025 android.graphics.RenderNode$CompositePositionUpdateListener.positionLost:418 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007dc4d36600 mBlastBufferQueue=0xb400007d8af20000 fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:2025 
+I/SV[224781171 MainActivity](21195): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376609286049280)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#42918 cornerRadius=0.000000
+I/SurfaceView(21195): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](21195): surfaceDestroyed callback.size 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = true visible = false
+D/InputTransport(21195): Input channel destroyed: 'ClientS', fd=168
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 G.E...... ......I. 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=7 res=0x2 s={false 0x0} ch=false seqId=0
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(21195): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(21195): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e0bc80 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (21195): CacheManager::trimMemory(20)
+D/BBA2    (21195): setIsFg isFg = false; delayValue 3999ms
+D/ProfileInstaller(21195): Installing profile for com.example.holos
+D/Choreographer(21195): BBA2 receive callback when in bg : 4
+D/HWUI    (21195): CacheManager::trimMemory(40)
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = false visible = true
+I/VRI[MainActivity]@439998c(21195): stopped(false) old = true
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to false
+I/AdrenoGLES-0(21195): QUALCOMM build                   : dc3d4da3a2, Idd45c2c082
+I/AdrenoGLES-0(21195): Build Date                       : 05/30/25
+I/AdrenoGLES-0(21195): OpenGL ES Shader Compiler Version: E031.41.03.62
+I/AdrenoGLES-0(21195): Local Branch                     : 
+I/AdrenoGLES-0(21195): Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.13.2.0.11.00.00.856.062
+I/AdrenoGLES-0(21195): Remote Branch                    : NONE
+I/AdrenoGLES-0(21195): Reconstruct Branch               : NOTHING
+I/AdrenoGLES-0(21195): Build Config                     : S P 14.1.4 AArch64
+I/AdrenoGLES-0(21195): Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+I/AdrenoGLES-0(21195): Driver Version                   : 0676.73
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+I/AdrenoGLES-0(21195): PFP: 0x01740181, ME: 0x00000000
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(0) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1798][1440,3088] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/m.example.holos(21195): CollectorTransition concurrent mark compact GC freed 9002KB AllocSpace bytes, 6(196KB) LOS objects, 90% free, 2720KB/26MB, paused 89us,1.181ms total 152.244ms
+W/Adreno-AppProfiles(21195): Could not find QSPM HAL service. Skipping adreno profile processing.
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000002,api:0,p:-1963127136,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 sc.mNativeObject= 0xb400007d8ae6aa00 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=88 res=0x3 s={true 0xb400007d2b3ed800} ch=true seqId=0
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007d2b3ed800} hwInitialized=true
+I/SV[224781171 MainActivity](21195): windowStopped(false) true io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000003,api:0,p:0,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d048bb000 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d048bb000 sc.mNativeObject= 0xb400007d8ae6a940 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=0)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#42975 cornerRadius=0.000000
+I/SV[224781171 MainActivity](21195): pST: sr = Rect(0, 0 - 1440, 3088) sw = 1440 sh = 3088
+D/SurfaceView(21195): 224781171 performSurfaceTransaction RenderWorker position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+I/SurfaceView(21195): 224781171 visibleChanged -- surfaceCreated
+I/SV[224781171 MainActivity](21195): surfaceCreated 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+I/SurfaceView(21195): 224781171 surfaceChanged -- format=4 w=1440 h=3088
+I/SV[224781171 MainActivity](21195): surfaceChanged (1440,3088) 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+I/SurfaceView(21195): 224781171 surfaceRedrawNeeded
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/VRI[MainActivity]@439998c(21195): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+D/VRI[MainActivity]@439998c(21195): Setup new sync=wmsSync-VRI[MainActivity]@439998c#4
+I/VRI[MainActivity]@439998c(21195): Creating new active sync group VRI[MainActivity]@439998c#5
+D/VRI[MainActivity]@439998c(21195): Start draw after previous draw not visible
+D/VRI[MainActivity]@439998c(21195): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(21195): 224781171 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[224781171 MainActivity](21195): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[224781171 MainActivity](21195): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[224781171 MainActivity](21195): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@9632f4d fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007dc4d36900 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@439998c(21195): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e59900 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@439998c(21195): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(21195): [VRI[MainActivity]@439998c#2](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 42971, bufferData(ID: 91031831838755, frameNumber: 1)
+I/VRI[MainActivity]@439998c(21195): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/BLASTBufferQueue(21195): [d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#3](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 42976, bufferData(ID: 91031831838750, frameNumber: 1)
+D/VRI[MainActivity]@439998c(21195): reportDrawFinished seqId=0
+I/SurfaceView(21195): 224781171 finishedDrawing
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3ed800}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:7837044a: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=168
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=false, type=ime, host=com.example.holos/com.example.holos.MainActivity
+I/ImeTracker(21195): system_server:24007fd: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3ed800}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:75db9825: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=179
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3ed800}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:54d87939: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=188
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 0.666 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///C:/Users/ErnestHome/clawd/holos/development/lib/screens/onboarding/health_connection.dart:264:26
+
+To inspect this widget in Flutter DevTools, visit:
+http://127.0.0.1:61857/PMd9S8KSe1M=/devtools//#/inspector?uri=http%3A%2F%2F127.0.0.1%3A61857%2FPMd9S8KSe1M%3D%2F&inspectorRef=inspector-0
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#7b79a relayoutBoundary=up21 OVERFLOWING:
+  creator: Row ← Padding ← DecoratedBox ← Container ← Column ← Padding ← Listener ← RawGestureDetector
+    ← GestureDetector ← Semantics ← DefaultSelectionStyle ← Builder ← ⋯
+  parentData: offset=Offset(8.0, 4.0) (can use size)
+  constraints: BoxConstraints(0.0<=w<=62.7, 0.0<=h<=Infinity)
+  size: Size(62.7, 13.0)
+  direction: horizontal
+  mainAxisAlignment: start
+  mainAxisSize: min
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+E/flutter (21195): [ERROR:flutter/lib/ui/window/platform_configuration.cc(436)] Reported frame time is older than the last one; clamping. 265835140759 < 265835149093 ~= 8334
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: A RenderFlex overflowed by 35 pixels on the right.
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/InputMethodManager_LC(21195): showSoftInput(View,I)
+I/ImeTracker(21195): com.example.holos:59680282: onRequestShow at ORIGIN_CLIENT reason SHOW_SOFT_INPUT fromUser false
+I/InputMethodManager_LC(21195): ssi(): flags=0 view=com.example.holos reason=SHOW_SOFT_INPUT
+I/InputMethodManager_LC(21195): ssi() view is not EditText
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+D/InsetsController(21195): show(ime(), fromIme=false)
+D/InsetsController(21195): Setting requestedVisibleTypes to -1 (was -9)
+I/InsetsController(21195): setRequestedVisibleTypes: visible=true, mask=ime, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1604 android.view.InsetsController.applyAnimation:2416 android.view.InsetsController.applyAnimation:2343 android.view.InsetsController.show:1422 android.view.inputmethod.InputMethodManager.showSoftInput:2659 android.view.inputmethod.InputMethodManager.showSoftInput:2571 android.view.inputmethod.InputMethodManager.showSoftInput:2563 android.view.inputmethod.InputMethodManager.showSoftInput:2491 io.flutter.plugin.editing.TextInputPlugin.showTextInput:433 io.flutter.plugin.editing.TextInputPlugin$2.show:114 
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=187
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/AssistStructure(21195): Flattened final assist data: 492 bytes, containing 1 windows, 3 views
+D/InputConnectionAdaptor(21195): The input method toggled cursor monitoring on
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1952][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1952][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/InsetsController(21195): controlAnimationUncheckedInner: Added types=ime, animType=0, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1608 android.view.InsetsController.applyAnimation:2416 android.view.InsetsController.applyAnimation:2343 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 sc.mNativeObject= 0xb400007d8ae6aa00 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=true req=(1440,3088)0 dur=0 res=0x0 s={true 0xb400007d2b3ed800} ch=false seqId=0
+W/InteractionJankMonitor(21195): Initializing without READ_DEVICE_CONFIG permission. enabled=false, interval=1, missedFrameThreshold=3, frameTimeThreshold=64, package=com.example.holos
+I/VRI[MainActivity]@439998c(21195): registerCallbackForPendingTransactions
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae25780 mBlastBufferQueue=0xb400007c74a95000 fn= 4 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae25300 mBlastBufferQueue=0xb400007c74a95000 fn= 4 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27b80 mBlastBufferQueue=0xb400007c74a95000 fn= 5 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27e80 mBlastBufferQueue=0xb400007c74a95000 fn= 6 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d7ec85180 mBlastBufferQueue=0xb400007c74a95000 fn= 7 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae26200 mBlastBufferQueue=0xb400007c74a95000 fn= 8 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27700 mBlastBufferQueue=0xb400007c74a95000 fn= 9 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ac200 mBlastBufferQueue=0xb400007c74a95000 fn= 10 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ade80 mBlastBufferQueue=0xb400007c74a95000 fn= 11 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671b480 mBlastBufferQueue=0xb400007c74a95000 fn= 12 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0add00 mBlastBufferQueue=0xb400007c74a95000 fn= 13 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671ba80 mBlastBufferQueue=0xb400007c74a95000 fn= 14 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae26b00 mBlastBufferQueue=0xb400007c74a95000 fn= 15 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/InsetsController(21195): cancelAnimation: types=ime, animType=0, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.notifyFinished:2006 android.view.InsetsAnimationControlImpl.applyChangeInsets:335 android.view.InsetsController.lambda$new$3:957 
+I/ImeTracker(21195): com.example.holos:59680282: onShown
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ad880 mBlastBufferQueue=0xb400007c74a95000 fn= 16 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+D/InsetsController(21195): Setting requestedVisibleTypes to -9 (was -1)
+I/InsetsController(21195): setRequestedVisibleTypes: visible=false, mask=ime, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1604 android.view.InsetsController.controlWindowInsetsAnimation:1584 android.view.ImeBackAnimationController.onBackStarted:101 android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.lambda$onBackStarted$0:551 android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.$r8$lambda$4ToXODqn8sufRph7IG5pjjhTGhE:0 android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper$$ExternalSyntheticLambda3.run:0 android.os.Handler.handleCallback:995 android.os.Handler.dispatchMessage:103 android.os.Looper.loopOnce:273 android.os.Looper.loop:363 
+I/InsetsController(21195): controlAnimationUncheckedInner: Added types=ime, animType=2, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.controlAnimationUnchecked:1608 android.view.InsetsController.controlWindowInsetsAnimation:1584 android.view.ImeBackAnimationController.onBackStarted:101 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 sc.mNativeObject= 0xb400007d8ae6aa00 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3574 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=true req=(1440,3088)0 dur=1 res=0x0 s={true 0xb400007d2b3ed800} ch=false seqId=0
+I/VRI[MainActivity]@439998c(21195): registerCallbackForPendingTransactions
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671bc00 mBlastBufferQueue=0xb400007c74a95000 fn= 17 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27880 mBlastBufferQueue=0xb400007c74a95000 fn= 17 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$10.onFrameDraw:6536 android.view.ViewRootImpl$4.onFrameDraw:2489 android.view.ThreadedRenderer$1.onFrameDraw:718 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0adb80 mBlastBufferQueue=0xb400007c74a95000 fn= 18 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671b780 mBlastBufferQueue=0xb400007c74a95000 fn= 19 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85df6d00 mBlastBufferQueue=0xb400007c74a95000 fn= 20 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d7ec85180 mBlastBufferQueue=0xb400007c74a95000 fn= 21 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae26200 mBlastBufferQueue=0xb400007c74a95000 fn= 22 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae26980 mBlastBufferQueue=0xb400007c74a95000 fn= 23 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/ImeTracker(21195): com.example.holos:8cc0c93f: onRequestHide at ORIGIN_CLIENT reason HIDE_SOFT_INPUT_REQUEST_HIDE_WITH_CONTROL fromUser true
+I/InputMethodManager_LC(21195): notifyImeHidden: IInputMethodManagerGlobalInvoker.hideSoftInput
+W/WindowOnBackDispatcher(21195): sendCancelIfRunning: isInProgress=false callback=android.view.ImeBackAnimationController@ec3a303
+D/WindowOnBackDispatcher(21195): onBackInvoked, callback=android.view.ImeBackAnimationController@ec3a303
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:8cc0c93f: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ad100 mBlastBufferQueue=0xb400007c74a95000 fn= 24 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae25900 mBlastBufferQueue=0xb400007c74a95000 fn= 24 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671b180 mBlastBufferQueue=0xb400007c74a95000 fn= 25 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ac200 mBlastBufferQueue=0xb400007c74a95000 fn= 26 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0ad880 mBlastBufferQueue=0xb400007c74a95000 fn= 27 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671b480 mBlastBufferQueue=0xb400007c74a95000 fn= 28 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671bd80 mBlastBufferQueue=0xb400007c74a95000 fn= 29 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671bc00 mBlastBufferQueue=0xb400007c74a95000 fn= 30 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27e80 mBlastBufferQueue=0xb400007c74a95000 fn= 31 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671c380 mBlastBufferQueue=0xb400007c74a95000 fn= 32 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/InsetsController(21195): cancelAnimation: types=ime, animType=2, host=com.example.holos/com.example.holos.MainActivity, from=android.view.InsetsController.notifyFinished:2006 android.view.InsetsAnimationControlImpl.applyChangeInsets:335 android.view.InsetsController.lambda$new$3:957 
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae25d80 mBlastBufferQueue=0xb400007c74a95000 fn= 33 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27d00 mBlastBufferQueue=0xb400007c74a95000 fn= 33 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SyncRtSurfaceTransactionApplier.applyTransaction:100 android.view.SyncRtSurfaceTransactionApplier.lambda$scheduleApply$0:73 android.view.SyncRtSurfaceTransactionApplier.$r8$lambda$afI4fXg3U3-nBZQEDQMiNy-B06s:0 
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=194
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,1952][1440,3088] mVisible=false mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+W/RemoteInputConnectionImpl(21195): requestCursorUpdates on inactive InputConnection
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/ImeTracker(21195): system_server:8b1efad0: onCancelled at PHASE_CLIENT_ON_CONTROLS_CHANGED
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+I/InsetsController(21195): onStateChanged: host=com.example.holos/com.example.holos.MainActivity, from=android.view.ViewRootImpl.onInsetsStateChanged:3026, state=InsetsState: {mDisplayFrame=Rect(0, 0 - 1440, 3088), mDisplayCutout=DisplayCutout{insets=Rect(0, 100 - 0, 0) waterfall=Insets{left=0, top=0, right=0, bottom=0} boundingRect={Bounds=[Rect(0, 0 - 0, 0), Rect(685, 0 - 756, 100), Rect(0, 0 - 0, 0), Rect(0, 0 - 0, 0)]} cutoutPathParserInfo={CutoutPathParserInfo{displayWidth=1440 displayHeight=3088 physicalDisplayWidth=1440 physicalDisplayHeight=3088 density={3.75} cutoutSpec={M 0,0 H -9.466666666666667 V 26.66666666666667‬ H 9.466666666666667 V 0 H 0 Z @dp} rotation={0} scale={1.0} physicalPixelDisplaySizeRatio={1.0}}} sideOverrides={}}, mRoundedCorners=RoundedCorners{[RoundedCorner{position=TopLeft, radius=15, center=Point(15, 15)}, RoundedCorner{position=TopRight, radius=15, center=Point(1425, 15)}, RoundedCorner{position=BottomRight, radius=15, center=Point(1425, 3073)}, RoundedCorner{position=BottomLeft, radius=15, center=Point(15, 3073)}]}  mRoundedCornerFrame=Rect(0, 0 - 1440, 3088), mPrivacyIndicatorBounds=PrivacyIndicatorBounds {static bounds=Rect(1275, 0 - 1440, 100) rotation=0}, mDisplayShape=DisplayShape{ spec=-311912193 displayWidth=1440 displayHeight=3088 physicalPixelDisplaySizeRatio=1.0 rotation=0 offsetX=0 offsetY=0 scale=1.0}, mSources= { InsetsSource: {a5ee0001 mType=navigationBars mFrame=[0,3032][1440,3088] mVisible=true mFlags=SUPPRESS_SCRIM mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0004 mType=systemGestures mFrame=[0,0][112,3088] mVisible=true mFlags= mSideHint=LEFT mBoundingRects=null}, InsetsSource: {a5ee0005 mType=mandatorySystemGestures mFrame=[0,2968][1440,3088] mVisible=true mFlags= mSideHint=BOTTOM mBoundingRects=null}, InsetsSource: {a5ee0006 mType=tappableElement mFrame=[0,0][0,0] mVisible=true mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {a5ee0024 mType=systemGestures mFrame=[1328,0][1440,3088] mVisible=true mFlags= mSideHint=RIGHT mBoundingRects=null}, InsetsSource: {efc50000 mType=statusBars mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50005 mType=mandatorySystemGestures mFrame=[0,0][1440,145] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {efc50006 mType=tappableElement mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null}, InsetsSource: {3 mType=ime mFrame=[0,0][0,0] mVisible=false mFlags= mSideHint=NONE mBoundingRects=null}, InsetsSource: {27 mType=displayCutout mFrame=[0,0][1440,100] mVisible=true mFlags= mSideHint=TOP mBoundingRects=null} }
+I/VRI[MainActivity]@439998c(21195): handleResized, frames=ClientWindowFrames{frame=[0,0][1440,3088] display=[0,0][1440,3088] parentFrame=[0,0][0,0]} displayId=0 dragResizing=false compatScale=1.0 frameChanged=false attachedFrameChanged=false configChanged=false displayChanged=false compatScaleChanged=false dragResizingChanged=false
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+D/Activity(21195): onBackInvoked, activity=com.example.holos.MainActivity@9430fbb, caller=android.app.Activity.$r8$lambda$fMMzRqFB89XgwJjEXdqIB9hd6X4:0 android.app.Activity$$ExternalSyntheticLambda0.onBackInvoked:0 android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.lambda$onBackInvoked$4:615 
+D/WindowOnBackDispatcher(21195): onBackInvoked, callback=android.app.Activity$$ExternalSyntheticLambda0@e91c6b7
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+D/InputTransport(21195): Input channel destroyed: 'ClientS', fd=168
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(21195): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376609286065920)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#42975 cornerRadius=0.000000
+I/SurfaceView(21195): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](21195): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(21195): 136072662 windowPositionLost, frameNr = 0
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=4 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](21195): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(21195): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(21195): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e0bc80 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): stopped(true) old = false
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/AutofillManager(21195): onInvisibleForAutofill(): expiringResponse
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/BBA2    (21195): setIsFg isFg = false; delayValue 3999ms
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = false visible = true
+I/VRI[MainActivity]@439998c(21195): stopped(false) old = true
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to false
+D/ViewRootImpl(21195): Skipping stats log for color mode
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(0) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000004,api:0,p:-1963127136,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 sc.mNativeObject= 0xb400007d8ae6a280 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=8 res=0x3 s={true 0xb400007d2b3f2d00} ch=true seqId=0
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007d2b3f2d00} hwInitialized=true
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=false alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SV[224781171 MainActivity](21195): windowStopped(false) true io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000005,api:0,p:0,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d8af1f000 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d8af1f000 sc.mNativeObject= 0xb400007d8ae6a940 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=0)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43042 cornerRadius=0.000000
+I/SV[224781171 MainActivity](21195): pST: sr = Rect(0, 0 - 1440, 3088) sw = 1440 sh = 3088
+D/SurfaceView(21195): 224781171 performSurfaceTransaction RenderWorker position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+I/SurfaceView(21195): 224781171 visibleChanged -- surfaceCreated
+I/SV[224781171 MainActivity](21195): surfaceCreated 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+I/SurfaceView(21195): 224781171 surfaceChanged -- format=4 w=1440 h=3088
+I/SV[224781171 MainActivity](21195): surfaceChanged (1440,3088) 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+I/SurfaceView(21195): 224781171 surfaceRedrawNeeded
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/VRI[MainActivity]@439998c(21195): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+D/VRI[MainActivity]@439998c(21195): Setup new sync=wmsSync-VRI[MainActivity]@439998c#7
+I/VRI[MainActivity]@439998c(21195): Creating new active sync group VRI[MainActivity]@439998c#8
+D/VRI[MainActivity]@439998c(21195): Start draw after previous draw not visible
+D/VRI[MainActivity]@439998c(21195): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(21195): 224781171 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[224781171 MainActivity](21195): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[224781171 MainActivity](21195): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[224781171 MainActivity](21195): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@a028bb0 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d8ae27b80 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@439998c(21195): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d2c0add00 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@439998c(21195): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(21195): [VRI[MainActivity]@439998c#4](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 43035, bufferData(ID: 91031831838776, frameNumber: 1)
+I/VRI[MainActivity]@439998c(21195): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/BLASTBufferQueue(21195): [d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#5](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 43043, bufferData(ID: 91031831838771, frameNumber: 1)
+D/VRI[MainActivity]@439998c(21195): reportDrawFinished seqId=0
+I/SurfaceView(21195): 224781171 finishedDrawing
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3f2d00}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:e0dd6301: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=177
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+D/Activity(21195): onBackInvoked, activity=com.example.holos.MainActivity@9430fbb, caller=android.app.Activity.$r8$lambda$fMMzRqFB89XgwJjEXdqIB9hd6X4:0 android.app.Activity$$ExternalSyntheticLambda0.onBackInvoked:0 android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper.lambda$onBackInvoked$4:615 
+D/WindowOnBackDispatcher(21195): onBackInvoked, callback=android.app.Activity$$ExternalSyntheticLambda0@e91c6b7
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+D/InputTransport(21195): Input channel destroyed: 'ClientS', fd=177
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(21195): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376609271063808)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43042 cornerRadius=0.000000
+I/SurfaceView(21195): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](21195): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(21195): 122800826 windowPositionLost, frameNr = 0
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=5 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](21195): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(21195): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(21195): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e0bc80 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): stopped(true) old = false
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/AutofillManager(21195): onInvisibleForAutofill(): expiringResponse
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/BBA2    (21195): setIsFg isFg = false; delayValue 3999ms
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = false visible = true
+I/VRI[MainActivity]@439998c(21195): stopped(false) old = true
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to false
+D/ViewRootImpl(21195): Skipping stats log for color mode
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(0) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000006,api:0,p:-1963127136,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3585 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 android.view.Choreographer.doCallbacks:1367 android.view.Choreographer.doFrame:1292 android.view.Choreographer$FrameDisplayEventReceiver.run:1870 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = VRI[MainActivity]@439998c mNativeObject= 0xb400007c74a95000 sc.mNativeObject= 0xb400007d8ae6a940 format= -3 caller= android.view.ViewRootImpl.updateBlastSurfaceIfNeeded:3590 android.view.ViewRootImpl.relayoutWindow:11685 android.view.ViewRootImpl.performTraversals:4804 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)0 dur=13 res=0x3 s={true 0xb400007d2b3f2800} ch=true seqId=0
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initialize() mSurface={isValid=true 0xb400007d2b3f2800} hwInitialized=true
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=false alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SV[224781171 MainActivity](21195): windowStopped(false) true io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=true format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/BufferQueueProducer(21195): [](id:52cb00000007,api:0,p:0,c:21195) setDequeueTimeout:2077252342
+I/BLASTBufferQueue_Java(21195): new BLASTBufferQueue, mName= d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d900ad000 caller= android.view.SurfaceView.createBlastSurfaceControls:1781 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+I/BLASTBufferQueue_Java(21195): update, w= 1440 h= 3088 mName = d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0 mNativeObject= 0xb400007d900ad000 sc.mNativeObject= 0xb400007d8ae6a340 format= 4 caller= android.view.SurfaceView.createBlastSurfaceControls:1782 android.view.SurfaceView.updateSurface:1450 android.view.SurfaceView.setWindowStopped:539 android.view.SurfaceView.surfaceCreated:2327 android.view.ViewRootImpl.notifySurfaceCreated:3502 android.view.ViewRootImpl.performTraversals:5286 
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=0)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43066 cornerRadius=0.000000
+I/SV[224781171 MainActivity](21195): pST: sr = Rect(0, 0 - 1440, 3088) sw = 1440 sh = 3088
+D/SurfaceView(21195): 224781171 performSurfaceTransaction RenderWorker position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+W/libc    (21195): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = true mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): updateSurface: mSurfaceCreated = false surfaceChanged = true visibleChanged = true
+I/SurfaceView(21195): 224781171 visibleChanged -- surfaceCreated
+I/SV[224781171 MainActivity](21195): surfaceCreated 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+E/qdgralloc(21195): GetSize: Unrecognized pixel format: 0x3b
+W/qdgralloc(21195): gralloc failed to allocate buffer for size 0 format 59 AWxAH 1x1 usage 2816
+E/Gralloc4(21195): isSupported(1, 1, 59, 1, ...) failed with 7
+E/GraphicBufferAllocator(21195): Failed to allocate (4 x 4) layerCount 1 format 59 usage b00: 7
+E/AHardwareBuffer(21195): GraphicBuffer(w=4, h=4, lc=1) failed (Unknown error -7), handle=0x0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+W/qdgralloc(21195): getInterlacedFlag: getMetaData returned 3, defaulting to interlaced_flag = 0
+I/SurfaceView(21195): 224781171 surfaceChanged -- format=4 w=1440 h=3088
+I/SV[224781171 MainActivity](21195): surfaceChanged (1440,3088) 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ......ID 0,0-1440,3088}
+I/SurfaceView(21195): 224781171 surfaceRedrawNeeded
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/VRI[MainActivity]@439998c(21195): reportNextDraw android.view.ViewRootImpl.performTraversals:5443 android.view.ViewRootImpl.doTraversal:3924 android.view.ViewRootImpl$TraversalRunnable.run:12903 android.view.Choreographer$CallbackRecord.run:1901 android.view.Choreographer$CallbackRecord.run:1910 
+D/VRI[MainActivity]@439998c(21195): Setup new sync=wmsSync-VRI[MainActivity]@439998c#10
+I/VRI[MainActivity]@439998c(21195): Creating new active sync group VRI[MainActivity]@439998c#11
+D/VRI[MainActivity]@439998c(21195): Start draw after previous draw not visible
+D/VRI[MainActivity]@439998c(21195): registerCallbacksForSync syncBuffer=false
+D/SurfaceView(21195): 224781171 updateSurfacePosition RenderWorker, frameNr = 1, position = [0, 0, 1440, 3088] surfaceSize = 1440x3088
+I/SV[224781171 MainActivity](21195): uSP: rtp = Rect(0, 0 - 1440, 3088) rtsw = 1440 rtsh = 3088
+I/SV[224781171 MainActivity](21195): onSSPAndSRT: pl = 0 pt = 0 sx = 1.0 sy = 1.0
+I/SV[224781171 MainActivity](21195): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@26a8174 fN = 1 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 android.graphics.RenderNode$CompositePositionUpdateListener.positionChanged:401 
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671c680 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionChanged:1932 
+D/VRI[MainActivity]@439998c(21195): Received frameDrawingCallback syncResult=0 frameNum=1.
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007db671ce00 mBlastBufferQueue=0xb400007c74a95000 fn= 1 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl$12.onFrameDraw:15441 android.view.ThreadedRenderer$1.onFrameDraw:718 <bottom of call stack> 
+I/VRI[MainActivity]@439998c(21195): Setting up sync and frameCommitCallback
+I/BLASTBufferQueue(21195): [VRI[MainActivity]@439998c#6](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 43059, bufferData(ID: 91031831838795, frameNumber: 1)
+I/VRI[MainActivity]@439998c(21195): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(21195): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+I/BLASTBufferQueue(21195): [d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#7](f:0,a:0,s:0) onFrameAvailable the first frame is available
+I/SurfaceComposerClient(21195): apply transaction with the first frame. layerId: 43067, bufferData(ID: 91031831838790, frameNumber: 1)
+D/VRI[MainActivity]@439998c(21195): reportDrawFinished seqId=0
+I/SurfaceView(21195): 224781171 finishedDrawing
+D/VRI[MainActivity]@439998c(21195): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d2b3f2800}
+D/InputMethodManagerUtils(21195): startInputInner - Id : 0
+I/InputMethodManager(21195): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+D/InputTransport(21195): Input channel constructed: 'ClientS', fd=171
+I/InputMethodManager(21195): handleMessage: setImeVisibility visible=false
+D/InsetsController(21195): hide(ime(), fromIme=false)
+I/ImeTracker(21195): com.example.holos:33db797: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(21195): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+Another exception was thrown: GoError: There is nothing to pop
+I/ImeFocusController(21195): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(21195): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(21195): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(21195): visibilityChanged oldVisibility=true newVisibility=false
+I/SV[224781171 MainActivity](21195): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(21195): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(21195): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376609287237888)/@0x5fadcd8
+D/SurfaceComposerClient(21195): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43066 cornerRadius=0.000000
+I/SurfaceView(21195): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](21195): surfaceDestroyed callback.size 1 #2 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](21195): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(21195): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SurfaceView(21195): 157643358 windowPositionLost, frameNr = 0
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=41 res=0x2 s={false 0x0} ch=true seqId=0
+I/SV[224781171 MainActivity](21195): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(21195): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(21195): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(21195): mWNT: t=0xb400007d85e0bc80 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(21195): stopped(true) old = false
+D/VRI[MainActivity]@439998c(21195): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (21195): CacheManager::trimMemory(20)
+I/AutofillManager(21195): onInvisibleForAutofill(): expiringResponse
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/InputTransport(21195): Input channel destroyed: 'ClientS', fd=171
+D/SV[224781171 MainActivity](21195): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](21195): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(21195): applyTransactionOnDraw applyImmediately
+D/BBA2    (21195): setIsFg isFg = false; delayValue 3999ms
+Lost connection to device.

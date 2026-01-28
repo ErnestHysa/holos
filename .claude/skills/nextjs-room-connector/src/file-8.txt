@@ -1,0 +1,42 @@
+// prisma/schema.prisma
+model Room {
+  id               String   @id @default(cuid())
+  code             String   @unique
+  creatorId        String
+  status           String   @default("active")
+  maxParticipants  Int      @default(8)
+  metadata         Json?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  participants     Participant[]
+  actions          RoomAction[]
+
+  @@index([code])
+  @@index([creatorId])
+}
+
+model Participant {
+  id        String   @id @default(cuid())
+  roomId    String
+  userId    String
+  role      String   @default("participant")
+  joinedAt  DateTime @default(now())
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@unique([roomId, userId])
+  @@index([roomId])
+  @@index([userId])
+}
+
+model RoomAction {
+  id        String   @id @default(cuid())
+  roomId    String
+  userId    String
+  action    String
+  payload   Json
+  createdAt DateTime @default(now())
+  room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@index([roomId])
+  @@index([createdAt])
+}

@@ -1,0 +1,168 @@
+Launching lib\main.dart on SM S918B in debug mode...
+Running Gradle task 'assembleDebug'...                             10.1s
+✓ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...        2,724ms
+D/FlutterJNI(29412): Beginning load of flutter...
+D/FlutterJNI(29412): flutter (null) was loaded normally!
+I/flutter (29412): [IMPORTANT:flutter/shell/platform/android/android_context_vk_impeller.cc(62)] Using the Impeller rendering backend (Vulkan).
+I/flutter (29412): Firebase initialization skipped: PlatformException(java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly., Exception, Cause: null, Stacktrace: java.lang.Exception: Failed to load FirebaseOptions from resource. Check that you have defined values.xml correctly.
+I/flutter (29412): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.lambda$optionsFromResource$5(FlutterFirebaseCorePlugin.java:222)
+I/flutter (29412): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin.$r8$lambda$UKjIMRLnh50mCq5Rg7c5X1_2d5w(Unknown Source:0)
+I/flutter (29412): 	at io.flutter.plugins.firebase.core.FlutterFirebaseCorePlugin$$ExternalSyntheticLambda3.run(D8$$SyntheticClass:0)
+I/flutter (29412): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
+I/flutter (29412): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
+I/flutter (29412): 	at java.lang.Thread.run(Thread.java:1119)
+I/flutter (29412): , null)
+D/VRI[MainActivity]@439998c(29412): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d7ec7c500}
+D/InputMethodManagerUtils(29412): startInputInner - Id : 0
+I/InputMethodManager(29412): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+Syncing files to device SM S918B...                             
+I/InputMethodManager(29412): handleMessage: setImeVisibility visible=false
+D/InsetsController(29412): hide(ime(), fromIme=false)
+I/ImeTracker(29412): com.example.holos:17a2113d: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(29412): Input channel constructed: 'ClientS', fd=168
+Syncing files to device SM S918B...                                129ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+
+A Dart VM Service on SM S918B is available at: http://127.0.0.1:53635/kv_lbaQvOVw=/
+The Flutter DevTools debugger and profiler on SM S918B is available at: http://127.0.0.1:53635/kv_lbaQvOVw=/devtools/?uri=ws://127.0.0.1:53635/kv_lbaQvOVw=/ws
+D/ProfileInstaller(29412): Installing profile for com.example.holos
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/FLUTTER_HEALTH::ERROR(29412): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(29412): Permission launcher not found
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(29412): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(29412): Permission launcher not found
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/FLUTTER_HEALTH::ERROR(29412): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(29412): Permission launcher not found
+W/FLUTTER_HEALTH::ERROR(29412): Datatype SLEEP_IN_BED not found in HC
+I/FLUTTER_HEALTH(29412): Permission launcher not found
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 35 pixels on the right.
+
+The relevant error-causing widget was:
+  Row
+  Row:file:///C:/Users/ErnestHome/clawd/holos/development/lib/widgets/food_log/meal_card.dart:38:17
+
+To inspect this widget in Flutter DevTools, visit:
+http://127.0.0.1:53635/kv_lbaQvOVw=/devtools//#/inspector?uri=http%3A%2F%2F127.0.0.1%3A53635%2Fkv_lbaQvOVw%3D%2F&inspectorRef=inspector-0
+
+The overflowing RenderFlex has an orientation of Axis.horizontal.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#f0496 relayoutBoundary=up24 OVERFLOWING:
+  creator: Row ← Column ← Expanded ← Row ← Padding ← Listener ← RawGestureDetector ← GestureDetector ←
+    Semantics ← DefaultSelectionStyle ← Builder ← MouseRegion ← ⋯
+  parentData: offset=Offset(0.0, 0.0); flex=null; fit=null (can use size)
+  constraints: BoxConstraints(0.0<=w<=202.3, 0.0<=h<=Infinity)
+  size: Size(202.3, 26.0)
+  direction: horizontal
+  mainAxisAlignment: spaceBetween
+  mainAxisSize: max
+  crossAxisAlignment: center
+  textDirection: ltr
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/flutter (29412): No health platforms connected
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+Another exception was thrown: A RenderFlex overflowed by 35 pixels on the right.
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+W/WindowOnBackDispatcher(29412): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(29412): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+Another exception was thrown: A RenderFlex overflowed by 35 pixels on the right.
+D/WindowOnBackDispatcher(29412): onBackInvoked, callback=android.view.ViewRootImpl$$ExternalSyntheticLambda16@b80844a
+I/VRI[MainActivity]@439998c(29412): ViewPostIme key 0
+D/Activity(29412): onKeyDown(KEYCODE_BACK), activity=com.example.holos.MainActivity@9430fbb
+I/VRI[MainActivity]@439998c(29412): ViewPostIme key 1
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@439998c
+I/VRI[MainActivity]@439998c(29412): call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@439998c
+I/ImeFocusController(29412): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(29412): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/InsetsSourceConsumer(29412): applyRequestedVisibilityToControl: visible=true, type=statusBars, host=com.example.holos/com.example.holos.MainActivity
+I/InsetsSourceConsumer(29412): applyRequestedVisibilityToControl: visible=true, type=navigationBars, host=com.example.holos/com.example.holos.MainActivity
+D/VRI[MainActivity]@439998c(29412): mThreadedRenderer.initializeIfNeeded()#2 mSurface={isValid=true 0xb400007d7ec7c500}
+D/InputMethodManagerUtils(29412): startInputInner - Id : 0
+I/InputMethodManager(29412): startInputInner - IInputMethodManagerGlobalInvoker.startInputOrWindowGainedFocus
+I/InputMethodManager(29412): handleMessage: setImeVisibility visible=false
+D/InsetsController(29412): hide(ime(), fromIme=false)
+I/ImeTracker(29412): com.example.holos:6678d7e2: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+D/InputTransport(29412): Input channel constructed: 'ClientS', fd=179
+I/ImeFocusController(29412): onPreWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/ImeFocusController(29412): onPostWindowFocus: skipped hasWindowFocus=false mHasImeFocus=true
+I/VRI[MainActivity]@439998c(29412): handleAppVisibility mAppVisible = true visible = false
+D/VRI[MainActivity]@439998c(29412): visibilityChanged oldVisibility=true newVisibility=false
+I/VRI[MainActivity]@439998c(29412): stopped(true) old = false
+D/VRI[MainActivity]@439998c(29412): WindowStopped on com.example.holos/com.example.holos.MainActivity set to true
+D/HWUI    (29412): CacheManager::trimMemory(20)
+D/SurfaceView(29412): 202528362 windowPositionLost, frameNr = 0
+I/SV[224781171 MainActivity](29412): aOrMT: VRI[MainActivity]@439998c t = android.view.SurfaceControl$Transaction@a1f475b fN = 0 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:2025 android.graphics.RenderNode$CompositePositionUpdateListener.positionLost:418 
+I/VRI[MainActivity]@439998c(29412): mWNT: t=0xb400007dc4d36600 mBlastBufferQueue=0xb400007d85e05000 fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.SurfaceView.applyOrMergeTransaction:1863 android.view.SurfaceView.-$$Nest$mapplyOrMergeTransaction:0 android.view.SurfaceView$SurfaceViewPositionUpdateListener.positionLost:2025 
+I/SV[224781171 MainActivity](29412): windowStopped(true) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088} of VRI[MainActivity]@439998c
+I/SurfaceView(29412): 224781171 Changes: creating=false format=false size=false visible=true alpha=false hint=false left=false top=false z=false attached=true lifecycleStrategy=false
+I/SurfaceView(29412): 224781171 Cur surface: Surface(name=null mNativeObject=-5476376607884583424)/@0x5fadcd8
+D/SurfaceComposerClient(29412): setCornerRadius ## d65e373 SurfaceView[com.example.holos/com.example.holos.MainActivity]@0#43681 cornerRadius=0.000000
+I/SurfaceView(29412): 224781171 surfaceDestroyed
+I/SV[224781171 MainActivity](29412): surfaceDestroyed callback.size 1 #1 io.flutter.embedding.android.FlutterSurfaceView{d65e373 V.E...... ........ 0,0-1440,3088}
+I/SV[224781171 MainActivity](29412): updateSurface: mVisible = false mSurface.isValid() = true
+I/SV[224781171 MainActivity](29412): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+V/SurfaceView(29412): Layout: x=0 y=0 w=1440 h=3088, frame=Rect(0, 0 - 1440, 3088)
+D/SV[224781171 MainActivity](29412): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](29412): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+I/SV[224781171 MainActivity](29412): onWindowVisibilityChanged(8) false io.flutter.embedding.android.FlutterSurfaceView{d65e373 G.E...... ......I. 0,0-1440,3088} of VRI[MainActivity]@439998c
+D/SV[224781171 MainActivity](29412): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](29412): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/HWUI    (29412): CacheManager::trimMemory(20)
+I/VRI[MainActivity]@439998c(29412): Relayout returned: old=(0,0,1440,3088) new=(0,0,1440,3088) relayoutAsync=false req=(1440,3088)8 dur=15 res=0x2 s={false 0x0} ch=false seqId=0
+D/SV[224781171 MainActivity](29412): updateSurface: surface is not valid
+I/SV[224781171 MainActivity](29412): releaseSurfaces: viewRoot = VRI[MainActivity]@439998c
+D/VRI[MainActivity]@439998c(29412): applyTransactionOnDraw applyImmediately
+D/VRI[MainActivity]@439998c(29412): Not drawing due to not visible. Reason=!mAppVisible && !mForceDecorViewVisibility
+D/VRI[MainActivity]@439998c(29412): Pending transaction will not be applied in sync with a draw due to view not visible
+I/VRI[MainActivity]@439998c(29412): mWNT: t=0xb400007d85e59300 mBlastBufferQueue=0xnull fn= 0 HdrRenderState mRenderHdrSdrRatio=1.0 caller= android.view.ViewRootImpl.handleSyncRequestWhenNoAsyncDraw:6733 android.view.ViewRootImpl.performTraversals:5504 android.view.ViewRootImpl.doTraversal:3924 
+D/HWUI    (29412): CacheManager::trimMemory(20)
+D/InputTransport(29412): Input channel destroyed: 'ClientS', fd=168
+D/BBA2    (29412): setIsFg isFg = false; delayValue 3999ms
+Lost connection to device.

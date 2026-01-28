@@ -1,0 +1,32 @@
+// Domain layer - use case
+class GetUserProfileUseCase {
+  final UserRepository repository;
+  
+  GetUserProfileUseCase(this.repository);
+  
+  Future<Either<Failure, User>> call(String userId) async {
+    return await repository.getUserProfile(userId);
+  }
+}
+
+// Presentation layer - BLoC
+class UserProfileBloc extends Bloc<UserProfileEvent, UserProfileState> {
+  final GetUserProfileUseCase getUserProfile;
+  
+  UserProfileBloc(this.getUserProfile) : super(UserProfileInitial()) {
+    on<LoadUserProfile>(_onLoadUserProfile);
+  }
+  
+  Future<void> _onLoadUserProfile(
+    LoadUserProfile event,
+    Emitter<UserProfileState> emit,
+  ) async {
+    emit(UserProfileLoading());
+    final result = await getUserProfile(event.userId);
+    
+    result.fold(
+      (failure) => emit(UserProfileError(failure.message)),
+      (user) => emit(UserProfileLoaded(user)),
+    );
+  }
+}

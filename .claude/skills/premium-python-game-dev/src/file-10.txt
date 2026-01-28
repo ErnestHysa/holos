@@ -1,0 +1,25 @@
+def enable_window_composition():
+    """Enable Windows 11 window composition effects."""
+    try:
+        import ctypes
+        # Enable DWM composition
+        ctypes.windll.dwmapi.DwmExtendFrameIntoClientArea(
+            pygame.display.get_wm_info()['window'],
+            ctypes.byref(ctypes.c_int(-1))
+        )
+    except:
+        pass
+
+def set_window_attributes(transparency: bool = False):
+    """Set additional window attributes for Windows 11."""
+    try:
+        import ctypes
+        hwnd = pygame.display.get_wm_info()['window']
+        
+        # Remove window borders for custom chrome
+        style = ctypes.windll.user32.GetWindowLongW(hwnd, -16)
+        style &= ~0x00800000  # Remove WS_CAPTION
+        ctypes.windll.user32.SetWindowLongW(hwnd, -16, style)
+        
+    except:
+        pass

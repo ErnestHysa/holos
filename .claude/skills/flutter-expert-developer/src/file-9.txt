@@ -1,0 +1,63 @@
+// Method Channel Setup
+class NativeHelper {
+  static const platform = MethodChannel('com.example.app/native');
+  
+  static Future<String> getBatteryLevel() async {
+    try {
+      final level = await platform.invokeMethod('getBatteryLevel');
+      return 'Battery level: $level%';
+    } on PlatformException catch (e) {
+      return 'Failed to get battery level: ${e.message}';
+    }
+  }
+  
+  static Future<void> openNativeSettings() async {
+    try {
+      await platform.invokeMethod('openSettings');
+    } on PlatformException catch (e) {
+      debugPrint('Error opening settings: ${e.message}');
+    }
+  }
+}
+
+// Event Channel for Streams
+class LocationStream {
+  static const eventChannel = EventChannel('com.example.app/location');
+  
+  static Stream<Map<String, double>> get locationStream {
+    return eventChannel
+        .receiveBroadcastStream()
+        .map((event) => Map<String, double>.from(event));
+  }
+}
+
+// Usage in widget
+class LocationWidget extends StatefulWidget {
+  @override
+  _LocationWidgetState createState() => _LocationWidgetState();
+}
+
+class _LocationWidgetState extends State<LocationWidget> {
+  StreamSubscription? _subscription;
+  
+  @override
+  void initState() {
+    super.initState();
+    _subscription = LocationStream.locationStream.listen((location) {
+      setState(() {
+        // Handle location updates
+      });
+    });
+  }
+  
+  @override
+  void dispose() {
+    _subscription?.cancel();
+    super.dispose();
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    // Build UI
+  }
+}

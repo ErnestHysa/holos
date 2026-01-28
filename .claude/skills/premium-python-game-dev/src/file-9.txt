@@ -1,0 +1,20 @@
+def get_dpi_scale() -> float:
+    """Get the current DPI scaling factor."""
+    try:
+        import ctypes
+        user32 = ctypes.windll.user32
+        hdc = user32.GetDC(0)
+        LOGPIXELSX = 88
+        dpi = ctypes.windll.gdi32.GetDeviceCaps(hdc, LOGPIXELSX)
+        user32.ReleaseDC(0, hdc)
+        return dpi / 96.0
+    except:
+        return 1.0
+
+def scale_position(x: int, y: int, dpi_scale: float) -> tuple:
+    """Scale position coordinates for DPI."""
+    return (int(x * dpi_scale), int(y * dpi_scale))
+
+def scale_size(width: int, height: int, dpi_scale: float) -> tuple:
+    """Scale dimensions for DPI."""
+    return (int(width * dpi_scale), int(height * dpi_scale))

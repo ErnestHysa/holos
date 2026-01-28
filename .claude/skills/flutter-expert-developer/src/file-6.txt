@@ -1,0 +1,8 @@
+// Wrap frequently animating widgets in RepaintBoundary
+RepaintBoundary(
+  child: AnimatedContainer(
+    duration: Duration(milliseconds: 300),
+    color: isPressed ? Colors.blue : Colors.grey,
+    child: Text('Animated'),
+  ),
+)

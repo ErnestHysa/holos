@@ -1,0 +1,65 @@
+// ❌ Don't: Build method with complex logic
+class BadWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Don't do this!
+    final data = expensiveComputation();
+    final result = apiCall();
+    return Container(...);
+  }
+}
+
+// ✅ Do: Move logic to appropriate layers
+class GoodWidget extends StatelessWidget {
+  final Data data;
+  
+  const GoodWidget({super.key, required this.data});
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(...);
+  }
+}
+
+// ❌ Don't: Context usage before build
+class BadWidget extends StatefulWidget {
+  @override
+  _BadWidgetState createState() => _BadWidgetState();
+}
+
+class _BadWidgetState extends State<BadWidget> {
+  final theme = Theme.of(context); // Error: context not available
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(...);
+  }
+}
+
+// ✅ Do: Use context in build or lifecycle methods
+class GoodWidget extends StatefulWidget {
+  @override
+  _GoodWidgetState createState() => _GoodWidgetState();
+}
+
+class _GoodWidgetState extends State<GoodWidget> {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(...);
+  }
+}
+
+// ❌ Don't: setState in build method
+@override
+Widget build(BuildContext context) {
+  setState(() {}); // Infinite loop!
+  return Container(...);
+}
+
+// ✅ Do: Use useEffect or lifecycle methods for side effects
+@override
+void initState() {
+  super.initState();
+  _initializeData();
+}

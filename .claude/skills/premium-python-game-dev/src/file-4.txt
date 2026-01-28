@@ -1,0 +1,107 @@
+import pygame
+from pygame import gfxdraw
+import math
+
+class PremiumButton:
+    """
+    Apple-inspired button with smooth animations and states.
+    """
+    def __init__(self, x, y, width, height, text, style='primary'):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.text = text
+        self.style = style
+        self.hovered = False
+        self.pressed = False
+        self.animation_progress = 0.0
+        self.target_progress = 0.0
+        
+        # Style configurations
+        self.styles = {
+            'primary': {
+                'bg': COLORS['primary'],
+                'bg_hover': '#0051D5',
+                'text': '#FFFFFF',
+                'shadow': COLORS['shadow_medium']
+            },
+            'secondary': {
+                'bg': COLORS['background'],
+                'bg_hover': '#E5E5EA',
+                'text': COLORS['primary'],
+                'shadow': COLORS['shadow_light']
+            },
+            'ghost': {
+                'bg': 'transparent',
+                'bg_hover': 'rgba(0, 122, 255, 0.1)',
+                'text': COLORS['primary'],
+                'shadow': None
+            }
+        }
+    
+    def update(self, mouse_pos, mouse_pressed):
+        self.hovered = self.rect.collidepoint(mouse_pos)
+        self.pressed = self.hovered and mouse_pressed
+        
+        # Smooth animation target
+        self.target_progress = 1.0 if self.hovered else 0.0
+        
+        # Smooth interpolation (ease-out)
+        diff = self.target_progress - self.animation_progress
+        self.animation_progress += diff * 0.15
+    
+    def draw(self, surface, font):
+        style = self.styles[self.style]
+        
+        # Calculate interpolated values
+        current_bg = self._interpolate_color(
+            style['bg'],
+            style['bg_hover'],
+            self.animation_progress
+        )
+        
+        # Draw shadow with elevation on hover
+        if style['shadow'] and self.hovered:
+            shadow_surface = pygame.Surface(
+                (self.rect.width, self.rect.height + 8),
+                pygame.SRCALPHA
+            )
+            pygame.draw.rounded_rect(
+                shadow_surface,
+                (*style['shadow'], 100),
+                pygame.Rect(0, 4, self.rect.width, self.rect.height),
+                CORNER_RADIUS['md']
+            )
+            surface.blit(shadow_surface, (self.rect.x, self.rect.y))
+        
+        # Draw button background
+        pygame.draw.rounded_rect(
+            surface,
+            current_bg,
+            self.rect,
+            CORNER_RADIUS['md']
+        )
+        
+        # Draw text with proper alignment
+        text_surface = font.render(self.text, True, style['text'])
+        text_rect = text_surface.get_rect(center=self.rect.center)
+        surface.blit(text_surface, text_rect)
+    
+    def _interpolate_color(self, color1, color2, progress):
+        """Smoothly interpolate between two colors."""
+        def hex_to_rgb(hex_color):
+            if isinstance(hex_color, str):
+                hex_color = hex_color.lstrip('#')
+                return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+            return color1
+        
+        rgb1 = hex_to_rgb(color1)
+        rgb2 = hex_to_rgb(color2)
+        
+        return tuple(
+            int(rgb1[i] + (rgb2[i] - rgb1[i]) * progress)
+            for i in range(3)
+        )
+    
+    def is_clicked(self, event):
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            return self.hovered
+        return False
