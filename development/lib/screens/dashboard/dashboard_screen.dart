@@ -103,6 +103,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: PrimaryButton(
                     text: AppStrings.logFood,
                     onPressed: () => context.push('/food-log'),
+                    width: null,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -110,6 +111,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: SecondaryButton(
                     text: AppStrings.aiSuggestion,
                     onPressed: () => context.push('/ai-suggestion'),
+                    width: null,
                   ),
                 ),
               ],

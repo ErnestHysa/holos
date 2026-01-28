@@ -304,13 +304,14 @@ class GoogleFitService {
 
       if (healthData.isEmpty) return null;
 
+      // Calculate average heart rate using double division for accuracy
       int totalHeartRate = 0;
       for (var dataPoint in healthData) {
         final value = (dataPoint.value as NumericHealthValue).numericValue;
         totalHeartRate += value.toInt();
       }
 
-      return totalHeartRate ~/ healthData.length;
+      return (totalHeartRate / healthData.length).round();
     } catch (e) {
       debugPrint('Error getting heart rate from Google Fit: $e');
       return null;
@@ -416,13 +417,14 @@ class GoogleFitService {
 
       if (healthData.isEmpty) return null;
 
+      // Calculate average HRV using double division for accuracy
       int totalHrv = 0;
       for (var dataPoint in healthData) {
         final value = (dataPoint.value as NumericHealthValue).numericValue;
         totalHrv += value.toInt();
       }
 
-      return totalHrv ~/ healthData.length;
+      return (totalHrv / healthData.length).round();
     } catch (e) {
       debugPrint('Error getting HRV from Google Fit: $e');
       return null;

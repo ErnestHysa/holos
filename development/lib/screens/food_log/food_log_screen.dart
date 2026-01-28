@@ -94,35 +94,53 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Meals Section Header
-            _buildMealSectionHeader('Breakfast'),
-            const SizedBox(height: 8),
+            // Meals Section Header - Breakfast
+            if (_meals.isNotEmpty && _meals.length > 0) ...[
+              _buildMealSectionHeader('Breakfast'),
+              const SizedBox(height: 8),
 
-            // Breakfast Meal Card
-            MealCard(
-              emoji: _meals[0].emoji,
-              name: _meals[0].name,
-              macros: _meals[0].macros,
-              time: _meals[0].time,
-              isChecked: _mealCheckedStates[0] ?? false,
-              onChanged: (_) => _toggleMealCheck(0),
-            ),
-            const SizedBox(height: 24),
+              // Breakfast Meal Card
+              MealCard(
+                emoji: _meals[0].emoji,
+                name: _meals[0].name,
+                macros: _meals[0].macros,
+                time: _meals[0].time,
+                isChecked: _mealCheckedStates[0] ?? false,
+                onChanged: (_) => _toggleMealCheck(0),
+              ),
+              const SizedBox(height: 24),
+            ],
 
-            // Lunch Section Header
-            _buildMealSectionHeader('Lunch'),
-            const SizedBox(height: 8),
+            // Meals Section Header - Lunch
+            if (_meals.isNotEmpty && _meals.length > 1) ...[
+              _buildMealSectionHeader('Lunch'),
+              const SizedBox(height: 8),
 
-            // Lunch Meal Card
-            MealCard(
-              emoji: _meals[1].emoji,
-              name: _meals[1].name,
-              macros: _meals[1].macros,
-              time: _meals[1].time,
-              isChecked: _mealCheckedStates[1] ?? false,
-              onChanged: (_) => _toggleMealCheck(1),
-            ),
-            const SizedBox(height: 32),
+              // Lunch Meal Card
+              MealCard(
+                emoji: _meals[1].emoji,
+                name: _meals[1].name,
+                macros: _meals[1].macros,
+                time: _meals[1].time,
+                isChecked: _mealCheckedStates[1] ?? false,
+                onChanged: (_) => _toggleMealCheck(1),
+              ),
+              const SizedBox(height: 32),
+            ],
+
+            // Show empty state if no meals
+            if (_meals.isEmpty) ...[
+              const SizedBox(height: 32),
+              Center(
+                child: Text(
+                  'No meals logged today',
+                  style: AppTextStyles.body.copyWith(
+                    color: AppColors.textSecondary,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
+            ],
 
             // Barcode Scan Button
             PrimaryButton(
