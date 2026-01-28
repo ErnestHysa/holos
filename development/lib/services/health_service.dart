@@ -20,17 +20,29 @@ class HealthService {
   SamsungHealthService? _samsungHealthService;
 
   // Health data change stream controller
-  final StreamController<HealthData> _healthDataController =
-      StreamController<HealthData>.broadcast();
+  StreamController<HealthData>? _healthDataController;
 
-  Stream<HealthData> get healthDataStream => _healthDataController.stream;
+  Stream<HealthData> get healthDataStream {
+    _ensureControllerInitialized();
+    return _healthDataController!.stream;
+  }
 
   // Supported platforms on this device
   Set<HealthPlatform> _supportedPlatforms = {};
   Set<HealthPlatform> _connectedPlatforms = {};
 
+  // Track subscription state to prevent duplicates
+  bool _isSubscribed = false;
+
   Set<HealthPlatform> get supportedPlatforms => _supportedPlatforms;
   Set<HealthPlatform> get connectedPlatforms => _connectedPlatforms;
+
+  /// Ensure stream controller is initialized
+  void _ensureControllerInitialized() {
+    if (_healthDataController == null || _healthDataController!.isClosed) {
+      _healthDataController = StreamController<HealthData>.broadcast();
+    }
+  }
 
   /// Initialize health service - detect available platforms
   Future<void> initialize() async {
@@ -163,7 +175,10 @@ class HealthService {
       // Aggregate data from all platforms
       if (dataList.isNotEmpty) {
         aggregatedData = _aggregateHealthData(dataList, startOfDay);
-        _healthDataController.add(aggregatedData);
+        _ensureControllerInitialized();
+        if (!_healthDataController!.isClosed) {
+          _healthDataController!.add(aggregatedData);
+        }
       }
 
       return aggregatedData;
@@ -221,27 +236,44 @@ class HealthService {
   /// Subscribe to health data updates
   /// Uses platform-specific observers for real-time updates
   void subscribeToUpdates(Function(HealthData) onUpdate) {
-    _healthDataController.stream.listen(onUpdate);
+    if (_isSubscribed) {
+      debugPrint('Already subscribed to health data updates');
+      return;
+    }
+
+    _ensureControllerInitialized();
+    _healthDataController!.stream.listen(onUpdate);
+    _isSubscribed = true;
 
     // Set up platform-specific observers
     if (Platform.isIOS) {
       _appleHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
+        _ensureControllerInitialized();
+        if (!_healthDataController!.isClosed) {
+          _healthDataController!.add(data);
+        }
       });
     } else if (Platform.isAndroid) {
       _googleFitService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
+        _ensureControllerInitialized();
+        if (!_healthDataController!.isClosed) {
+          _healthDataController!.add(data);
+        }
       });
 
       _samsungHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
+        _ensureControllerInitialized();
+        if (!_healthDataController!.isClosed) {
+          _healthDataController!.add(data);
+        }
       });
     }
   }
 
   /// Unsubscribe from health data updates
   void unsubscribeFromUpdates() {
-    _healthDataController.close();
+    _isSubscribed = false;
+    _healthDataController?.close();
   }
 
   /// Sync data manually (force refresh from all connected platforms)
@@ -281,54 +313,55 @@ class HealthService {
   ) {
     // Use non-null values from any platform
     // For steps, use the maximum value
-    int? steps = dataList
-        .map((d) => d.steps)
-        .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final stepValues = dataList.map((d) => d.steps).where((s) => s != null).toList();
+    int? steps;
+    if (stepValues.isNotEmpty) {
+      steps = stepValues.reduce((a, b) => (a! > b!) ? a : b);
+    }
 
     // For sleep, use the maximum duration
-    double? sleepDuration = dataList
-        .map((d) => d.sleepDuration)
-        .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final sleepDurationValues = dataList.map((d) => d.sleepDuration).where((s) => s != null).toList();
+    double? sleepDuration;
+    if (sleepDurationValues.isNotEmpty) {
+      sleepDuration = sleepDurationValues.reduce((a, b) => (a! > b!) ? a : b);
+    }
 
     // For heart rate, use the average
     int? avgHeartRate;
     final hrValues =
         dataList.map((d) => d.avgHeartRate).where((h) => h != null).toList();
     if (hrValues.isNotEmpty) {
-      avgHeartRate = hrValues.reduce((a, b) => a! + b!)! ~/ hrValues.length;
+      final sum = hrValues.reduce((a, b) => a! + b!)!;
+      avgHeartRate = (sum / hrValues.length).round();
     }
 
     // For calories, use the maximum
-    int? activeCalories = dataList
-        .map((d) => d.activeCalories)
-        .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final activeCalValues = dataList.map((d) => d.activeCalories).where((c) => c != null).toList();
+    int? activeCalories;
+    if (activeCalValues.isNotEmpty) {
+      activeCalories = activeCalValues.reduce((a, b) => (a! > b!) ? a : b);
+    }
 
-    int? totalCalories = dataList
-        .map((d) => d.totalCaloriesBurned)
-        .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final totalCalValues = dataList.map((d) => d.totalCaloriesBurned).where((c) => c != null).toList();
+    int? totalCalories;
+    if (totalCalValues.isNotEmpty) {
+      totalCalories = totalCalValues.reduce((a, b) => (a! > b!) ? a : b);
+    }
 
     // For sleep quality and deep sleep, use the first non-null value
-    double? sleepQuality = dataList
-        .map((d) => d.sleepQuality)
-        .firstWhere((q) => q != null, orElse: () => null);
+    final sleepQualityList = dataList.map((d) => d.sleepQuality).where((q) => q != null).toList();
+    double? sleepQuality = sleepQualityList.isNotEmpty ? sleepQualityList.first : null;
 
-    double? deepSleepPercent = dataList
-        .map((d) => d.deepSleepPercent)
-        .firstWhere((d) => d != null, orElse: () => null);
+    final deepSleepList = dataList.map((d) => d.deepSleepPercent).where((d) => d != null).toList();
+    double? deepSleepPercent = deepSleepList.isNotEmpty ? deepSleepList.first : null;
 
     // Heart rate variability
-    int? heartRateVariability = dataList
-        .map((d) => d.heartRateVariability)
-        .firstWhere((h) => h != null, orElse: () => null);
+    final hrvList = dataList.map((d) => d.heartRateVariability).where((h) => h != null).toList();
+    int? heartRateVariability = hrvList.isNotEmpty ? hrvList.first : null;
 
     // Stress level
-    double? stressLevel = dataList
-        .map((d) => d.stressLevel)
-        .firstWhere((s) => s != null, orElse: () => null);
+    final stressList = dataList.map((d) => d.stressLevel).where((s) => s != null).toList();
+    double? stressLevel = stressList.isNotEmpty ? stressList.first : null;
 
     // Workouts - combine all workouts from all platforms
     List<Workout> allWorkouts = [];

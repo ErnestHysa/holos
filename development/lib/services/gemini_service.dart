@@ -49,8 +49,8 @@ Requirements:
 
 Return JSON with:
 {
-  "mealName": "Name of the meal",
-  "description": "Brief description of the meal (1-2 sentences)",
+  "mealName": "Name of meal",
+  "description": "Brief description of meal (1-2 sentences)",
   "recipe": "Full recipe with ingredients and cooking instructions",
   "macros": {
     "calories": 700,
@@ -58,7 +58,7 @@ Return JSON with:
     "carbs": 35,
     "fat": 30
   },
-  "emoji": "Appropriate emoji for the meal"
+  "emoji": "Appropriate emoji for meal"
 }
 ''';
 
@@ -166,10 +166,11 @@ Return JSON with:
     required String mealName,
     required List<String> dietaryRestrictions,
   }) async {
+    final restrictions = dietaryRestrictions.join(', ');
     final prompt = '''
 Generate a detailed recipe for: $mealName
 
-Dietary Restrictions: ${dietaryRestrictions.join(', ')}
+Dietary Restrictions: $restrictions
 
 Requirements:
 - Include ingredients list with quantities

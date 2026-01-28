@@ -629,6 +629,8 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   @override
   void dispose() {
+    // Unsubscribe from health data updates to prevent memory leaks
+    _healthService.unsubscribeFromUpdates();
     super.dispose();
   }
 }

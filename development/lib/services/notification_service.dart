@@ -77,7 +77,8 @@ class NotificationService {
     );
 
     // If time has passed today, schedule for tomorrow
-    if (scheduledDate.isBefore(DateTime.now())) {
+    final now = tz.TZDateTime.now(tz.local);
+    if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
 
