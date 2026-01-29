@@ -38,7 +38,7 @@ class GoogleFitService {
   StreamSubscription<List<HealthDataPoint>>? _healthUpdateSubscription;
 
   // Callback for health data updates
-  Function(HealthData)? _onHealthDataUpdate;
+  void Function(HealthData)? _onHealthDataUpdate;
 
   /// Initialize the health service
   Future<void> initialize() async {
@@ -459,7 +459,7 @@ class GoogleFitService {
   }
 
   /// Subscribe to health data updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
+  void subscribeToUpdates(void Function(HealthData) onUpdate) {
     _onHealthDataUpdate = onUpdate;
     _setUpObserver();
   }

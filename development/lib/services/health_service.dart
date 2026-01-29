@@ -56,15 +56,19 @@ class HealthService {
     _connectedPlatforms.clear();
 
     if (Platform.isIOS) {
-      _appleHealthService = AppleHealthService();
+      _appleHealthService ??= AppleHealthService();
       _supportedPlatforms.add(HealthPlatform.appleHealth);
+
+      // Ensure Android-only services are not kept around
+      _googleFitService = null;
+      _samsungHealthService = null;
     } else if (Platform.isAndroid) {
-      _googleFitService = GoogleFitService();
+      _googleFitService ??= GoogleFitService();
       _supportedPlatforms.add(HealthPlatform.googleFit);
 
       // Samsung Health is optional on Android
       try {
-        _samsungHealthService = SamsungHealthService();
+        _samsungHealthService ??= SamsungHealthService();
         final samsungAvailable = await _samsungHealthService!.isAvailable();
         if (samsungAvailable) {
           _supportedPlatforms.add(HealthPlatform.samsungHealth);
@@ -72,7 +76,16 @@ class HealthService {
       } catch (e) {
         // Samsung Health not available
         debugPrint('Samsung Health not available: $e');
+        _samsungHealthService = null;
       }
+
+      // Ensure iOS-only service is not kept around
+      _appleHealthService = null;
+    } else {
+      _appleHealthService = null;
+      _googleFitService = null;
+      _samsungHealthService = null;
+      _observersInitialized = false;
     }
 
     // Populate connected platforms based on current permission state
@@ -262,7 +275,7 @@ class HealthService {
   /// Subscribe to health data updates
   /// Uses platform-specific observers for real-time updates
   /// Returns a StreamSubscription that should be cancelled when done
-  StreamSubscription<HealthData> subscribeToUpdates(Function(HealthData) onUpdate) {
+  StreamSubscription<HealthData> subscribeToUpdates(void Function(HealthData) onUpdate) {
     _ensureControllerOpen();
 
     if (!_observersInitialized) {
@@ -450,6 +463,10 @@ class HealthService {
     _appleHealthService?.dispose();
     _googleFitService?.dispose();
     _samsungHealthService?.dispose();
+
+    _appleHealthService = null;
+    _googleFitService = null;
+    _samsungHealthService = null;
 
     _observersInitialized = false;
   }

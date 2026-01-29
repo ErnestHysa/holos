@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart'; // For iOS-style icons
 import 'package:go_router/go_router.dart';
 import '../../config/colors.dart';
 import '../../config/fonts.dart';
@@ -126,6 +125,8 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   }
 
   void _showErrorSnackBar(HealthPlatform platform) {
+    if (!mounted) return;
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(

@@ -413,6 +413,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   label: 'Calories',
                   current: plan.totalCalories,
                   target: 2000,
+                  unit: 'kcal',
                 ),
               ),
               const SizedBox(width: 24),
@@ -421,6 +422,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   label: 'Protein',
                   current: plan.totalProtein.toInt(),
                   target: 150,
+                  unit: 'g',
                 ),
               ),
             ],
@@ -550,7 +552,12 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     );
   }
 
-  Widget _MacroSummary({required String label, required int current, required int target}) {
+  Widget _MacroSummary({
+    required String label,
+    required int current,
+    required int target,
+    required String unit,
+  }) {
     final progress = (current / target).clamp(0.0, 1.0);
 
     return Column(
@@ -562,7 +569,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
         ),
         const SizedBox(height: 4),
         Text(
-          '$current/$target g',
+          '$current/$target $unit',
           style: AppTextStyles.body.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 8),
