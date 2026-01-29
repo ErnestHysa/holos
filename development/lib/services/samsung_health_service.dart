@@ -283,7 +283,10 @@ class SamsungHealthService {
 
         if (totalSleepMinutes > 0) {
           duration = totalSleepMinutes / 60.0; // Convert to hours
-          deepSleepPercent = totalSleepMinutes > 0 ? (deepSleepMinutes / totalSleepMinutes) : 0.0;
+          // Safe division with null check
+          deepSleepPercent = totalSleepMinutes > 0 
+              ? (deepSleepMinutes / totalSleepMinutes) * 100 
+              : 0.0;
 
           // Calculate sleep quality based on duration
           final hours = duration;

@@ -73,6 +73,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   }
 
   void _handleAddToLog(NotificationItem notification) {
+    if (!mounted) return;
+    
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('${notification.mealName} added to your log!'),
@@ -80,13 +82,19 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         action: SnackBarAction(
           label: 'VIEW',
           textColor: Colors.white,
-          onPressed: () => context.push('/food-log'),
+          onPressed: () {
+            if (mounted) {
+              context.push('/food-log');
+            }
+          },
         ),
       ),
     );
   }
 
   void _handleViewRecipe(String mealName) {
+    if (!mounted) return;
+    
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('$mealName recipe details coming soon!')),
     );

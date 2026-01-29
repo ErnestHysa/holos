@@ -56,6 +56,12 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
 
   void _toggleMealCheck(int index) {
     if (index < 0 || index >= _meals.length) return;
+    
+    // Ensure mealCheckedStates has the required keys
+    if (!_mealCheckedStates.containsKey(index)) {
+      _mealCheckedStates[index] = false;
+    }
+    
     setState(() {
       _mealCheckedStates[index] = !(_mealCheckedStates[index] ?? false);
     });

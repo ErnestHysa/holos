@@ -133,7 +133,9 @@ class GoogleFitService {
     final data = await getTodayData(userId: 'current_user', date: startOfDay);
 
     if (data != null) {
-      _onHealthDataUpdate!(data);
+      // Safe call with null check
+      final callback = _onHealthDataUpdate;
+      callback?.call(data);
     }
   }
 
