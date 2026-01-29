@@ -55,6 +55,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
   }
 
   void _toggleMealCheck(int index) {
+    if (index < 0 || index >= _meals.length) return;
     setState(() {
       _mealCheckedStates[index] = !(_mealCheckedStates[index] ?? false);
     });
@@ -99,29 +100,34 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
             const SizedBox(height: 8),
 
             // Breakfast Meal Card
-            MealCard(
-              emoji: _meals[0].emoji,
-              name: _meals[0].name,
-              macros: _meals[0].macros,
-              time: _meals[0].time,
-              isChecked: _mealCheckedStates[0] ?? false,
-              onChanged: (_) => _toggleMealCheck(0),
-            ),
-            const SizedBox(height: 24),
+            if (_meals.isNotEmpty)
+              MealCard(
+                emoji: _meals[0].emoji,
+                name: _meals[0].name,
+                macros: _meals[0].macros,
+                time: _meals[0].time,
+                isChecked: _mealCheckedStates[0] ?? false,
+                onChanged: (_) => _toggleMealCheck(0),
+              ),
+            if (_meals.isNotEmpty)
+              const SizedBox(height: 24),
 
             // Lunch Section Header
-            _buildMealSectionHeader('Lunch'),
-            const SizedBox(height: 8),
+            if (_meals.length > 1)
+              _buildMealSectionHeader('Lunch'),
+            if (_meals.length > 1)
+              const SizedBox(height: 8),
 
             // Lunch Meal Card
-            MealCard(
-              emoji: _meals[1].emoji,
-              name: _meals[1].name,
-              macros: _meals[1].macros,
-              time: _meals[1].time,
-              isChecked: _mealCheckedStates[1] ?? false,
-              onChanged: (_) => _toggleMealCheck(1),
-            ),
+            if (_meals.length > 1)
+              MealCard(
+                emoji: _meals[1].emoji,
+                name: _meals[1].name,
+                macros: _meals[1].macros,
+                time: _meals[1].time,
+                isChecked: _mealCheckedStates[1] ?? false,
+                onChanged: (_) => _toggleMealCheck(1),
+              ),
             const SizedBox(height: 32),
 
             // Barcode Scan Button

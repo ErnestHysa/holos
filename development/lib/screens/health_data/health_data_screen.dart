@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../config/colors.dart';
@@ -22,6 +23,9 @@ class HealthDataScreen extends StatefulWidget {
 
 class _HealthDataScreenState extends State<HealthDataScreen> {
   final HealthService _healthService = HealthService();
+
+  // Stream subscription for health data updates
+  StreamSubscription<HealthData>? _healthDataSubscription;
 
   // Time filter options
   String _selectedTimeFilter = 'Last 7 days';
@@ -88,10 +92,15 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
   }
 
   void _subscribeToUpdates() {
-    _healthService.subscribeToUpdates((data) {
-      setState(() {
-        _healthData = data;
-      });
+    // Cancel any existing subscription first
+    _healthDataSubscription?.cancel();
+
+    _healthDataSubscription = _healthService.subscribeToUpdates((data) {
+      if (mounted) {
+        setState(() {
+          _healthData = data;
+        });
+      }
     });
   }
 
@@ -629,6 +638,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   @override
   void dispose() {
+    _healthDataSubscription?.cancel();
     super.dispose();
   }
 }

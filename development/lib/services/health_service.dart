@@ -25,6 +25,9 @@ class HealthService {
 
   Stream<HealthData> get healthDataStream => _healthDataController.stream;
 
+  // Track stream controller state to prevent double-close
+  bool _controllerClosed = false;
+
   // Supported platforms on this device
   Set<HealthPlatform> _supportedPlatforms = {};
   Set<HealthPlatform> _connectedPlatforms = {};
@@ -220,8 +223,9 @@ class HealthService {
 
   /// Subscribe to health data updates
   /// Uses platform-specific observers for real-time updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
-    _healthDataController.stream.listen(onUpdate);
+  /// Returns a StreamSubscription that should be cancelled when done
+  StreamSubscription<HealthData> subscribeToUpdates(Function(HealthData) onUpdate) {
+    final subscription = _healthDataController.stream.listen(onUpdate);
 
     // Set up platform-specific observers
     if (Platform.isIOS) {
@@ -237,11 +241,16 @@ class HealthService {
         _healthDataController.add(data);
       });
     }
+
+    return subscription;
   }
 
   /// Unsubscribe from health data updates
   void unsubscribeFromUpdates() {
-    _healthDataController.close();
+    if (!_controllerClosed) {
+      _healthDataController.close();
+      _controllerClosed = true;
+    }
   }
 
   /// Sync data manually (force refresh from all connected platforms)
@@ -281,35 +290,53 @@ class HealthService {
   ) {
     // Use non-null values from any platform
     // For steps, use the maximum value
-    int? steps = dataList
+    final stepsList = dataList
         .map((d) => d.steps)
         .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+        .cast<int>()
+        .toList();
+    int? steps = stepsList.isNotEmpty
+        ? stepsList.reduce((a, b) => a > b ? a : b)
+        : null;
 
     // For sleep, use the maximum duration
-    double? sleepDuration = dataList
+    final sleepDurationList = dataList
         .map((d) => d.sleepDuration)
         .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+        .cast<double>()
+        .toList();
+    double? sleepDuration = sleepDurationList.isNotEmpty
+        ? sleepDurationList.reduce((a, b) => a > b ? a : b)
+        : null;
 
-    // For heart rate, use the average
+    // For heart rate, use the average with overflow protection
     int? avgHeartRate;
     final hrValues =
         dataList.map((d) => d.avgHeartRate).where((h) => h != null).toList();
     if (hrValues.isNotEmpty) {
-      avgHeartRate = hrValues.reduce((a, b) => a! + b!)! ~/ hrValues.length;
+      // Use double for intermediate sum to prevent overflow
+      final sum = hrValues.fold<double>(0.0, (acc, val) => acc + val!.toDouble());
+      avgHeartRate = (sum / hrValues.length).round();
     }
 
     // For calories, use the maximum
-    int? activeCalories = dataList
+    final activeCaloriesList = dataList
         .map((d) => d.activeCalories)
         .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+        .cast<int>()
+        .toList();
+    int? activeCalories = activeCaloriesList.isNotEmpty
+        ? activeCaloriesList.reduce((a, b) => a > b ? a : b)
+        : null;
 
-    int? totalCalories = dataList
+    final totalCaloriesList = dataList
         .map((d) => d.totalCaloriesBurned)
         .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+        .cast<int>()
+        .toList();
+    int? totalCalories = totalCaloriesList.isNotEmpty
+        ? totalCaloriesList.reduce((a, b) => a > b ? a : b)
+        : null;
 
     // For sleep quality and deep sleep, use the first non-null value
     double? sleepQuality = dataList
@@ -383,7 +410,7 @@ class HealthService {
 
   /// Dispose resources
   void dispose() {
-    _healthDataController.close();
+    unsubscribeFromUpdates();
   }
 }
 
