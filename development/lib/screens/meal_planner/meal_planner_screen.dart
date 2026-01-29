@@ -222,16 +222,23 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   child: PrimaryButton(
                     text: 'Save',
                     onPressed: () {
-                      setState(() {
-                        final plan = _weeklyPlans[_selectedDate]!;
-                        final index = plan.meals.indexWhere((m) => m.id == meal.id);
-                        if (index != -1) {
+                      if (!mounted) return;
+
+                      final plan = _weeklyPlans[_selectedDate];
+                      if (plan == null) {
+                        Navigator.pop(context);
+                        return;
+                      }
+
+                      final index = plan.meals.indexWhere((m) => m.id == meal.id);
+                      if (index != -1) {
+                        setState(() {
                           plan.meals[index] = meal.copyWith(
                             name: nameController.text,
                             time: timeController.text,
                           );
-                        }
-                      });
+                        });
+                      }
                       Navigator.pop(context);
                     },
                   ),

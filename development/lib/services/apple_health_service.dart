@@ -128,7 +128,9 @@ class AppleHealthService {
     final data = await getTodayData(userId: 'current_user', date: startOfDay);
 
     if (data != null) {
-      _onHealthDataUpdate!(data);
+      // Safe call with null check
+      final callback = _onHealthDataUpdate;
+      callback?.call(data);
     }
   }
 
@@ -160,6 +162,7 @@ class AppleHealthService {
         _getHeartRateVariability(startDate, endDate),
       ]);
 
+      // Safely cast results - all methods return int?, Map?, or List?
       final steps = results[0] as int?;
       final activeCalories = results[1] as int?;
       final heartRate = results[2] as int?;
@@ -509,5 +512,6 @@ class AppleHealthService {
   /// Dispose resources
   void dispose() {
     _healthUpdateSubscription?.cancel();
+    _onHealthDataUpdate = null;
   }
 }
