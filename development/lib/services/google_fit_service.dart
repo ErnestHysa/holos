@@ -474,5 +474,7 @@ class GoogleFitService {
   /// Dispose resources
   void dispose() {
     _healthUpdateSubscription?.cancel();
+    _healthUpdateSubscription = null;
+    _onHealthDataUpdate = null;
   }
 }

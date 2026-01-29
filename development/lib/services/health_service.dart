@@ -20,13 +20,28 @@ class HealthService {
   SamsungHealthService? _samsungHealthService;
 
   // Health data change stream controller
-  final StreamController<HealthData> _healthDataController =
+  StreamController<HealthData> _healthDataController =
       StreamController<HealthData>.broadcast();
 
   Stream<HealthData> get healthDataStream => _healthDataController.stream;
 
   // Track stream controller state to prevent double-close
   bool _controllerClosed = false;
+
+  // Prevent multiple observer registrations
+  bool _observersInitialized = false;
+
+  void _ensureControllerOpen() {
+    if (_controllerClosed) {
+      _healthDataController = StreamController<HealthData>.broadcast();
+      _controllerClosed = false;
+    }
+  }
+
+  void _emitHealthData(HealthData data) {
+    if (_controllerClosed) return;
+    _healthDataController.add(data);
+  }
 
   // Supported platforms on this device
   Set<HealthPlatform> _supportedPlatforms = {};
@@ -37,6 +52,9 @@ class HealthService {
 
   /// Initialize health service - detect available platforms
   Future<void> initialize() async {
+    _supportedPlatforms.clear();
+    _connectedPlatforms.clear();
+
     if (Platform.isIOS) {
       _appleHealthService = AppleHealthService();
       _supportedPlatforms.add(HealthPlatform.appleHealth);
@@ -56,18 +74,36 @@ class HealthService {
         debugPrint('Samsung Health not available: $e');
       }
     }
+
+    // Populate connected platforms based on current permission state
+    for (final platform in _supportedPlatforms) {
+      await hasPermission(platform);
+    }
   }
 
   /// Check if permissions are granted for a platform
   Future<bool> hasPermission(HealthPlatform platform) async {
+    final bool hasPermission;
+
     switch (platform) {
       case HealthPlatform.appleHealth:
-        return await _appleHealthService?.hasPermission() ?? false;
+        hasPermission = await _appleHealthService?.hasPermission() ?? false;
+        break;
       case HealthPlatform.googleFit:
-        return await _googleFitService?.hasPermission() ?? false;
+        hasPermission = await _googleFitService?.hasPermission() ?? false;
+        break;
       case HealthPlatform.samsungHealth:
-        return await _samsungHealthService?.hasPermission() ?? false;
+        hasPermission = await _samsungHealthService?.hasPermission() ?? false;
+        break;
     }
+
+    if (hasPermission) {
+      _connectedPlatforms.add(platform);
+    } else {
+      _connectedPlatforms.remove(platform);
+    }
+
+    return hasPermission;
   }
 
   /// Request permissions for a specific platform
@@ -93,6 +129,8 @@ class HealthService {
 
       if (granted) {
         _connectedPlatforms.add(platform);
+      } else {
+        _connectedPlatforms.remove(platform);
       }
 
       return granted;
@@ -166,7 +204,7 @@ class HealthService {
       // Aggregate data from all platforms
       if (dataList.isNotEmpty) {
         aggregatedData = _aggregateHealthData(dataList, startOfDay);
-        _healthDataController.add(aggregatedData);
+        _emitHealthData(aggregatedData);
       }
 
       return aggregatedData;
@@ -225,31 +263,28 @@ class HealthService {
   /// Uses platform-specific observers for real-time updates
   /// Returns a StreamSubscription that should be cancelled when done
   StreamSubscription<HealthData> subscribeToUpdates(Function(HealthData) onUpdate) {
-    final subscription = _healthDataController.stream.listen(onUpdate);
+    _ensureControllerOpen();
 
-    // Set up platform-specific observers
-    if (Platform.isIOS) {
-      _appleHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
-    } else if (Platform.isAndroid) {
-      _googleFitService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
+    if (!_observersInitialized) {
+      _observersInitialized = true;
 
-      _samsungHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
+      // Set up platform-specific observers
+      if (Platform.isIOS) {
+        _appleHealthService?.subscribeToUpdates(_emitHealthData);
+      } else if (Platform.isAndroid) {
+        _googleFitService?.subscribeToUpdates(_emitHealthData);
+        _samsungHealthService?.subscribeToUpdates(_emitHealthData);
+      }
     }
 
-    return subscription;
+    return _healthDataController.stream.listen(onUpdate);
   }
 
   /// Unsubscribe from health data updates
   void unsubscribeFromUpdates() {
     if (!_controllerClosed) {
-      _healthDataController.close();
       _controllerClosed = true;
+      _healthDataController.close();
     }
   }
 
@@ -411,6 +446,12 @@ class HealthService {
   /// Dispose resources
   void dispose() {
     unsubscribeFromUpdates();
+
+    _appleHealthService?.dispose();
+    _googleFitService?.dispose();
+    _samsungHealthService?.dispose();
+
+    _observersInitialized = false;
   }
 }
 
