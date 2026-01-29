@@ -46,6 +46,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   Future<void> _initializeScreen() async {
     await _healthService.initialize();
+    if (!mounted) return;
 
     // Check if any platform is connected
     setState(() {
@@ -54,8 +55,10 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
     if (_hasPermission) {
       await _loadHealthData();
+      if (!mounted) return;
       _subscribeToUpdates();
     } else {
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
   }
@@ -69,7 +72,8 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
       // Fetch weekly data if needed
       List<HealthData>? weeklyData;
-      if (_selectedTimeFilter == 'Last 7 days' || _selectedTimeFilter == 'Last 30 days') {
+      if (_selectedTimeFilter == 'Last 7 days' ||
+          _selectedTimeFilter == 'Last 30 days') {
         final now = DateTime.now();
         final days = _selectedTimeFilter == 'Last 7 days' ? 7 : 30;
         final startDate = now.subtract(Duration(days: days));
@@ -80,6 +84,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         );
       }
 
+      if (!mounted) return;
       setState(() {
         _healthData = todayData;
         _weeklyData = weeklyData;
@@ -87,6 +92,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       });
     } catch (e) {
       debugPrint('Error loading health data: $e');
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
   }
@@ -109,6 +115,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
     try {
       final data = await _healthService.syncNow(userId: 'current_user');
+      if (!mounted) return;
 
       setState(() {
         _healthData = data;
@@ -119,7 +126,9 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              data != null ? 'Health data synced successfully!' : 'No new data to sync',
+              data != null
+                  ? 'Health data synced successfully!'
+                  : 'No new data to sync',
             ),
             backgroundColor: AppColors.success,
             duration: const Duration(seconds: 2),
@@ -128,14 +137,16 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       }
     } catch (e) {
       debugPrint('Error syncing health data: $e');
+      if (!mounted) return;
+
       setState(() => _isSyncing = false);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Failed to sync health data'),
             backgroundColor: AppColors.error,
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
           ),
         );
       }

@@ -51,8 +51,8 @@ class SamsungHealthService {
     }
 
     try {
-      // Check if we can request permissions (Samsung Health installed)
-      final bool hasPermissions = await _health.hasPermissions(_dataTypes, permissions: _permissions) ?? false;
+      // If this call succeeds, the integration is available.
+      await _health.hasPermissions(_dataTypes, permissions: _permissions);
       _isAvailable = true;
       return _isAvailable;
     } catch (e) {
@@ -379,7 +379,7 @@ class SamsungHealthService {
   }
 
   /// Subscribe to health data updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
+  void subscribeToUpdates(void Function(HealthData) onUpdate) {
     // The health package doesn't support real-time updates
     // You would need to poll for updates
     debugPrint('Samsung Health subscribeToUpdates: polling for updates');
