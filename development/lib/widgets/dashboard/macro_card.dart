@@ -13,12 +13,12 @@ class MacroCard extends StatelessWidget {
   final double progress;
 
   const MacroCard({
-    Key? key,
+    super.key,
     required this.label,
     required this.current,
     required this.target,
     required this.progress,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

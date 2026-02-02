@@ -11,7 +11,7 @@ import '../../widgets/food_log/meal_card.dart';
 /// Food log screen - Track daily meals and nutrition
 /// Mapped from mockup: 02-nutrition-insights.png
 class FoodLogScreen extends StatefulWidget {
-  const FoodLogScreen({Key? key}) : super(key: key);
+  const FoodLogScreen({super.key});
 
   @override
   State<FoodLogScreen> createState() => _FoodLogScreenState();
@@ -183,7 +183,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     AppStrings.todaysTotal,
                     style: AppTextStyles.caption,
                   ),
@@ -219,7 +219,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
         icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
         onPressed: () => context.pop(),
       ),
-      title: Row(
+      title: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
@@ -234,7 +234,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
           margin: const EdgeInsets.only(right: 16),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: AppColors.accentAmber.withOpacity( 0.15),
+            color: AppColors.accentAmber.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(

@@ -14,14 +14,14 @@ class MealCard extends StatelessWidget {
   final ValueChanged<bool?>? onChanged;
 
   const MealCard({
-    Key? key,
+    super.key,
     required this.emoji,
     required this.name,
     required this.macros,
     required this.time,
     this.isChecked = false,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

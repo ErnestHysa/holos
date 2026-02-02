@@ -70,6 +70,17 @@ class Workout {
     required this.caloriesBurned,
   });
 
+  factory Workout.fromJson(Map<String, dynamic> json) {
+    return Workout(
+      id: json['id'] as String,
+      type: json['type'] as String,
+      startTime: DateTime.parse(json['startTime'] as String),
+      endTime: json['endTime'] != null ? DateTime.parse(json['endTime'] as String) : null,
+      duration: json['duration'] as int,
+      caloriesBurned: json['caloriesBurned'] as int,
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,

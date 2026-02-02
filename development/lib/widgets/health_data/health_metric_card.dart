@@ -14,13 +14,13 @@ class HealthMetricCard extends StatelessWidget {
   final VoidCallback? onSeeDetails;
 
   const HealthMetricCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.iconEmoji,
     required this.progress,
     required this.items,
     this.onSeeDetails,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class HealthMetricCard extends StatelessWidget {
 class _MetricItemRow extends StatelessWidget {
   final MetricItem item;
 
-  const _MetricItemRow({Key? key, required this.item}) : super(key: key);
+  const _MetricItemRow({required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +133,7 @@ class DetailedHealthMetricCard extends StatelessWidget {
   final VoidCallback? onSeeDetails;
 
   const DetailedHealthMetricCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.iconEmoji,
     required this.progress,
@@ -141,7 +141,7 @@ class DetailedHealthMetricCard extends StatelessWidget {
     required this.mainLabel,
     required this.items,
     this.onSeeDetails,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

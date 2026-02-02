@@ -11,7 +11,7 @@ import '../../widgets/common/secondary_button.dart';
 /// Health connection screen for onboarding step 1
 /// Mapped from mockup: 16-onboarding-step1.png
 class HealthConnectionScreen extends StatefulWidget {
-  const HealthConnectionScreen({Key? key}) : super(key: key);
+  const HealthConnectionScreen({super.key});
 
   @override
   State<HealthConnectionScreen> createState() => _HealthConnectionScreenState();
@@ -91,7 +91,7 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
           _showHealthConnectDialog();
         }
         return false;
-      })) ?? false;
+      }));
 
       if (granted) {
         // Connection successful
@@ -196,11 +196,11 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
                         decoration: BoxDecoration(
                           color: AppColors.cardBackground,
                           borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: AppColors.cardShadow,
                               blurRadius: 8,
-                              offset: const Offset(0, 2),
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
@@ -224,7 +224,7 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
               // Header
-              Text(
+              const Text(
                 AppStrings.connectHealthData,
                 style: AppTextStyles.headline2,
               ),
@@ -349,11 +349,10 @@ class _PlatformCard extends StatelessWidget {
   final VoidCallback onConnect;
 
   const _PlatformCard({
-    Key? key,
     required this.platform,
     required this.state,
     required this.onConnect,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -370,11 +369,11 @@ class _PlatformCard extends StatelessWidget {
             color: isConnected ? AppColors.primaryGreen : Colors.transparent,
             width: 2,
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: AppColors.cardShadow,
               blurRadius: 16,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
             ),
           ],
         ),
@@ -421,7 +420,7 @@ class _PlatformCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: AppColors.primaryGreen.withOpacity(0.1),
+                    color: AppColors.primaryGreen.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(
@@ -444,12 +443,12 @@ class _PlatformCard extends StatelessWidget {
                   ),
                 )
               else if (isConnecting)
-                SizedBox(
+                const SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    valueColor: const AlwaysStoppedAnimation<Color>(
+                    valueColor: AlwaysStoppedAnimation<Color>(
                       AppColors.textSecondary,
                     ),
                   ),
@@ -484,11 +483,10 @@ class _PrivacyCheckbox extends StatelessWidget {
   final ValueChanged<bool?> onChanged;
 
   const _PrivacyCheckbox({
-    Key? key,
     required this.label,
     required this.value,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

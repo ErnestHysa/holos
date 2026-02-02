@@ -13,7 +13,7 @@ import '../../widgets/dashboard/macro_card.dart';
 /// Dashboard screen - Main app entry point
 /// Mapped from mockup: 01-dashboard.png
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+  const DashboardScreen({super.key});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -133,7 +133,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Container(
             width: 32,
             height: 32,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.primaryGreen,
               shape: BoxShape.circle,
             ),
@@ -144,7 +144,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ),
           const SizedBox(width: 8),
-          Text(
+          const Text(
             AppStrings.appName,
             style: AppTextStyles.headline3,
           ),
@@ -158,10 +158,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             onTap: () {
               // TODO: Navigate to profile/settings
             },
-            child: CircleAvatar(
+            child: const CircleAvatar(
               radius: 20,
               backgroundColor: AppColors.primaryGreen,
-              child: const Text(
+              child: Text(
                 'E',
                 style: TextStyle(
                   color: Colors.white,

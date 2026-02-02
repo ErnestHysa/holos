@@ -12,14 +12,14 @@ class BaseCard extends StatelessWidget {
   final Color? backgroundColor;
 
   const BaseCard({
-    Key? key,
+    super.key,
     required this.child,
     this.padding = const EdgeInsets.all(16),
     this.margin,
     this.onTap,
     this.borderRadius,
     this.backgroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,11 @@ class BaseCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.cardBackground,
         borderRadius: BorderRadius.circular(borderRadius ?? 16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.cardShadow,
             blurRadius: 16,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
             spreadRadius: 0,
           ),
         ],

@@ -26,8 +26,8 @@ class HealthService {
   Stream<HealthData> get healthDataStream => _healthDataController.stream;
 
   // Supported platforms on this device
-  Set<HealthPlatform> _supportedPlatforms = {};
-  Set<HealthPlatform> _connectedPlatforms = {};
+  final Set<HealthPlatform> _supportedPlatforms = {};
+  final Set<HealthPlatform> _connectedPlatforms = {};
 
   Set<HealthPlatform> get supportedPlatforms => _supportedPlatforms;
   Set<HealthPlatform> get connectedPlatforms => _connectedPlatforms;
@@ -281,35 +281,26 @@ class HealthService {
   ) {
     // Use non-null values from any platform
     // For steps, use the maximum value
-    int? steps = dataList
-        .map((d) => d.steps)
-        .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final stepsValues = dataList.map((d) => d.steps).where((s) => s != null).cast<int>().toList();
+    int? steps = stepsValues.isNotEmpty ? stepsValues.reduce((a, b) => a > b ? a : b) : null;
 
     // For sleep, use the maximum duration
-    double? sleepDuration = dataList
-        .map((d) => d.sleepDuration)
-        .where((s) => s != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final sleepValues = dataList.map((d) => d.sleepDuration).where((s) => s != null).cast<double>().toList();
+    double? sleepDuration = sleepValues.isNotEmpty ? sleepValues.reduce((a, b) => a > b ? a : b) : null;
 
     // For heart rate, use the average
     int? avgHeartRate;
-    final hrValues =
-        dataList.map((d) => d.avgHeartRate).where((h) => h != null).toList();
+    final hrValues = dataList.map((d) => d.avgHeartRate).where((h) => h != null).cast<int>().toList();
     if (hrValues.isNotEmpty) {
-      avgHeartRate = hrValues.reduce((a, b) => a! + b!)! ~/ hrValues.length;
+      avgHeartRate = hrValues.reduce((a, b) => a + b) ~/ hrValues.length;
     }
 
     // For calories, use the maximum
-    int? activeCalories = dataList
-        .map((d) => d.activeCalories)
-        .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final activeCalorieValues = dataList.map((d) => d.activeCalories).where((c) => c != null).cast<int>().toList();
+    int? activeCalories = activeCalorieValues.isNotEmpty ? activeCalorieValues.reduce((a, b) => a > b ? a : b) : null;
 
-    int? totalCalories = dataList
-        .map((d) => d.totalCaloriesBurned)
-        .where((c) => c != null)
-        .reduce((a, b) => (a! > b!) ? a : b);
+    final totalCalorieValues = dataList.map((d) => d.totalCaloriesBurned).where((c) => c != null).cast<int>().toList();
+    int? totalCalories = totalCalorieValues.isNotEmpty ? totalCalorieValues.reduce((a, b) => a > b ? a : b) : null;
 
     // For sleep quality and deep sleep, use the first non-null value
     double? sleepQuality = dataList

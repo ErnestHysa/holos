@@ -9,7 +9,7 @@ import '../../widgets/common/primary_button.dart';
 /// Goal selection screen for onboarding
 /// Mapped from mockup: 07-onboarding-goal.png
 class GoalSelectionScreen extends StatefulWidget {
-  const GoalSelectionScreen({Key? key}) : super(key: key);
+  const GoalSelectionScreen({super.key});
 
   @override
   State<GoalSelectionScreen> createState() => _GoalSelectionScreenState();
@@ -80,7 +80,7 @@ class _GoalSelectionScreenState extends State<GoalSelectionScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Header
-              Text(
+              const Text(
                 AppStrings.whatIsYourGoal,
                 style: AppTextStyles.headline2,
               ),
@@ -128,11 +128,10 @@ class _GoalCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const _GoalCard({
-    Key? key,
     required this.goal,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -146,11 +145,11 @@ class _GoalCard extends StatelessWidget {
             color: isSelected ? AppColors.primaryGreen : Colors.transparent,
             width: 2,
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: AppColors.cardShadow,
               blurRadius: 16,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
             ),
           ],
         ),

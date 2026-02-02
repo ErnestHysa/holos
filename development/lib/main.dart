@@ -32,7 +32,7 @@ void main() async {
 }
 
 class HolosApp extends StatelessWidget {
-  const HolosApp({Key? key}) : super(key: key);
+  const HolosApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class HolosApp extends StatelessWidget {
         ),
         useMaterial3: true,
         scaffoldBackgroundColor: AppColors.background,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           backgroundColor: AppColors.cardBackground,
           elevation: 0,
           centerTitle: true,
@@ -67,7 +67,7 @@ class HolosApp extends StatelessWidget {
             ),
           ),
         ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           headlineLarge: AppTextStyles.headline1,
           headlineMedium: AppTextStyles.headline2,
           titleMedium: AppTextStyles.headline3,
@@ -162,13 +162,13 @@ class HolosApp extends StatelessWidget {
           // Additional routes (to be added later)
           // '/settings',
         ],
-        errorBuilder: (context, state) => Scaffold(
+        errorBuilder: (context, state) => const Scaffold(
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.error_outline, size: 64, color: AppColors.error),
-                const SizedBox(height: 16),
+                Icon(Icons.error_outline, size: 64, color: AppColors.error),
+                SizedBox(height: 16),
                 Text(
                   'Page not found',
                   style: AppTextStyles.body,

@@ -12,13 +12,13 @@ class ProgressBar extends StatelessWidget {
   final Color? color;
 
   const ProgressBar({
-    Key? key,
+    super.key,
     required this.value,
     this.label,
     this.width = 280,
     this.height = 12,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

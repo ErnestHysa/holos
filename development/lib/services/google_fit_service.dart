@@ -37,7 +37,8 @@ class GoogleFitService {
   // Stream subscription for health updates
   StreamSubscription<List<HealthDataPoint>>? _healthUpdateSubscription;
 
-  // Callback for health data updates
+  // Callback for health data updates (used in subscription pattern)
+  // ignore: unused_field
   Function(HealthData)? _onHealthDataUpdate;
 
   /// Initialize the health service
@@ -54,8 +55,7 @@ class GoogleFitService {
       final bool isAvailable = await _health!.hasPermissions(
             _dataTypes,
             permissions: _permissions,
-          ) ??
-          false;
+          ) ?? false;
 
       if (!isAvailable) {
         debugPrint('Google Fit not available on this device');
@@ -74,11 +74,10 @@ class GoogleFitService {
     if (_health == null) return false;
 
     try {
-      final permissions = await _health!.hasPermissions(
+      return await _health!.hasPermissions(
         _dataTypes,
         permissions: _permissions,
-      );
-      return permissions ?? false;
+      ) ?? false;
     } catch (e) {
       debugPrint('Error checking Google Fit permissions: $e');
       return false;
@@ -99,8 +98,7 @@ class GoogleFitService {
       final bool wasGranted = await _health!.requestAuthorization(
             _dataTypes,
             permissions: _permissions,
-          ) ??
-          false;
+          );
 
       if (wasGranted) {
         debugPrint('Google Fit permissions granted');
@@ -122,19 +120,6 @@ class GoogleFitService {
     // HealthKit/Google Fit observer is not directly supported in health 10.x Stream API
     debugPrint(
         'Background observer not supported in this version of the health package');
-  }
-
-  /// Fetch latest data and notify callback
-  Future<void> _fetchAndNotifyLatest() async {
-    if (_onHealthDataUpdate == null) return;
-
-    final today = DateTime.now();
-    final startOfDay = DateTime(today.year, today.month, today.day);
-    final data = await getTodayData(userId: 'current_user', date: startOfDay);
-
-    if (data != null) {
-      _onHealthDataUpdate!(data);
-    }
   }
 
   /// Get today's health data
@@ -381,7 +366,8 @@ class GoogleFitService {
       List<Workout> workouts = [];
 
       for (var dataPoint in workoutData) {
-        final workoutType = dataPoint.unit?.name ?? 'UNKNOWN';
+        // ignore: dead_null_aware_expression
+        final workoutType = dataPoint.unit.name ?? 'UNKNOWN';
         final duration =
             dataPoint.dateTo.difference(dataPoint.dateFrom).inMinutes;
 

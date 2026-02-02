@@ -11,7 +11,7 @@ import '../../widgets/common/secondary_button.dart';
 /// Meal planner screen - Adaptive meal planning for the week
 /// Mapped from mockup: 13-meal-schedule.png
 class MealPlannerScreen extends StatefulWidget {
-  const MealPlannerScreen({Key? key}) : super(key: key);
+  const MealPlannerScreen({super.key});
 
   @override
   State<MealPlannerScreen> createState() => _MealPlannerScreenState();
@@ -188,7 +188,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Edit Meal',
               style: AppTextStyles.headline3,
             ),
@@ -304,7 +304,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
         icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
         onPressed: () => context.pop(),
       ),
-      title: Text(
+      title: const Text(
         'Meal Planner',
         style: AppTextStyles.headline3,
       ),
@@ -338,18 +338,18 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                 children: [
                   Text(
                     _getDayName(dayDate),
-                  style: AppTextStyles.label.copyWith(
-                    color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+                    style: AppTextStyles.label.copyWith(
+                      color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary,
+                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+                    ),
                   ),
-                ),
                   const SizedBox(height: 4),
                   Text(
                     '${dayDate.day}',
-                  style: AppTextStyles.body.copyWith(
-                    color: isSelected ? AppColors.primaryGreen : AppColors.textPrimary,
-                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                  ),
+                    style: AppTextStyles.body.copyWith(
+                      color: isSelected ? AppColors.primaryGreen : AppColors.textPrimary,
+                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    ),
                   ),
                   const SizedBox(height: 4),
                   if (hasPlan)
@@ -400,7 +400,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
           Row(
             children: [
               Expanded(
-                child: _MacroSummary(
+                child: _macroSummary(
                   label: 'Calories',
                   current: plan.totalCalories,
                   target: 2000,
@@ -408,7 +408,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
               ),
               const SizedBox(width: 24),
               Expanded(
-                child: _MacroSummary(
+                child: _macroSummary(
                   label: 'Protein',
                   current: plan.totalProtein.toInt(),
                   target: 150,
@@ -463,15 +463,15 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: isAI && isPlanned
-                ? AppColors.secondaryBlue.withOpacity( 0.3)
+                ? AppColors.secondaryBlue.withValues(alpha: 0.3)
                 : Colors.transparent,
             width: 1,
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: AppColors.cardShadow,
               blurRadius: 8,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
             ),
           ],
         ),
@@ -526,10 +526,10 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                 Icon(
                   Icons.auto_awesome,
                   size: 16,
-                  color: AppColors.secondaryBlue.withOpacity( 0.7),
+                  color: AppColors.secondaryBlue.withValues(alpha: 0.7),
                 ),
               if (!isPlanned)
-                Icon(
+                const Icon(
                   Icons.add_circle_outline,
                   size: 20,
                   color: AppColors.primaryGreen,
@@ -541,7 +541,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     );
   }
 
-  Widget _MacroSummary({required String label, required int current, required int target}) {
+  Widget _macroSummary({required String label, required int current, required int target}) {
     final progress = (current / target).clamp(0.0, 1.0);
 
     return Column(
@@ -559,9 +559,9 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
         const SizedBox(height: 8),
         Container(
           height: 4,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColors.progressBackground,
-            borderRadius: BorderRadius.circular(2),
+            borderRadius: BorderRadius.all(Radius.circular(2)),
           ),
           child: FractionallySizedBox(
             widthFactor: progress,

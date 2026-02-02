@@ -10,7 +10,7 @@ import '../../widgets/common/secondary_button.dart';
 /// Notifications screen - Proactive meal suggestions
 /// Mapped from mockup: 12-notifications.png
 class NotificationsScreen extends StatefulWidget {
-  const NotificationsScreen({Key? key}) : super(key: key);
+  const NotificationsScreen({super.key});
 
   @override
   State<NotificationsScreen> createState() => _NotificationsScreenState();
@@ -19,7 +19,7 @@ class NotificationsScreen extends StatefulWidget {
 class _NotificationsScreenState extends State<NotificationsScreen> {
   // Mock notifications data
   final List<NotificationItem> _notifications = [
-    NotificationItem(
+    const NotificationItem(
       id: 'notif1',
       time: '8:30 AM',
       type: 'Wake-up Breakfast',
@@ -29,7 +29,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       macros: '450 kcal | P:15g C:60g F:8g',
       isRead: false,
     ),
-    NotificationItem(
+    const NotificationItem(
       id: 'notif2',
       time: '12:00 PM',
       type: 'Lunch Suggestion',
@@ -39,7 +39,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       macros: '550 kcal | P:45g C:20g F:25g',
       isRead: false,
     ),
-    NotificationItem(
+    const NotificationItem(
       id: 'notif3',
       time: '7:00 PM',
       type: 'Dinner Suggestion',
@@ -122,7 +122,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
         onPressed: () => context.pop(),
       ),
-      title: Text(
+      title: const Text(
         'Notifications',
         style: AppTextStyles.headline3,
       ),
@@ -156,7 +156,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.notifications_none_outlined,
               size: 64,
               color: AppColors.textSecondary,
@@ -169,7 +169,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
+            const Text(
               'Meal suggestions will appear here',
               style: AppTextStyles.caption,
             ),
@@ -214,7 +214,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Notification Settings',
                     style: AppTextStyles.headline3,
                   ),
@@ -260,7 +260,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               const SizedBox(height: 16),
 
               // Daily limit
-              Text(
+              const Text(
                 'Daily Limit',
                 style: AppTextStyles.caption,
               ),
@@ -281,12 +281,12 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                           });
                         }
                       },
-                      selectedColor: AppColors.primaryGreen.withOpacity( 0.2),
+                      selectedColor: AppColors.primaryGreen.withValues(alpha: 0.2),
                       labelStyle: AppTextStyles.caption,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                         side: BorderSide(
-                          color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary.withOpacity( 0.3),
+                          color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary.withValues(alpha: 0.3),
                         ),
                       ),
                     ),
@@ -360,12 +360,11 @@ class _NotificationCard extends StatelessWidget {
   final VoidCallback onDismiss;
 
   const _NotificationCard({
-    Key? key,
     required this.notification,
     required this.onAddToLog,
     required this.onViewRecipe,
     required this.onDismiss,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -380,7 +379,7 @@ class _NotificationCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppColors.primaryGreen.withOpacity( 0.15),
+                  color: AppColors.primaryGreen.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -401,7 +400,7 @@ class _NotificationCard extends StatelessWidget {
               const SizedBox(width: 8),
               GestureDetector(
                 onTap: onDismiss,
-                child: Icon(
+                child: const Icon(
                   Icons.close,
                   size: 16,
                   color: AppColors.textSecondary,

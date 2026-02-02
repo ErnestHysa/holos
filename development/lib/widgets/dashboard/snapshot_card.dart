@@ -10,11 +10,11 @@ class SnapshotCard extends StatelessWidget {
   final double progress;
 
   const SnapshotCard({
-    Key? key,
+    super.key,
     required this.label,
     required this.value,
     required this.progress,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

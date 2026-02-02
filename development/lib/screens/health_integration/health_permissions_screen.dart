@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart'; // For iOS-style icons
 import 'package:go_router/go_router.dart';
 import '../../config/colors.dart';
 import '../../config/fonts.dart';
 import '../../config/spacing.dart';
-import '../../config/strings.dart';
 import '../../services/health_service.dart';
 import '../../widgets/common/base_card.dart';
 import '../../widgets/common/primary_button.dart';
-import '../../widgets/common/secondary_button.dart';
 
 /// Health Permissions Screen - Request health app access
 /// Extension of onboarding flow for connecting health platforms
 class HealthPermissionsScreen extends StatefulWidget {
-  const HealthPermissionsScreen({Key? key}) : super(key: key);
+  const HealthPermissionsScreen({super.key});
 
   @override
   State<HealthPermissionsScreen> createState() =>
@@ -34,8 +31,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   bool _isSamsungHealthConnected = false;
 
   // Loading states
-  bool _isConnecting = false;
-  Set<HealthPlatform> _connectingPlatforms = {};
+  final Set<HealthPlatform> _connectingPlatforms = {};
 
   // Supported platforms
   Set<HealthPlatform> _supportedPlatforms = {};
@@ -200,7 +196,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
           width: 64,
           height: 64,
           decoration: BoxDecoration(
-            color: AppColors.primaryGreen.withOpacity( 0.15),
+            color: AppColors.primaryGreen.withValues(alpha: 0.15),
             shape: BoxShape.circle,
           ),
           child: const Center(
@@ -214,7 +210,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
         const SizedBox(height: AppSpacing.lg),
 
         // Title
-        Text(
+        const Text(
           'Connect your health data',
           style: AppTextStyles.headline1,
         ),
@@ -238,7 +234,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
         children: [
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.info_outline,
                 color: AppColors.primaryGreen,
                 size: 20,
@@ -278,7 +274,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Select which health apps to connect:',
           style: AppTextStyles.headline3,
         ),
@@ -372,7 +368,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: AppColors.primaryGreen.withOpacity( 0.15),
+        color: AppColors.primaryGreen.withValues(alpha: 0.15),
         shape: BoxShape.circle,
       ),
       child: const Center(
@@ -390,7 +386,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: Colors.blue.withOpacity( 0.15),
+        color: Colors.blue.withValues(alpha: 0.15),
         shape: BoxShape.circle,
       ),
       child: const Center(
@@ -508,13 +504,13 @@ class _PlatformToggleCardState extends State<_PlatformToggleCard> {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.success.withOpacity( 0.15),
+                    color: AppColors.success.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.check_circle,
                         size: 12,
                         color: AppColors.success,
@@ -530,7 +526,7 @@ class _PlatformToggleCardState extends State<_PlatformToggleCard> {
                   ),
                 )
               else if (widget.isConnecting)
-                SizedBox(
+                const SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(

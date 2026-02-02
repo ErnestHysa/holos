@@ -52,8 +52,7 @@ class SamsungHealthService {
 
     try {
       // Check if we can request permissions (Samsung Health installed)
-      final bool hasPermissions = await _health.hasPermissions(_dataTypes, permissions: _permissions) ?? false;
-      _isAvailable = true;
+      _isAvailable = await _health.hasPermissions(_dataTypes, permissions: _permissions) ?? false;
       return _isAvailable;
     } catch (e) {
       debugPrint('Samsung Health not available: $e');
@@ -85,9 +84,9 @@ class SamsungHealthService {
 
     try {
       // Request permissions from Samsung Health
-      final bool granted = await _health.requestAuthorization(_dataTypes, permissions: _permissions) ?? false;
+      final bool granted = await _health.requestAuthorization(_dataTypes, permissions: _permissions);
 
-      if (granted) {
+      if (granted == true) {
         _isConnected = true;
         _connectionStatusController.add(true);
         debugPrint('Samsung Health connected successfully!');
@@ -95,13 +94,17 @@ class SamsungHealthService {
         _isConnected = false;
         _connectionStatusController.add(false);
         debugPrint('Samsung Health permission denied');
-        _showConnectionHelp(context);
+        if (context.mounted) {
+          _showConnectionHelp(context);
+        }
       }
 
       return _isConnected;
     } catch (e) {
       debugPrint('Error requesting Samsung Health permissions: $e');
-      _showConnectionHelp(context);
+      if (context.mounted) {
+        _showConnectionHelp(context);
+      }
       return false;
     }
   }
@@ -269,15 +272,11 @@ class SamsungHealthService {
           if (data.type == HealthDataType.SLEEP_ASLEEP) {
             final sleepEnd = data.dateTo;
             final sleepStart = data.dateFrom;
-            if (sleepEnd != null && sleepStart != null) {
-              totalSleepMinutes += sleepEnd.difference(sleepStart).inMinutes;
-            }
+            totalSleepMinutes += sleepEnd.difference(sleepStart).inMinutes;
           } else if (data.type == HealthDataType.SLEEP_DEEP) {
             final sleepEnd = data.dateTo;
             final sleepStart = data.dateFrom;
-            if (sleepEnd != null && sleepStart != null) {
-              deepSleepMinutes += sleepEnd.difference(sleepStart).inMinutes;
-            }
+            deepSleepMinutes += sleepEnd.difference(sleepStart).inMinutes;
           }
         }
 

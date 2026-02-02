@@ -48,6 +48,7 @@ class EdamamService {
     final uri = Uri.https('api.edamam.com', '/api/food-database/v2/nutrients', {
       'app_id': appId,
       'app_key': appKey,
+      'upc': foodId, // Use upc parameter for barcode/foodId lookup
     });
 
     final response = await http.get(uri);

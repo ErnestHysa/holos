@@ -9,7 +9,7 @@ import '../../widgets/common/primary_button.dart';
 /// Dietary preferences screen for onboarding step 2
 /// Mapped from mockup: 17-onboarding-step2.png
 class DietaryPreferencesScreen extends StatefulWidget {
-  const DietaryPreferencesScreen({Key? key}) : super(key: key);
+  const DietaryPreferencesScreen({super.key});
 
   @override
   State<DietaryPreferencesScreen> createState() => _DietaryPreferencesScreenState();
@@ -97,11 +97,11 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                         decoration: BoxDecoration(
                           color: AppColors.cardBackground,
                           borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: AppColors.cardShadow,
                               blurRadius: 8,
-                              offset: const Offset(0, 2),
+                              offset: Offset(0, 2),
                             ),
                           ],
                         ),
@@ -125,7 +125,7 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Header
-                    Text(
+                    const Text(
                       AppStrings.dietaryPreferencesTitle,
                       style: AppTextStyles.headline2,
                     ),
@@ -159,7 +159,7 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                           onTap: () => _toggleRestriction(restriction),
                         ),
                       );
-                    }).toList(),
+                    }),
 
                     const SizedBox(height: 8),
 
@@ -174,13 +174,13 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                           border: Border.all(
                             color: _isNoneSelectedForRestrictions
                                 ? AppColors.primaryGreen
-                                : AppColors.textSecondary.withOpacity(0.3),
+                                : AppColors.textSecondary.withValues(alpha: 0.3),
                             width: _isNoneSelectedForRestrictions ? 2 : 1,
                           ),
                           boxShadow: _isNoneSelectedForRestrictions
                               ? [
                                   BoxShadow(
-                                    color: AppColors.primaryGreen.withOpacity(0.3),
+                                    color: AppColors.primaryGreen.withValues(alpha: 0.3),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -222,7 +222,7 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Text(
+                    const Text(
                       AppStrings.allergensSubtitle,
                       style: AppTextStyles.caption,
                     ),
@@ -255,13 +255,13 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
                           border: Border.all(
                             color: _isNoneSelectedForAllergens
                                 ? AppColors.primaryGreen
-                                : AppColors.textSecondary.withOpacity(0.3),
+                                : AppColors.textSecondary.withValues(alpha: 0.3),
                             width: _isNoneSelectedForAllergens ? 2 : 1,
                           ),
                           boxShadow: _isNoneSelectedForAllergens
                               ? [
                                   BoxShadow(
-                                    color: AppColors.primaryGreen.withOpacity(0.3),
+                                    color: AppColors.primaryGreen.withValues(alpha: 0.3),
                                     blurRadius: 8,
                                     offset: const Offset(0, 2),
                                   ),
@@ -321,11 +321,10 @@ class _DietaryRestrictionCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const _DietaryRestrictionCard({
-    Key? key,
     required this.restriction,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -339,11 +338,11 @@ class _DietaryRestrictionCard extends StatelessWidget {
             color: isSelected ? AppColors.primaryGreen : Colors.transparent,
             width: 2,
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: AppColors.cardShadow,
               blurRadius: 16,
-              offset: const Offset(0, 2),
+              offset: Offset(0, 2),
             ),
           ],
         ),
@@ -358,7 +357,7 @@ class _DietaryRestrictionCard extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: restriction.iconBackgroundColor.withOpacity(0.2),
+                  color: restriction.iconBackgroundColor.withValues(alpha: 0.2),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -416,11 +415,10 @@ class _AllergenChip extends StatelessWidget {
   final VoidCallback onTap;
 
   const _AllergenChip({
-    Key? key,
     required this.allergen,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -433,13 +431,13 @@ class _AllergenChip extends StatelessWidget {
           color: isSelected ? AppColors.primaryGreen : AppColors.cardBackground,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(
-            color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary.withOpacity(0.3),
+            color: isSelected ? AppColors.primaryGreen : AppColors.textSecondary.withValues(alpha: 0.3),
             width: 1,
           ),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: AppColors.primaryGreen.withOpacity(0.3),
+                    color: AppColors.primaryGreen.withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),

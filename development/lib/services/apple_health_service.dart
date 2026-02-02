@@ -41,7 +41,8 @@ class AppleHealthService {
   // Stream subscription for health updates
   StreamSubscription<List<HealthDataPoint>>? _healthUpdateSubscription;
 
-  // Callback for health data updates
+  // Callback for health data updates (used in subscription pattern)
+  // ignore: unused_field
   Function(HealthData)? _onHealthDataUpdate;
 
   /// Initialize the health service
@@ -54,9 +55,10 @@ class AppleHealthService {
     _health = Health();
 
     // Check if health data is available on this device
-    final bool isAvailable =
-        await _health!.hasPermissions(_dataTypes, permissions: _permissions) ??
-            false;
+    final bool isAvailable = await _health!.hasPermissions(
+      _dataTypes,
+      permissions: _permissions,
+    ) ?? false;
 
     if (!isAvailable) {
       debugPrint('HealthKit not available on this device');
@@ -73,9 +75,10 @@ class AppleHealthService {
 
     try {
       // Try to get permissions status
-      final permissions =
-          await _health!.hasPermissions(_dataTypes, permissions: _permissions);
-      return permissions ?? false;
+      return await _health!.hasPermissions(
+        _dataTypes,
+        permissions: _permissions,
+      ) ?? false;
     } catch (e) {
       debugPrint('Error checking Apple Health permissions: $e');
       return false;
@@ -94,8 +97,7 @@ class AppleHealthService {
     try {
       // Request permissions for all data types
       final bool wasGranted = await _health!
-              .requestAuthorization(_dataTypes, permissions: _permissions) ??
-          false;
+              .requestAuthorization(_dataTypes, permissions: _permissions);
 
       if (wasGranted) {
         debugPrint('Apple Health permissions granted');
@@ -117,19 +119,6 @@ class AppleHealthService {
     // HealthKit observer is not directly supported in health 10.x Stream API
     debugPrint(
         'Background observer not supported in this version of the health package');
-  }
-
-  /// Fetch latest data and notify callback
-  Future<void> _fetchAndNotifyLatest() async {
-    if (_onHealthDataUpdate == null) return;
-
-    final today = DateTime.now();
-    final startOfDay = DateTime(today.year, today.month, today.day);
-    final data = await getTodayData(userId: 'current_user', date: startOfDay);
-
-    if (data != null) {
-      _onHealthDataUpdate!(data);
-    }
   }
 
   /// Get today's health data
@@ -412,7 +401,8 @@ class AppleHealthService {
       List<Workout> workouts = [];
 
       for (var dataPoint in workoutData) {
-        final workoutType = dataPoint.unit?.name ?? 'UNKNOWN';
+        // ignore: dead_null_aware_expression
+        final workoutType = dataPoint.unit.name ?? 'UNKNOWN';
         final duration =
             dataPoint.dateTo.difference(dataPoint.dateFrom).inMinutes;
 

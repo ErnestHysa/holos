@@ -10,7 +10,7 @@ import '../../widgets/common/primary_button.dart';
 /// Onboarding success screen - celebration screen
 /// Mapped from mockup: 20-onboarding-success.png
 class OnboardingSuccessScreen extends StatefulWidget {
-  const OnboardingSuccessScreen({Key? key}) : super(key: key);
+  const OnboardingSuccessScreen({super.key});
 
   @override
   State<OnboardingSuccessScreen> createState() => _OnboardingSuccessScreenState();
@@ -132,11 +132,11 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
                     decoration: BoxDecoration(
                       color: AppColors.cardBackground,
                       borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: AppColors.cardShadow,
                           blurRadius: 8,
-                          offset: const Offset(0, 2),
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
@@ -181,7 +181,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
                             width: 120,
                             height: 120,
                             decoration: BoxDecoration(
-                              color: AppColors.success.withOpacity(0.1),
+                              color: AppColors.success.withValues(alpha: 0.1),
                               shape: BoxShape.circle,
                             ),
                             child: Container(
@@ -191,7 +191,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: AppColors.success.withOpacity(0.4),
+                                    color: AppColors.success.withValues(alpha: 0.4),
                                     blurRadius: 24,
                                     spreadRadius: 8,
                                   ),
@@ -255,7 +255,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
                             padding: const EdgeInsets.all(24),
                             child: Column(
                               children: [
-                                Text(
+                                const Text(
                                   AppStrings.yourWellnessScore,
                                   style: AppTextStyles.caption,
                                 ),
@@ -277,7 +277,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
                                           color: AppColors.success,
                                           boxShadow: [
                                             BoxShadow(
-                                              color: AppColors.success.withOpacity(0.3),
+                                              color: AppColors.success.withValues(alpha: 0.3),
                                               blurRadius: 16,
                                               spreadRadius: 4,
                                             ),
@@ -389,7 +389,7 @@ class ConfettiPainter extends CustomPainter {
     if (progress >= 1.0) return;
 
     for (final particle in particles) {
-      final paint = Paint()..color = particle.color.withOpacity(1 - progress);
+      final paint = Paint()..color = particle.color.withValues(alpha: 1 - progress);
 
       // Calculate position with falling animation
       final x = particle.x * size.width;

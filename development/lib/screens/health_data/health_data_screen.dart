@@ -14,7 +14,7 @@ import '../../widgets/health_data/health_metric_card.dart';
 /// Now uses real data from HealthService (Apple Health, Google Fit, Samsung Health)
 /// Mapped from mockup: 03-health-insights.png
 class HealthDataScreen extends StatefulWidget {
-  const HealthDataScreen({Key? key}) : super(key: key);
+  const HealthDataScreen({super.key});
 
   @override
   State<HealthDataScreen> createState() => _HealthDataScreenState();
@@ -29,7 +29,6 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   // Data states
   HealthData? _healthData;
-  List<HealthData>? _weeklyData;
   bool _isLoading = true;
   bool _isSyncing = false;
   bool _hasPermission = false;
@@ -63,13 +62,12 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       // Fetch today's data
       final todayData = await _healthService.getTodayData(userId: 'current_user');
 
-      // Fetch weekly data if needed
-      List<HealthData>? weeklyData;
+      // Fetch weekly data if needed (currently unused but kept for future)
       if (_selectedTimeFilter == 'Last 7 days' || _selectedTimeFilter == 'Last 30 days') {
         final now = DateTime.now();
         final days = _selectedTimeFilter == 'Last 7 days' ? 7 : 30;
         final startDate = now.subtract(Duration(days: days));
-        weeklyData = await _healthService.getDataForRange(
+        await _healthService.getDataForRange(
           startDate,
           now,
           userId: 'current_user',
@@ -78,7 +76,6 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
       setState(() {
         _healthData = todayData;
-        _weeklyData = weeklyData;
         _isLoading = false;
       });
     } catch (e) {
@@ -123,10 +120,10 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Failed to sync health data'),
             backgroundColor: AppColors.error,
-            duration: const Duration(seconds: 2),
+            duration: Duration(seconds: 2),
           ),
         );
       }
@@ -197,7 +194,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
               width: 80,
               height: 80,
               decoration: BoxDecoration(
-                color: AppColors.primaryGreen.withOpacity( 0.15),
+                color: AppColors.primaryGreen.withValues(alpha: 0.15),
                 shape: BoxShape.circle,
               ),
               child: const Center(
@@ -211,7 +208,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
             const SizedBox(height: AppSpacing.lg),
 
             // Title
-            Text(
+            const Text(
               'Connect Your Health Data',
               style: AppTextStyles.headline2,
               textAlign: TextAlign.center,
@@ -261,13 +258,13 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.bedtime_outlined,
               size: 64,
               color: AppColors.textSecondary,
             ),
             const SizedBox(height: AppSpacing.lg),
-            Text(
+            const Text(
               'No Health Data Available',
               style: AppTextStyles.headline3,
             ),
@@ -438,10 +435,10 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          const Row(
             children: [
-              const Text('🏋️', style: TextStyle(fontSize: 24)),
-              const SizedBox(width: AppSpacing.sm),
+              Text('🏋️', style: TextStyle(fontSize: 24)),
+              SizedBox(width: AppSpacing.sm),
               Text(
                 'Today\'s Workouts',
                 style: AppTextStyles.headline3,
@@ -521,7 +518,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
         onPressed: () => context.pop(),
       ),
-      title: Row(
+      title: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
@@ -580,7 +577,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Select Time Range',
               style: AppTextStyles.headline3,
             ),
@@ -606,7 +603,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
                   _loadHealthData();
                 },
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

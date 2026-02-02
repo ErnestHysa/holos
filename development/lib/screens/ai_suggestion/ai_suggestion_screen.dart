@@ -15,7 +15,7 @@ import '../../widgets/ai_suggestion/meal_suggestion_card.dart';
 /// Now uses real health data from HealthService for contextual suggestions
 /// Mapped from mockup: 04-recipe-card.png
 class AiSuggestionScreen extends StatefulWidget {
-  const AiSuggestionScreen({Key? key}) : super(key: key);
+  const AiSuggestionScreen({super.key});
 
   @override
   State<AiSuggestionScreen> createState() => _AiSuggestionScreenState();
@@ -331,7 +331,7 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.refresh,
                       size: 16,
                       color: AppColors.primaryGreen,
@@ -463,13 +463,13 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
         vertical: AppSpacing.sm,
       ),
       decoration: BoxDecoration(
-        color: AppColors.primaryGreen.withOpacity( 0.15),
+        color: AppColors.primaryGreen.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
+          const Icon(
             Icons.auto_awesome,
             size: 16,
             color: AppColors.primaryGreen,
@@ -495,7 +495,7 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
         icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
         onPressed: () => context.pop(),
       ),
-      title: Row(
+      title: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
@@ -503,7 +503,7 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
             color: AppColors.primaryGreen,
             size: 20,
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           Text(
             'AI Suggestion',
             style: AppTextStyles.headline3,

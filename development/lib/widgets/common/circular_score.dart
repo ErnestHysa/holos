@@ -9,11 +9,11 @@ class CircularScore extends StatelessWidget {
   final double size;
 
   const CircularScore({
-    Key? key,
+    super.key,
     required this.score,
     this.trend,
     this.size = 200,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -12,12 +12,12 @@ class MealSuggestionCard extends StatelessWidget {
   final String description;
 
   const MealSuggestionCard({
-    Key? key,
+    super.key,
     this.image,
     required this.name,
     required this.macros,
     required this.description,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +30,14 @@ class MealSuggestionCard extends StatelessWidget {
           Container(
             height: 200,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.inputBackground,
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
             ),
             child: Center(
               child: image != null
                   ? Image.asset(image!)
-                  : Text(
+                  : const Text(
                       '[Food Image]',
                       style: AppTextStyles.caption,
                     ),

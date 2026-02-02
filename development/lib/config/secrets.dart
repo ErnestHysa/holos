@@ -16,6 +16,7 @@
 ///     "--dart-define=GEMINI_API_KEY=your_gemini_key"
 ///   ]
 /// }
+library;
 
 class Secrets {
   /// Edamam Nutrition API credentials
