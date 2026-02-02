@@ -37,9 +37,14 @@ class GoogleFitService {
   // Stream subscription for health updates
   StreamSubscription<List<HealthDataPoint>>? _healthUpdateSubscription;
 
+<<<<<<< HEAD
   // Callback for health data updates (used in subscription pattern)
   // ignore: unused_field
   Function(HealthData)? _onHealthDataUpdate;
+=======
+  // Callback for health data updates
+  void Function(HealthData)? _onHealthDataUpdate;
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
   /// Initialize the health service
   Future<void> initialize() async {
@@ -122,6 +127,24 @@ class GoogleFitService {
         'Background observer not supported in this version of the health package');
   }
 
+<<<<<<< HEAD
+=======
+  /// Fetch latest data and notify callback
+  Future<void> _fetchAndNotifyLatest() async {
+    if (_onHealthDataUpdate == null) return;
+
+    final today = DateTime.now();
+    final startOfDay = DateTime(today.year, today.month, today.day);
+    final data = await getTodayData(userId: 'current_user', date: startOfDay);
+
+    if (data != null) {
+      // Safe call with null check
+      final callback = _onHealthDataUpdate;
+      callback?.call(data);
+    }
+  }
+
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
   /// Get today's health data
   Future<HealthData?> getTodayData({
     required String userId,
@@ -443,7 +466,7 @@ class GoogleFitService {
   }
 
   /// Subscribe to health data updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
+  void subscribeToUpdates(void Function(HealthData) onUpdate) {
     _onHealthDataUpdate = onUpdate;
     _setUpObserver();
   }
@@ -458,5 +481,7 @@ class GoogleFitService {
   /// Dispose resources
   void dispose() {
     _healthUpdateSubscription?.cancel();
+    _healthUpdateSubscription = null;
+    _onHealthDataUpdate = null;
   }
 }

@@ -31,7 +31,11 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   bool _isSamsungHealthConnected = false;
 
   // Loading states
+<<<<<<< HEAD
   final Set<HealthPlatform> _connectingPlatforms = {};
+=======
+  Set<HealthPlatform> _connectingPlatforms = {};
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
   // Supported platforms
   Set<HealthPlatform> _supportedPlatforms = {};
@@ -44,8 +48,10 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
 
   Future<void> _initializeHealthService() async {
     await _healthService.initialize();
+    if (!mounted) return;
+
     setState(() {
-      _supportedPlatforms = _healthService.supportedPlatforms;
+      _supportedPlatforms = Set.of(_healthService.supportedPlatforms);
 
       // Disable unsupported platforms
       _isAppleHealthEnabled =
@@ -59,6 +65,8 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
     // Check existing permissions
     for (final platform in _supportedPlatforms) {
       final hasPermission = await _healthService.hasPermission(platform);
+      if (!mounted) return;
+
       setState(() {
         switch (platform) {
           case HealthPlatform.appleHealth:
@@ -81,6 +89,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
     });
 
     final granted = await _healthService.requestPermission(context, platform);
+    if (!mounted) return;
 
     setState(() {
       _connectingPlatforms.remove(platform);
@@ -105,6 +114,8 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   }
 
   void _showSuccessSnackBar(HealthPlatform platform) {
+    if (!mounted) return;
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
@@ -116,6 +127,8 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   }
 
   void _showErrorSnackBar(HealthPlatform platform) {
+    if (!mounted) return;
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(

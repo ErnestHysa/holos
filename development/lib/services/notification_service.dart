@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz_data;
@@ -13,6 +14,10 @@ class NotificationService {
   static FlutterLocalNotificationsPlugin? _plugin;
   static bool _initialized = false;
 
+  // Generate unique notification IDs
+  static final Random _random = Random.secure();
+  static int _generateId() => _random.nextInt(0x7FFFFFFF);
+
   /// Initialize notification service
   static Future<void> initialize() async {
     if (_initialized) return;
@@ -23,7 +28,7 @@ class NotificationService {
     tz_data.initializeTimeZones();
 
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/launcher');
+        AndroidInitializationSettings('@mipmap/ic_launcher');
 
     const DarwinInitializationSettings initializationSettingsIOS =
         DarwinInitializationSettings(
@@ -65,19 +70,20 @@ class NotificationService {
   }
 
   /// Parse time string "HH:MM" to TZDateTime for today
-  static tz.TZDateTime _parseTimeToDate(String time, [DateTime? date]) {
-    final baseDate = date ?? DateTime.now();
+  static tz.TZDateTime _parseTimeToDate(String time, [DateTime? baseDate]) {
+    final now = baseDate ?? DateTime.now();
     final parts = time.split(':');
     final hour = int.parse(parts[0]);
     final minute = int.parse(parts[1]);
 
     var scheduledDate = tz.TZDateTime.from(
-      DateTime(baseDate.year, baseDate.month, baseDate.day, hour, minute),
+      DateTime(now.year, now.month, now.day, hour, minute),
       tz.local,
     );
 
     // If time has passed today, schedule for tomorrow
-    if (scheduledDate.isBefore(DateTime.now())) {
+    // Compare with the SAME base time we used to create the date
+    if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
 
@@ -108,9 +114,10 @@ class NotificationService {
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     final scheduledDate = _parseTimeToDate(time);
+    final notificationId = _generateId();
 
     await _plugin!.zonedSchedule(
-      1, // Notification ID for wake-up
+      notificationId, // Unique notification ID
       '🍳 Time for breakfast, $userName!',
       mealSuggestion,
       scheduledDate,
@@ -146,9 +153,10 @@ class NotificationService {
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     final scheduledDate = _parseTimeToDate(time);
+    final notificationId = _generateId();
 
     await _plugin!.zonedSchedule(
-      2, // Notification ID for lunch
+      notificationId, // Unique notification ID
       '🍽️ Lunch time, $userName!',
       mealSuggestion,
       scheduledDate,
@@ -184,9 +192,10 @@ class NotificationService {
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     final scheduledDate = _parseTimeToDate(time);
+    final notificationId = _generateId();
 
     await _plugin!.zonedSchedule(
-      3, // Notification ID for dinner
+      notificationId, // Unique notification ID
       '🍲 Dinner time, $userName!',
       mealSuggestion,
       scheduledDate,
@@ -222,7 +231,7 @@ class NotificationService {
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await _plugin!.show(
-      DateTime.now().millisecondsSinceEpoch ~/ 1000,
+      _generateId(), // Use unique ID instead of time-based
       title,
       body,
       platformChannelSpecifics,

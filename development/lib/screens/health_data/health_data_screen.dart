@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../config/colors.dart';
@@ -23,6 +24,9 @@ class HealthDataScreen extends StatefulWidget {
 class _HealthDataScreenState extends State<HealthDataScreen> {
   final HealthService _healthService = HealthService();
 
+  // Stream subscription for health data updates
+  StreamSubscription<HealthData>? _healthDataSubscription;
+
   // Time filter options
   String _selectedTimeFilter = 'Last 7 days';
   final List<String> _timeFilters = ['Today', 'Last 7 days', 'Last 30 days', 'All time'];
@@ -41,6 +45,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   Future<void> _initializeScreen() async {
     await _healthService.initialize();
+    if (!mounted) return;
 
     // Check if any platform is connected
     setState(() {
@@ -49,8 +54,10 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
     if (_hasPermission) {
       await _loadHealthData();
+      if (!mounted) return;
       _subscribeToUpdates();
     } else {
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
   }
@@ -62,8 +69,15 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       // Fetch today's data
       final todayData = await _healthService.getTodayData(userId: 'current_user');
 
+<<<<<<< HEAD
       // Fetch weekly data if needed (currently unused but kept for future)
       if (_selectedTimeFilter == 'Last 7 days' || _selectedTimeFilter == 'Last 30 days') {
+=======
+      // Fetch weekly data if needed
+      List<HealthData>? weeklyData;
+      if (_selectedTimeFilter == 'Last 7 days' ||
+          _selectedTimeFilter == 'Last 30 days') {
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
         final now = DateTime.now();
         final days = _selectedTimeFilter == 'Last 7 days' ? 7 : 30;
         final startDate = now.subtract(Duration(days: days));
@@ -74,21 +88,28 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         );
       }
 
+      if (!mounted) return;
       setState(() {
         _healthData = todayData;
         _isLoading = false;
       });
     } catch (e) {
       debugPrint('Error loading health data: $e');
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
   }
 
   void _subscribeToUpdates() {
-    _healthService.subscribeToUpdates((data) {
-      setState(() {
-        _healthData = data;
-      });
+    // Cancel any existing subscription first
+    _healthDataSubscription?.cancel();
+
+    _healthDataSubscription = _healthService.subscribeToUpdates((data) {
+      if (mounted) {
+        setState(() {
+          _healthData = data;
+        });
+      }
     });
   }
 
@@ -97,6 +118,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
     try {
       final data = await _healthService.syncNow(userId: 'current_user');
+      if (!mounted) return;
 
       setState(() {
         _healthData = data;
@@ -107,7 +129,9 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              data != null ? 'Health data synced successfully!' : 'No new data to sync',
+              data != null
+                  ? 'Health data synced successfully!'
+                  : 'No new data to sync',
             ),
             backgroundColor: AppColors.success,
             duration: const Duration(seconds: 2),
@@ -116,6 +140,8 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       }
     } catch (e) {
       debugPrint('Error syncing health data: $e');
+      if (!mounted) return;
+
       setState(() => _isSyncing = false);
 
       if (mounted) {
@@ -626,6 +652,7 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
 
   @override
   void dispose() {
+    _healthDataSubscription?.cancel();
     super.dispose();
   }
 }

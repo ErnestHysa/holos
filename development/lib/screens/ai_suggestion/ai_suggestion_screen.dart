@@ -31,6 +31,7 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
 
   // AI meal suggestion data (mocked for now, will be from AI service)
   MealSuggestion? _suggestion;
+  bool _isUsingFallback = false;
 
   @override
   void initState() {
@@ -45,32 +46,59 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
     final healthData =
         await _healthService.getTodayData(userId: 'current_user');
 
-    setState(() {
-      _healthData = healthData;
-      _isLoading = false;
-    });
+    if (mounted) {
+      setState(() {
+        _healthData = healthData;
+        _isLoading = false;
+      });
+    }
 
     // Generate AI suggestion based on health data
     _generateContextualSuggestion();
   }
 
   Future<void> _generateContextualSuggestion() async {
-    setState(() => _isGeneratingSuggestion = true);
+    if (mounted) {
+      setState(() => _isGeneratingSuggestion = true);
+    }
+    _isUsingFallback = false;
 
     try {
       // Generate contextual message based on health data
       final contextMessage = _generateContextMessage();
 
       // Generate meal suggestion (mocked for now - will use GeminiService)
+      // When integrating with real GeminiService, catch exceptions and use fallback:
+      // try {
+      //   final aiData = await GeminiService.generateMealSuggestion(...);
+      //   final suggestion = MealSuggestion.fromJson(aiData);
+      //   setState(() {
+      //     _suggestion = suggestion;
+      //     _isGeneratingSuggestion = false;
+      //   });
+      // } catch (e) {
+      //   final fallback = GeminiService.getFallbackMealSuggestion(e.toString());
+      //   setState(() {
+      //     _suggestion = MealSuggestion.fromJson(fallback);
+      //     _isGeneratingSuggestion = false;
+      //     _isUsingFallback = true;
+      //   });
+      //   _showError('Could not generate personalized suggestion: $e');
+      // }
+
       final suggestion = _generateMealSuggestion(contextMessage);
 
-      setState(() {
-        _suggestion = suggestion;
-        _isGeneratingSuggestion = false;
-      });
+      if (mounted) {
+        setState(() {
+          _suggestion = suggestion;
+          _isGeneratingSuggestion = false;
+        });
+      }
     } catch (e) {
       debugPrint('Error generating suggestion: $e');
-      setState(() => _isGeneratingSuggestion = false);
+      if (mounted) {
+        setState(() => _isGeneratingSuggestion = false);
+      }
     }
   }
 
@@ -217,22 +245,33 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
         action: SnackBarAction(
           label: 'VIEW',
           textColor: Colors.white,
-          onPressed: () => context.push('/food-log'),
+          onPressed: () {
+            if (mounted) {
+              context.push('/food-log');
+            }
+          },
         ),
       ),
     );
-
-    Future.delayed(const Duration(milliseconds: 500), () {
-      if (mounted) {
-        context.push('/food-log');
-      }
-    });
+    // Removed delayed navigation - user can navigate via SnackBar action
   }
 
   void _handleViewRecipe() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Recipe details coming soon!')),
     );
+  }
+
+  void _showError(String message) {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: AppColors.error,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
   }
 
   void _handleRefresh() {
@@ -274,6 +313,53 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
             SizedBox(height: AppSpacing.md),
             Text('Generating personalized suggestion...'),
           ],
+        ),
+      );
+    }
+
+    if (_isUsingFallback) {
+      return Center(
+        child: Padding(
+          padding: AppSpacing.screenPadding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.info_outline,
+                size: 64,
+                color: AppColors.textSecondary,
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              Text(
+                'AI Service Unavailable',
+                style: AppTextStyles.headline3,
+              ),
+              const SizedBox(height: AppSpacing.sm),
+              Text(
+                'Showing a generic suggestion instead. Please check your internet connection.',
+                style: AppTextStyles.body.copyWith(
+                  color: AppColors.textSecondary,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: AppSpacing.xl),
+              PrimaryButton(
+                text: 'View Suggestion',
+                onPressed: () {
+                  setState(() {
+                    _isUsingFallback = false;
+                  });
+                },
+                width: 200,
+              ),
+              const SizedBox(height: AppSpacing.md),
+              SecondaryButton(
+                text: 'Try Again',
+                onPressed: _handleRefresh,
+                width: 200,
+              ),
+            ],
+          ),
         ),
       );
     }

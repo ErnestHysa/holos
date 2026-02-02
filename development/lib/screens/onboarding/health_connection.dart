@@ -60,7 +60,10 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
       final bool hasPermissions = await _health.hasPermissions(
         _dataTypes,
         permissions: _permissions,
-      ) ?? false;
+      ) ??
+          false;
+
+      if (!mounted) return;
 
       if (hasPermissions) {
         // Already has permissions - mark as connected
@@ -91,7 +94,14 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
           _showHealthConnectDialog();
         }
         return false;
+<<<<<<< HEAD
       }));
+=======
+      })) ??
+          false;
+
+      if (!mounted) return;
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
       if (granted) {
         // Connection successful
@@ -119,6 +129,8 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
         }
       }
     } catch (e) {
+      if (!mounted) return;
+
       // Error during connection
       setState(() {
         _connectionStates[platform] = ConnectionState.disconnected;
@@ -133,6 +145,8 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
   }
 
   void _showHealthConnectDialog() {
+    if (!mounted) return;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

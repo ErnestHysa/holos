@@ -20,10 +20,28 @@ class HealthService {
   SamsungHealthService? _samsungHealthService;
 
   // Health data change stream controller
-  final StreamController<HealthData> _healthDataController =
+  StreamController<HealthData> _healthDataController =
       StreamController<HealthData>.broadcast();
 
   Stream<HealthData> get healthDataStream => _healthDataController.stream;
+
+  // Track stream controller state to prevent double-close
+  bool _controllerClosed = false;
+
+  // Prevent multiple observer registrations
+  bool _observersInitialized = false;
+
+  void _ensureControllerOpen() {
+    if (_controllerClosed) {
+      _healthDataController = StreamController<HealthData>.broadcast();
+      _controllerClosed = false;
+    }
+  }
+
+  void _emitHealthData(HealthData data) {
+    if (_controllerClosed) return;
+    _healthDataController.add(data);
+  }
 
   // Supported platforms on this device
   final Set<HealthPlatform> _supportedPlatforms = {};
@@ -34,16 +52,23 @@ class HealthService {
 
   /// Initialize health service - detect available platforms
   Future<void> initialize() async {
+    _supportedPlatforms.clear();
+    _connectedPlatforms.clear();
+
     if (Platform.isIOS) {
-      _appleHealthService = AppleHealthService();
+      _appleHealthService ??= AppleHealthService();
       _supportedPlatforms.add(HealthPlatform.appleHealth);
+
+      // Ensure Android-only services are not kept around
+      _googleFitService = null;
+      _samsungHealthService = null;
     } else if (Platform.isAndroid) {
-      _googleFitService = GoogleFitService();
+      _googleFitService ??= GoogleFitService();
       _supportedPlatforms.add(HealthPlatform.googleFit);
 
       // Samsung Health is optional on Android
       try {
-        _samsungHealthService = SamsungHealthService();
+        _samsungHealthService ??= SamsungHealthService();
         final samsungAvailable = await _samsungHealthService!.isAvailable();
         if (samsungAvailable) {
           _supportedPlatforms.add(HealthPlatform.samsungHealth);
@@ -51,20 +76,47 @@ class HealthService {
       } catch (e) {
         // Samsung Health not available
         debugPrint('Samsung Health not available: $e');
+        _samsungHealthService = null;
       }
+
+      // Ensure iOS-only service is not kept around
+      _appleHealthService = null;
+    } else {
+      _appleHealthService = null;
+      _googleFitService = null;
+      _samsungHealthService = null;
+      _observersInitialized = false;
+    }
+
+    // Populate connected platforms based on current permission state
+    for (final platform in _supportedPlatforms) {
+      await hasPermission(platform);
     }
   }
 
   /// Check if permissions are granted for a platform
   Future<bool> hasPermission(HealthPlatform platform) async {
+    final bool hasPermission;
+
     switch (platform) {
       case HealthPlatform.appleHealth:
-        return await _appleHealthService?.hasPermission() ?? false;
+        hasPermission = await _appleHealthService?.hasPermission() ?? false;
+        break;
       case HealthPlatform.googleFit:
-        return await _googleFitService?.hasPermission() ?? false;
+        hasPermission = await _googleFitService?.hasPermission() ?? false;
+        break;
       case HealthPlatform.samsungHealth:
-        return await _samsungHealthService?.hasPermission() ?? false;
+        hasPermission = await _samsungHealthService?.hasPermission() ?? false;
+        break;
     }
+
+    if (hasPermission) {
+      _connectedPlatforms.add(platform);
+    } else {
+      _connectedPlatforms.remove(platform);
+    }
+
+    return hasPermission;
   }
 
   /// Request permissions for a specific platform
@@ -90,6 +142,8 @@ class HealthService {
 
       if (granted) {
         _connectedPlatforms.add(platform);
+      } else {
+        _connectedPlatforms.remove(platform);
       }
 
       return granted;
@@ -163,7 +217,7 @@ class HealthService {
       // Aggregate data from all platforms
       if (dataList.isNotEmpty) {
         aggregatedData = _aggregateHealthData(dataList, startOfDay);
-        _healthDataController.add(aggregatedData);
+        _emitHealthData(aggregatedData);
       }
 
       return aggregatedData;
@@ -220,28 +274,31 @@ class HealthService {
 
   /// Subscribe to health data updates
   /// Uses platform-specific observers for real-time updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
-    _healthDataController.stream.listen(onUpdate);
+  /// Returns a StreamSubscription that should be cancelled when done
+  StreamSubscription<HealthData> subscribeToUpdates(void Function(HealthData) onUpdate) {
+    _ensureControllerOpen();
 
-    // Set up platform-specific observers
-    if (Platform.isIOS) {
-      _appleHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
-    } else if (Platform.isAndroid) {
-      _googleFitService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
+    if (!_observersInitialized) {
+      _observersInitialized = true;
 
-      _samsungHealthService?.subscribeToUpdates((data) {
-        _healthDataController.add(data);
-      });
+      // Set up platform-specific observers
+      if (Platform.isIOS) {
+        _appleHealthService?.subscribeToUpdates(_emitHealthData);
+      } else if (Platform.isAndroid) {
+        _googleFitService?.subscribeToUpdates(_emitHealthData);
+        _samsungHealthService?.subscribeToUpdates(_emitHealthData);
+      }
     }
+
+    return _healthDataController.stream.listen(onUpdate);
   }
 
   /// Unsubscribe from health data updates
   void unsubscribeFromUpdates() {
-    _healthDataController.close();
+    if (!_controllerClosed) {
+      _controllerClosed = true;
+      _healthDataController.close();
+    }
   }
 
   /// Sync data manually (force refresh from all connected platforms)
@@ -281,17 +338,39 @@ class HealthService {
   ) {
     // Use non-null values from any platform
     // For steps, use the maximum value
+<<<<<<< HEAD
     final stepsValues = dataList.map((d) => d.steps).where((s) => s != null).cast<int>().toList();
     int? steps = stepsValues.isNotEmpty ? stepsValues.reduce((a, b) => a > b ? a : b) : null;
 
     // For sleep, use the maximum duration
     final sleepValues = dataList.map((d) => d.sleepDuration).where((s) => s != null).cast<double>().toList();
     double? sleepDuration = sleepValues.isNotEmpty ? sleepValues.reduce((a, b) => a > b ? a : b) : null;
+=======
+    final stepsList = dataList
+        .map((d) => d.steps)
+        .where((s) => s != null)
+        .cast<int>()
+        .toList();
+    int? steps = stepsList.isNotEmpty
+        ? stepsList.reduce((a, b) => a > b ? a : b)
+        : null;
 
-    // For heart rate, use the average
+    // For sleep, use the maximum duration
+    final sleepDurationList = dataList
+        .map((d) => d.sleepDuration)
+        .where((s) => s != null)
+        .cast<double>()
+        .toList();
+    double? sleepDuration = sleepDurationList.isNotEmpty
+        ? sleepDurationList.reduce((a, b) => a > b ? a : b)
+        : null;
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
+
+    // For heart rate, use the average with overflow protection
     int? avgHeartRate;
     final hrValues = dataList.map((d) => d.avgHeartRate).where((h) => h != null).cast<int>().toList();
     if (hrValues.isNotEmpty) {
+<<<<<<< HEAD
       avgHeartRate = hrValues.reduce((a, b) => a + b) ~/ hrValues.length;
     }
 
@@ -301,6 +380,31 @@ class HealthService {
 
     final totalCalorieValues = dataList.map((d) => d.totalCaloriesBurned).where((c) => c != null).cast<int>().toList();
     int? totalCalories = totalCalorieValues.isNotEmpty ? totalCalorieValues.reduce((a, b) => a > b ? a : b) : null;
+=======
+      // Use double for intermediate sum to prevent overflow
+      final sum = hrValues.fold<double>(0.0, (acc, val) => acc + val!.toDouble());
+      avgHeartRate = (sum / hrValues.length).round();
+    }
+
+    // For calories, use the maximum
+    final activeCaloriesList = dataList
+        .map((d) => d.activeCalories)
+        .where((c) => c != null)
+        .cast<int>()
+        .toList();
+    int? activeCalories = activeCaloriesList.isNotEmpty
+        ? activeCaloriesList.reduce((a, b) => a > b ? a : b)
+        : null;
+
+    final totalCaloriesList = dataList
+        .map((d) => d.totalCaloriesBurned)
+        .where((c) => c != null)
+        .cast<int>()
+        .toList();
+    int? totalCalories = totalCaloriesList.isNotEmpty
+        ? totalCaloriesList.reduce((a, b) => a > b ? a : b)
+        : null;
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
     // For sleep quality and deep sleep, use the first non-null value
     double? sleepQuality = dataList
@@ -374,7 +478,17 @@ class HealthService {
 
   /// Dispose resources
   void dispose() {
-    _healthDataController.close();
+    unsubscribeFromUpdates();
+
+    _appleHealthService?.dispose();
+    _googleFitService?.dispose();
+    _samsungHealthService?.dispose();
+
+    _appleHealthService = null;
+    _googleFitService = null;
+    _samsungHealthService = null;
+
+    _observersInitialized = false;
   }
 }
 

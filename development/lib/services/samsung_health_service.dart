@@ -51,8 +51,14 @@ class SamsungHealthService {
     }
 
     try {
+<<<<<<< HEAD
       // Check if we can request permissions (Samsung Health installed)
       _isAvailable = await _health.hasPermissions(_dataTypes, permissions: _permissions) ?? false;
+=======
+      // If this call succeeds, the integration is available.
+      await _health.hasPermissions(_dataTypes, permissions: _permissions);
+      _isAvailable = true;
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
       return _isAvailable;
     } catch (e) {
       debugPrint('Samsung Health not available: $e');
@@ -282,7 +288,10 @@ class SamsungHealthService {
 
         if (totalSleepMinutes > 0) {
           duration = totalSleepMinutes / 60.0; // Convert to hours
-          deepSleepPercent = totalSleepMinutes > 0 ? (deepSleepMinutes / totalSleepMinutes) : 0.0;
+          // Safe division with null check
+          deepSleepPercent = totalSleepMinutes > 0 
+              ? (deepSleepMinutes / totalSleepMinutes) * 100 
+              : 0.0;
 
           // Calculate sleep quality based on duration
           final hours = duration;
@@ -375,7 +384,7 @@ class SamsungHealthService {
   }
 
   /// Subscribe to health data updates
-  void subscribeToUpdates(Function(HealthData) onUpdate) {
+  void subscribeToUpdates(void Function(HealthData) onUpdate) {
     // The health package doesn't support real-time updates
     // You would need to poll for updates
     debugPrint('Samsung Health subscribeToUpdates: polling for updates');

@@ -19,7 +19,7 @@ class MealPlannerScreen extends StatefulWidget {
 
 class _MealPlannerScreenState extends State<MealPlannerScreen> {
   // Selected date (today by default)
-  DateTime _selectedDate = DateTime.now();
+  DateTime _selectedDate = DateUtils.dateOnly(DateTime.now());
 
   // Mock meal plans for the week
   final Map<DateTime, MealPlan> _weeklyPlans = {};
@@ -31,8 +31,8 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
   }
 
   void _initializeMockPlans() {
-    final today = DateTime.now();
-    final tomorrow = today.add(const Duration(days: 1));
+    final today = DateUtils.dateOnly(DateTime.now());
+    final tomorrow = DateUtils.dateOnly(today.add(const Duration(days: 1)));
 
     // Create today's plan
     _weeklyPlans[today] = MealPlan(
@@ -117,18 +117,16 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
 
   void _selectDate(DateTime date) {
     setState(() {
-      _selectedDate = date;
+      _selectedDate = DateUtils.dateOnly(date);
     });
   }
 
   void _planNewDay() {
     setState(() {
-      // Create empty plan for next unplanned day
-      final plannedDates = _weeklyPlans.keys.toList()..sort();
       DateTime nextDate = _selectedDate;
 
-      while (plannedDates.any((d) => _isSameDay(d, nextDate))) {
-        nextDate = nextDate.add(const Duration(days: 1));
+      while (_weeklyPlans.containsKey(nextDate)) {
+        nextDate = DateUtils.dateOnly(nextDate.add(const Duration(days: 1)));
       }
 
       _weeklyPlans[nextDate] = MealPlan(
@@ -175,7 +173,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     final nameController = TextEditingController(text: meal.name);
     final timeController = TextEditingController(text: meal.time ?? '');
 
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.cardBackground,
@@ -222,16 +220,24 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   child: PrimaryButton(
                     text: 'Save',
                     onPressed: () {
-                      setState(() {
-                        final plan = _weeklyPlans[_selectedDate]!;
-                        final index = plan.meals.indexWhere((m) => m.id == meal.id);
-                        if (index != -1) {
+                      if (!mounted) return;
+
+                      final plan = _weeklyPlans[_selectedDate];
+                      if (plan == null) {
+                        Navigator.pop(context);
+                        return;
+                      }
+
+                      final index =
+                          plan.meals.indexWhere((m) => m.id == meal.id);
+                      if (index != -1) {
+                        setState(() {
                           plan.meals[index] = meal.copyWith(
                             name: nameController.text,
                             time: timeController.text,
                           );
-                        }
-                      });
+                        });
+                      }
                       Navigator.pop(context);
                     },
                   ),
@@ -241,7 +247,10 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
           ],
         ),
       ),
-    );
+    ).whenComplete(() {
+      nameController.dispose();
+      timeController.dispose();
+    });
   }
 
   void _generateAISuggestions() {
@@ -313,7 +322,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
   }
 
   Widget _buildWeekSelector() {
-    final today = DateTime.now();
+    final today = DateUtils.dateOnly(DateTime.now());
     final weekDays = _getWeekDays(today);
 
     return Container(
@@ -326,7 +335,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
           final dayDate = weekDays[index];
           final isSelected = _isSameDay(dayDate, _selectedDate);
           final hasPlan = _weeklyPlans.containsKey(dayDate);
-          final isPastDay = dayDate.isBefore(DateTime(today.year, today.month, today.day));
+          final isPastDay = dayDate.isBefore(today);
 
           return GestureDetector(
             onTap: isPastDay ? null : () => _selectDate(dayDate),
@@ -404,6 +413,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   label: 'Calories',
                   current: plan.totalCalories,
                   target: 2000,
+                  unit: 'kcal',
                 ),
               ),
               const SizedBox(width: 24),
@@ -412,6 +422,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
                   label: 'Protein',
                   current: plan.totalProtein.toInt(),
                   target: 150,
+                  unit: 'g',
                 ),
               ),
             ],
@@ -541,7 +552,16 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     );
   }
 
+<<<<<<< HEAD
   Widget _macroSummary({required String label, required int current, required int target}) {
+=======
+  Widget _MacroSummary({
+    required String label,
+    required int current,
+    required int target,
+    required String unit,
+  }) {
+>>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
     final progress = (current / target).clamp(0.0, 1.0);
 
     return Column(
@@ -553,7 +573,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
         ),
         const SizedBox(height: 4),
         Text(
-          '$current/$target g',
+          '$current/$target $unit',
           style: AppTextStyles.body.copyWith(fontWeight: FontWeight.w600),
         ),
         const SizedBox(height: 8),
@@ -606,31 +626,33 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
   }
 
   List<DateTime> _getWeekDays(DateTime today) {
-    final currentWeekday = today.weekday;
-    final monday = today.subtract(Duration(days: currentWeekday - 1));
+    final baseDate = DateUtils.dateOnly(today);
+    final monday = baseDate.subtract(Duration(days: baseDate.weekday - 1));
     return List.generate(7, (index) => monday.add(Duration(days: index)));
   }
 
   MealPlan _createEmptyPlan(DateTime date) {
+    final planDate = DateUtils.dateOnly(date);
+
     return MealPlan(
-      id: 'plan-${date.millisecondsSinceEpoch}',
+      id: 'plan-${planDate.millisecondsSinceEpoch}',
       userId: 'current-user',
-      date: date,
+      date: planDate,
       meals: [
         PlannedMeal(
-          id: 'breakfast-${date.millisecondsSinceEpoch}',
+          id: 'breakfast-${planDate.millisecondsSinceEpoch}',
           mealType: AppStrings.breakfast,
           macros: {'calories': 0, 'protein': 0, 'carbs': 0, 'fat': 0},
           time: '08:00',
         ),
         PlannedMeal(
-          id: 'lunch-${date.millisecondsSinceEpoch}',
+          id: 'lunch-${planDate.millisecondsSinceEpoch}',
           mealType: AppStrings.lunch,
           macros: {'calories': 0, 'protein': 0, 'carbs': 0, 'fat': 0},
           time: '12:30',
         ),
         PlannedMeal(
-          id: 'dinner-${date.millisecondsSinceEpoch}',
+          id: 'dinner-${planDate.millisecondsSinceEpoch}',
           mealType: AppStrings.dinner,
           macros: {'calories': 0, 'protein': 0, 'carbs': 0, 'fat': 0},
           time: '19:00',

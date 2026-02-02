@@ -43,17 +43,40 @@ class NotificationPreference {
   }
 
   factory NotificationPreference.fromJson(Map<String, dynamic> json) {
+    // Validate time string format (HH:MM)
+    String _validateTime(String? time, String defaultValue) {
+      if (time == null) return defaultValue;
+
+      final parts = time!.split(':');
+      if (parts.length != 2) return defaultValue;
+
+      try {
+        final hour = int.parse(parts[0]);
+        final minute = int.parse(parts[1]);
+
+        // Validate range: 00-23 hours, 00-59 minutes
+        if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+          return defaultValue;
+        }
+
+        // Format back to HH:MM with leading zeros
+        return '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
+      } catch (e) {
+        return defaultValue;
+      }
+    }
+
     return NotificationPreference(
-      userId: json['userId'],
+      userId: json['userId'] ?? 'unknown',
       wakeUpEnabled: json['wakeUpEnabled'] ?? true,
-      wakeUpTime: json['wakeUpTime'] ?? '07:00',
+      wakeUpTime: _validateTime(json['wakeUpTime'] as String?, '07:00'),
       lunchEnabled: json['lunchEnabled'] ?? true,
-      lunchTime: json['lunchTime'] ?? '12:00',
+      lunchTime: _validateTime(json['lunchTime'] as String?, '12:00'),
       dinnerEnabled: json['dinnerEnabled'] ?? true,
-      dinnerTime: json['dinnerTime'] ?? '19:00',
+      dinnerTime: _validateTime(json['dinnerTime'] as String?, '19:00'),
       quietHoursEnabled: json['quietHoursEnabled'] ?? false,
-      quietStart: json['quietStart'] ?? '22:00',
-      quietEnd: json['quietEnd'] ?? '07:00',
+      quietStart: _validateTime(json['quietStart'] as String?, '22:00'),
+      quietEnd: _validateTime(json['quietEnd'] as String?, '07:00'),
       dailyLimit: json['dailyLimit'] ?? 3,
     );
   }

@@ -11,6 +11,7 @@ class GeminiService {
 
   /// Generate meal suggestion
   /// Returns: JSON with meal name, description, recipe, macros
+  /// Throws exception if AI generation fails
   static Future<Map<String, dynamic>> generateMealSuggestion({
     required Map<String, dynamic> userProfile,
     required Map<String, dynamic> dailyStats,
@@ -92,7 +93,7 @@ Return JSON with:
             responseData['candidates'][0]['content'] == null ||
             responseData['candidates'][0]['content']['parts'] == null ||
             responseData['candidates'][0]['content']['parts'].isEmpty) {
-          return _getFallbackMealSuggestion('Invalid response structure from AI');
+          throw Exception('Invalid response structure from AI');
         }
 
         final content = responseData['candidates'][0]['content']['parts'][0]['text'];
@@ -102,13 +103,17 @@ Return JSON with:
           final jsonContent = json.decode(content.trim());
           return jsonContent;
         } on FormatException {
-          // AI returned non-JSON text, try to extract JSON or use fallback
-          return _extractJsonFromText(content) ?? _getFallbackMealSuggestion('AI returned non-JSON response');
+          // AI returned non-JSON text, try to extract JSON
+          final extracted = _extractJsonFromText(content);
+          if (extracted != null) {
+            return extracted;
+          }
+          throw Exception('AI returned non-JSON response');
         }
       } on FormatException catch (e) {
-        return _getFallbackMealSuggestion('JSON parsing error: ${e.message}');
+        throw Exception('JSON parsing error: ${e.message}');
       } catch (e) {
-        return _getFallbackMealSuggestion('Response parsing error: $e');
+        throw Exception('Response parsing error: $e');
       }
     } else if (response.statusCode == 429) {
       throw Exception('API rate limit exceeded. Please try again later.');
@@ -120,15 +125,16 @@ Return JSON with:
   }
 
   /// Fallback meal suggestion when AI fails
-  static Map<String, dynamic> _getFallbackMealSuggestion(String reason) {
+  /// Note: This should be used explicitly by UI, not returned silently
+  static Map<String, dynamic> getFallbackMealSuggestion(String reason) {
     return {
       'mealName': 'Healthy Balanced Meal',
       'description': 'A nutritious meal based on your health goals. ($reason)',
       'recipe': 'Combine lean protein with vegetables and whole grains.',
       'macros': {'calories': 500, 'protein': 30, 'carbs': 45, 'fat': 18},
       'emoji': '🍽️',
-      'fallback': true,
-      'reason': reason,
+      'isFallback': true,
+      'fallbackReason': reason,
     };
   }
 
@@ -162,6 +168,7 @@ Return JSON with:
   }
 
   /// Generate recipe from meal name
+  /// Throws exception if AI generation fails
   static Future<Map<String, dynamic>> generateRecipe({
     required String mealName,
     required List<String> dietaryRestrictions,
@@ -224,7 +231,7 @@ Return JSON with:
             responseData['candidates'][0]['content'] == null ||
             responseData['candidates'][0]['content']['parts'] == null ||
             responseData['candidates'][0]['content']['parts'].isEmpty) {
-          return _getFallbackRecipe(mealName, 'Invalid response structure from AI');
+          throw Exception('Invalid response structure from AI');
         }
 
         final content = responseData['candidates'][0]['content']['parts'][0]['text'];
@@ -234,13 +241,17 @@ Return JSON with:
           final jsonContent = json.decode(content.trim());
           return jsonContent;
         } on FormatException {
-          // AI returned non-JSON text, try to extract JSON or use fallback
-          return _extractJsonFromText(content) ?? _getFallbackRecipe(mealName, 'AI returned non-JSON response');
+          // AI returned non-JSON text, try to extract JSON
+          final extracted = _extractJsonFromText(content);
+          if (extracted != null) {
+            return extracted;
+          }
+          throw Exception('AI returned non-JSON response');
         }
       } on FormatException catch (e) {
-        return _getFallbackRecipe(mealName, 'JSON parsing error: ${e.message}');
+        throw Exception('JSON parsing error: ${e.message}');
       } catch (e) {
-        return _getFallbackRecipe(mealName, 'Response parsing error: $e');
+        throw Exception('Response parsing error: $e');
       }
     } else if (response.statusCode == 429) {
       throw Exception('API rate limit exceeded. Please try again later.');
@@ -252,7 +263,8 @@ Return JSON with:
   }
 
   /// Fallback recipe when AI fails
-  static Map<String, dynamic> _getFallbackRecipe(String mealName, String reason) {
+  /// Note: This should be used explicitly by UI, not returned silently
+  static Map<String, dynamic> getFallbackRecipe(String mealName, String reason) {
     return {
       'recipeName': mealName,
       'ingredients': ['Adjust based on preferences'],
@@ -260,8 +272,8 @@ Return JSON with:
       'cookingTime': '20-30 min',
       'servings': 1,
       'macros': {'calories': 500, 'protein': 25, 'carbs': 50, 'fat': 20},
-      'fallback': true,
-      'reason': reason,
+      'isFallback': true,
+      'fallbackReason': reason,
     };
   }
 }
