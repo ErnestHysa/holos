@@ -31,6 +31,47 @@ class HealthService {
   // Prevent multiple observer registrations
   bool _observersInitialized = false;
 
+  Timer? _pollingTimer;
+  int _activeSubscriptions = 0;
+  Duration _pollingInterval = const Duration(minutes: 15);
+  int _consecutiveSyncFailures = 0;
+
+
+  void _startPollingIfNeeded() {
+    if (_pollingTimer != null) return;
+
+    _pollingTimer = Timer.periodic(_pollingInterval, (_) async {
+      if (_activeSubscriptions <= 0) return;
+
+      try {
+        final latest = await syncNow(userId: 'current_user');
+        _consecutiveSyncFailures = 0;
+        _pollingInterval = const Duration(minutes: 15);
+
+        if (latest != null) {
+          _emitHealthData(latest);
+        }
+      } catch (e) {
+        _consecutiveSyncFailures++;
+        debugPrint('Health polling sync failed: $e');
+
+        final nextMinutes = (15 * (1 << _consecutiveSyncFailures)).clamp(15, 60).toInt();
+        _pollingInterval = Duration(minutes: nextMinutes);
+        _pollingTimer?.cancel();
+        _pollingTimer = null;
+        _startPollingIfNeeded();
+      }
+    });
+  }
+
+  void _stopPollingIfIdle() {
+    if (_activeSubscriptions > 0) return;
+    _pollingTimer?.cancel();
+    _pollingTimer = null;
+    _pollingInterval = const Duration(minutes: 15);
+    _consecutiveSyncFailures = 0;
+  }
+
   void _ensureControllerOpen() {
     if (_controllerClosed) {
       _healthDataController = StreamController<HealthData>.broadcast();
@@ -290,7 +331,25 @@ class HealthService {
       }
     }
 
-    return _healthDataController.stream.listen(onUpdate);
+    // Emit one immediate snapshot so listeners receive fresh data
+    // even on platforms where real-time observers are unavailable.
+    Future(() async {
+      final latest = await syncNow(userId: 'current_user');
+      if (latest != null) {
+        _emitHealthData(latest);
+      }
+    });
+
+    _activeSubscriptions++;
+    _startPollingIfNeeded();
+
+    final subscription = _healthDataController.stream.listen(onUpdate);
+    subscription.onDone(() {
+      _activeSubscriptions = _activeSubscriptions > 0 ? _activeSubscriptions - 1 : 0;
+      _stopPollingIfIdle();
+    });
+
+    return subscription;
   }
 
   /// Unsubscribe from health data updates
@@ -298,6 +357,8 @@ class HealthService {
     if (!_controllerClosed) {
       _controllerClosed = true;
       _healthDataController.close();
+      _activeSubscriptions = 0;
+      _stopPollingIfIdle();
     }
   }
 
@@ -338,14 +399,6 @@ class HealthService {
   ) {
     // Use non-null values from any platform
     // For steps, use the maximum value
-<<<<<<< HEAD
-    final stepsValues = dataList.map((d) => d.steps).where((s) => s != null).cast<int>().toList();
-    int? steps = stepsValues.isNotEmpty ? stepsValues.reduce((a, b) => a > b ? a : b) : null;
-
-    // For sleep, use the maximum duration
-    final sleepValues = dataList.map((d) => d.sleepDuration).where((s) => s != null).cast<double>().toList();
-    double? sleepDuration = sleepValues.isNotEmpty ? sleepValues.reduce((a, b) => a > b ? a : b) : null;
-=======
     final stepsList = dataList
         .map((d) => d.steps)
         .where((s) => s != null)
@@ -364,25 +417,13 @@ class HealthService {
     double? sleepDuration = sleepDurationList.isNotEmpty
         ? sleepDurationList.reduce((a, b) => a > b ? a : b)
         : null;
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
     // For heart rate, use the average with overflow protection
     int? avgHeartRate;
     final hrValues = dataList.map((d) => d.avgHeartRate).where((h) => h != null).cast<int>().toList();
     if (hrValues.isNotEmpty) {
-<<<<<<< HEAD
-      avgHeartRate = hrValues.reduce((a, b) => a + b) ~/ hrValues.length;
-    }
-
-    // For calories, use the maximum
-    final activeCalorieValues = dataList.map((d) => d.activeCalories).where((c) => c != null).cast<int>().toList();
-    int? activeCalories = activeCalorieValues.isNotEmpty ? activeCalorieValues.reduce((a, b) => a > b ? a : b) : null;
-
-    final totalCalorieValues = dataList.map((d) => d.totalCaloriesBurned).where((c) => c != null).cast<int>().toList();
-    int? totalCalories = totalCalorieValues.isNotEmpty ? totalCalorieValues.reduce((a, b) => a > b ? a : b) : null;
-=======
       // Use double for intermediate sum to prevent overflow
-      final sum = hrValues.fold<double>(0.0, (acc, val) => acc + val!.toDouble());
+      final sum = hrValues.fold<double>(0.0, (acc, val) => acc + val.toDouble());
       avgHeartRate = (sum / hrValues.length).round();
     }
 
@@ -404,7 +445,6 @@ class HealthService {
     int? totalCalories = totalCaloriesList.isNotEmpty
         ? totalCaloriesList.reduce((a, b) => a > b ? a : b)
         : null;
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
     // For sleep quality and deep sleep, use the first non-null value
     double? sleepQuality = dataList

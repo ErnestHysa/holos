@@ -5,6 +5,7 @@ import '../../config/fonts.dart';
 import '../../config/strings.dart';
 import '../../widgets/common/base_card.dart';
 import '../../widgets/common/primary_button.dart';
+import '../../services/app_state_service.dart';
 
 /// Dietary preferences screen for onboarding step 2
 /// Mapped from mockup: 17-onboarding-step2.png
@@ -16,6 +17,37 @@ class DietaryPreferencesScreen extends StatefulWidget {
 }
 
 class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
+  final AppStateService _appStateService = AppStateService();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedPreferences();
+  }
+
+  Future<void> _loadSavedPreferences() async {
+    final savedRestrictions = await _appStateService.getDietaryRestrictions();
+    final savedAllergens = await _appStateService.getAllergens();
+
+    if (!mounted) return;
+
+    setState(() {
+      _selectedRestrictions
+        ..clear()
+        ..addAll(
+          DietaryRestriction.values.where((value) => savedRestrictions.contains(value.name)),
+        );
+      _selectedAllergens
+        ..clear()
+        ..addAll(
+          Allergen.values.where((value) => savedAllergens.contains(value.name)),
+        );
+
+      _isNoneSelectedForRestrictions = _selectedRestrictions.isEmpty;
+      _isNoneSelectedForAllergens = _selectedAllergens.isEmpty;
+    });
+  }
+
   // Selected dietary restrictions (multiple selection allowed)
   final Set<DietaryRestriction> _selectedRestrictions = {};
 
@@ -62,11 +94,15 @@ class _DietaryPreferencesScreenState extends State<DietaryPreferencesScreen> {
     });
   }
 
-  void _handleContinue() {
-    // Save preferences to user model (TODO: integrate with Firebase)
-    // User.dietaryPreferences = _selectedRestrictions.toList();
-    // User.allergens = _selectedAllergens.toList();
+  Future<void> _handleContinue() async {
+    await _appStateService.setDietaryRestrictions(
+      _selectedRestrictions.map((value) => value.name).toList(),
+    );
+    await _appStateService.setAllergens(
+      _selectedAllergens.map((value) => value.name).toList(),
+    );
 
+    if (!mounted) return;
     context.push('/onboarding/step3');
   }
 

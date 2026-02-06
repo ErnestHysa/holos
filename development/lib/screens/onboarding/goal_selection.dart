@@ -5,6 +5,7 @@ import '../../config/fonts.dart';
 import '../../config/strings.dart';
 import '../../widgets/common/base_card.dart';
 import '../../widgets/common/primary_button.dart';
+import '../../services/app_state_service.dart';
 
 /// Goal selection screen for onboarding
 /// Mapped from mockup: 07-onboarding-goal.png
@@ -16,7 +17,23 @@ class GoalSelectionScreen extends StatefulWidget {
 }
 
 class _GoalSelectionScreenState extends State<GoalSelectionScreen> {
+  final AppStateService _appStateService = AppStateService();
   String? _selectedGoal;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSavedGoal();
+  }
+
+  Future<void> _loadSavedGoal() async {
+    final savedGoal = await _appStateService.getSelectedGoal();
+    if (!mounted || savedGoal == null) return;
+
+    setState(() {
+      _selectedGoal = savedGoal;
+    });
+  }
 
   final List<GoalOption> _goals = const [
     GoalOption(
@@ -57,14 +74,17 @@ class _GoalSelectionScreenState extends State<GoalSelectionScreen> {
     ),
   ];
 
-  void _selectGoal(String goalId) {
+  Future<void> _selectGoal(String goalId) async {
     setState(() {
       _selectedGoal = goalId;
     });
+    await _appStateService.setSelectedGoal(goalId);
   }
 
-  void _handleContinue() {
+  Future<void> _handleContinue() async {
     if (_selectedGoal != null) {
+      await _appStateService.setSelectedGoal(_selectedGoal!);
+      if (!mounted) return;
       context.push('/onboarding/step1');
     }
   }

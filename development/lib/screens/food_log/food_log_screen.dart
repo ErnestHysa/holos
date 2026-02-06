@@ -7,6 +7,7 @@ import '../../widgets/common/base_card.dart';
 import '../../widgets/common/primary_button.dart';
 import '../../widgets/common/secondary_button.dart';
 import '../../widgets/food_log/meal_card.dart';
+import '../../services/open_food_facts_service.dart';
 
 /// Food log screen - Track daily meals and nutrition
 /// Mapped from mockup: 02-nutrition-insights.png
@@ -18,19 +19,17 @@ class FoodLogScreen extends StatefulWidget {
 }
 
 class _FoodLogScreenState extends State<FoodLogScreen> {
-  // Daily tracking limits
   final int _maxDailyItems = 5;
   final int _targetCalories = 2000;
 
-  // Today's meals data
-  final List<MealEntry> _meals = const [
-    MealEntry(
+  final List<MealEntry> _meals = [
+    const MealEntry(
       emoji: '🍳',
       name: 'Overnight oats',
       macros: '450 kcal | P:15g C:60g F:8g',
       time: '8:30 AM',
     ),
-    MealEntry(
+    const MealEntry(
       emoji: '🥗',
       name: 'Grilled chicken salad',
       macros: '550 kcal | P:45g C:20g F:25g',
@@ -38,60 +37,167 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
     ),
   ];
 
-  // Today's totals
-  final int _currentCalories = 1000;
-  final String _totalMacros = 'P:60g C:80g F:33g';
-
-  // Search controller
   final TextEditingController _searchController = TextEditingController();
+  final TextEditingController _barcodeController = TextEditingController();
 
-  // Meal checkbox states
   final Map<int, bool> _mealCheckedStates = {0: false, 1: false};
+  final OpenFoodFactsService _openFoodFactsService = OpenFoodFactsService();
 
   @override
   void dispose() {
     _searchController.dispose();
+    _barcodeController.dispose();
     super.dispose();
   }
 
   void _toggleMealCheck(int index) {
     if (index < 0 || index >= _meals.length) return;
-    
-    // Ensure mealCheckedStates has the required keys
     if (!_mealCheckedStates.containsKey(index)) {
       _mealCheckedStates[index] = false;
     }
-    
+
     setState(() {
       _mealCheckedStates[index] = !(_mealCheckedStates[index] ?? false);
     });
   }
 
   void _handleBarcodeScan() {
-    // TODO: Implement barcode scanning
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Barcode scanning coming soon!')),
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Add by Barcode'),
+        content: TextField(
+          controller: _barcodeController,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
+            hintText: 'Enter barcode number',
+            border: OutlineInputBorder(),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () async {
+              final barcode = _barcodeController.text.trim();
+              if (barcode.isEmpty) return;
+
+              Navigator.pop(dialogContext);
+
+              BarcodeNutritionResult? lookupResult;
+              try {
+                lookupResult = await _openFoodFactsService.lookupByBarcode(barcode);
+              } catch (_) {
+                lookupResult = null;
+              }
+
+              if (!mounted) return;
+
+              final itemName = lookupResult?.name ?? 'Barcode Item #$barcode';
+              final calories = lookupResult?.calories ?? 200;
+              final protein = lookupResult?.protein ?? 10;
+              final carbs = lookupResult?.carbs ?? 20;
+              final fat = lookupResult?.fat ?? 8;
+
+              setState(() {
+                _meals.add(
+                  MealEntry(
+                    emoji: '📦',
+                    name: itemName,
+                    macros: '$calories kcal | P:${protein}g C:${carbs}g F:${fat}g',
+                    time: _currentTimeLabel(),
+                  ),
+                );
+                _mealCheckedStates[_meals.length - 1] = false;
+              });
+
+              _barcodeController.clear();
+
+              final sourceLabel = lookupResult == null
+                  ? 'Added item with fallback nutrition values'
+                  : 'Added nutrition from barcode lookup';
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(sourceLabel)),
+              );
+            },
+            child: const Text('Add Item'),
+          ),
+        ],
+      ),
     );
   }
 
   void _handleQuickAdd() {
-    // TODO: Implement quick add dialog
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Quick add coming soon!')),
+    final nameController = TextEditingController();
+    final caloriesController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Quick Add Meal'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: nameController,
+              decoration: const InputDecoration(labelText: 'Meal name'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: caloriesController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(labelText: 'Calories'),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              nameController.dispose();
+              caloriesController.dispose();
+              Navigator.pop(context);
+            },
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              final name = nameController.text.trim();
+              final calories = int.tryParse(caloriesController.text.trim()) ?? 0;
+              if (name.isEmpty || calories <= 0) return;
+
+              setState(() {
+                _meals.add(
+                  MealEntry(
+                    emoji: '🍽️',
+                    name: name,
+                    macros: '$calories kcal | P:0g C:0g F:0g',
+                    time: _currentTimeLabel(),
+                  ),
+                );
+                _mealCheckedStates[_meals.length - 1] = false;
+              });
+
+              nameController.dispose();
+              caloriesController.dispose();
+              Navigator.pop(context);
+            },
+            child: const Text('Add'),
+          ),
+        ],
+      ),
     );
   }
 
   void _handleAddRecipe() {
-    // TODO: Implement add recipe
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Add recipe coming soon!')),
-    );
+    context.push('/ai-suggestion');
   }
 
   @override
   Widget build(BuildContext context) {
-    final currentItems = _meals.length;
-    final itemsCounterText = '${AppStrings.todaysLog} $currentItems/$_maxDailyItems${AppStrings.itemsRemaining}';
+    final itemsCounterText =
+        '${AppStrings.todaysLog} ${_meals.length}/$_maxDailyItems${AppStrings.itemsRemaining}';
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -101,50 +207,29 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Meals Section Header
-            _buildMealSectionHeader('Breakfast'),
+            _buildMealSectionHeader('Meals'),
             const SizedBox(height: 8),
-
-            // Breakfast Meal Card
-            if (_meals.isNotEmpty)
-              MealCard(
-                emoji: _meals[0].emoji,
-                name: _meals[0].name,
-                macros: _meals[0].macros,
-                time: _meals[0].time,
-                isChecked: _mealCheckedStates[0] ?? false,
-                onChanged: (_) => _toggleMealCheck(0),
-              ),
-            if (_meals.isNotEmpty)
-              const SizedBox(height: 24),
-
-            // Lunch Section Header
-            if (_meals.length > 1)
-              _buildMealSectionHeader('Lunch'),
-            if (_meals.length > 1)
-              const SizedBox(height: 8),
-
-            // Lunch Meal Card
-            if (_meals.length > 1)
-              MealCard(
-                emoji: _meals[1].emoji,
-                name: _meals[1].name,
-                macros: _meals[1].macros,
-                time: _meals[1].time,
-                isChecked: _mealCheckedStates[1] ?? false,
-                onChanged: (_) => _toggleMealCheck(1),
-              ),
-            const SizedBox(height: 32),
-
-            // Barcode Scan Button
+            ...List.generate(_meals.length, (index) {
+              final meal = _meals[index];
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: MealCard(
+                  emoji: meal.emoji,
+                  name: meal.name,
+                  macros: meal.macros,
+                  time: meal.time,
+                  isChecked: _mealCheckedStates[index] ?? false,
+                  onChanged: (_) => _toggleMealCheck(index),
+                ),
+              );
+            }),
+            const SizedBox(height: 20),
             PrimaryButton(
               text: AppStrings.barcodeScan,
               onPressed: _handleBarcodeScan,
               width: double.infinity,
             ),
             const SizedBox(height: 16),
-
-            // Search Bar
             Container(
               height: 50,
               decoration: BoxDecoration(
@@ -168,8 +253,6 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Quick Actions
             Row(
               children: [
                 Expanded(
@@ -188,8 +271,6 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
               ],
             ),
             const SizedBox(height: 32),
-
-            // Today's Total Card
             BaseCard(
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -201,7 +282,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '$_currentCalories/$_targetCalories kcal',
+                    '${_currentCalories()}/$_targetCalories kcal',
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -210,7 +291,7 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    _totalMacros,
+                    _totalMacros(),
                     style: AppTextStyles.caption,
                   ),
                 ],
@@ -221,6 +302,44 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
         ),
       ),
     );
+  }
+
+  int _extractCalories(String macroText) {
+    final match = RegExp(r'^(\d+)\s*kcal').firstMatch(macroText.trim());
+    return int.tryParse(match?.group(1) ?? '') ?? 0;
+  }
+
+  int _extractMacroValue(String macroText, String key) {
+    final match = RegExp('$key:(\\d+)g').firstMatch(macroText);
+    return int.tryParse(match?.group(1) ?? '') ?? 0;
+  }
+
+  int _currentCalories() {
+    return _meals.fold(0, (sum, meal) => sum + _extractCalories(meal.macros));
+  }
+
+  String _totalMacros() {
+    final protein = _meals.fold(
+      0,
+      (sum, meal) => sum + _extractMacroValue(meal.macros, 'P'),
+    );
+    final carbs = _meals.fold(
+      0,
+      (sum, meal) => sum + _extractMacroValue(meal.macros, 'C'),
+    );
+    final fat = _meals.fold(
+      0,
+      (sum, meal) => sum + _extractMacroValue(meal.macros, 'F'),
+    );
+    return 'P:${protein}g C:${carbs}g F:${fat}g';
+  }
+
+  String _currentTimeLabel() {
+    final now = TimeOfDay.now();
+    final hour = now.hourOfPeriod == 0 ? 12 : now.hourOfPeriod;
+    final minute = now.minute.toString().padLeft(2, '0');
+    final period = now.period == DayPeriod.am ? 'AM' : 'PM';
+    return '$hour:$minute $period';
   }
 
   PreferredSizeWidget _buildAppBar(BuildContext context, String itemsCounterText) {
@@ -241,7 +360,6 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
         ],
       ),
       actions: [
-        // Items counter badge
         Container(
           margin: const EdgeInsets.only(right: 16),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -269,7 +387,6 @@ class _FoodLogScreenState extends State<FoodLogScreen> {
   }
 }
 
-/// Meal entry data model for food log
 class MealEntry {
   final String emoji;
   final String name;

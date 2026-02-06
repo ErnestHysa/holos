@@ -31,11 +31,7 @@ class _HealthPermissionsScreenState extends State<HealthPermissionsScreen> {
   bool _isSamsungHealthConnected = false;
 
   // Loading states
-<<<<<<< HEAD
   final Set<HealthPlatform> _connectingPlatforms = {};
-=======
-  Set<HealthPlatform> _connectingPlatforms = {};
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
   // Supported platforms
   Set<HealthPlatform> _supportedPlatforms = {};

@@ -94,10 +94,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
 
   void _handleViewRecipe(String mealName) {
     if (!mounted) return;
-    
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$mealName recipe details coming soon!')),
-    );
+
+    context.push('/ai-suggestion');
   }
 
   void _openNotificationSettings() {

@@ -51,14 +51,9 @@ class SamsungHealthService {
     }
 
     try {
-<<<<<<< HEAD
-      // Check if we can request permissions (Samsung Health installed)
-      _isAvailable = await _health.hasPermissions(_dataTypes, permissions: _permissions) ?? false;
-=======
       // If this call succeeds, the integration is available.
       await _health.hasPermissions(_dataTypes, permissions: _permissions);
       _isAvailable = true;
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
       return _isAvailable;
     } catch (e) {
       debugPrint('Samsung Health not available: $e');

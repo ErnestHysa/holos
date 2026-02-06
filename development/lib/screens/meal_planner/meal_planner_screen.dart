@@ -254,7 +254,7 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
   }
 
   void _generateAISuggestions() {
-    // TODO: Open AI suggestion screen
+    // Open AI suggestion screen
     context.push('/ai-suggestion');
   }
 
@@ -552,17 +552,13 @@ class _MealPlannerScreenState extends State<MealPlannerScreen> {
     );
   }
 
-<<<<<<< HEAD
-  Widget _macroSummary({required String label, required int current, required int target}) {
-=======
-  Widget _MacroSummary({
+  Widget _macroSummary({
     required String label,
     required int current,
     required int target,
     required String unit,
   }) {
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
-    final progress = (current / target).clamp(0.0, 1.0);
+    final progress = target > 0 ? (current / target).clamp(0.0, 1.0) : 0.0;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
