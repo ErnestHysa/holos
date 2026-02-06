@@ -155,9 +155,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         Padding(
           padding: const EdgeInsets.only(right: 16),
           child: GestureDetector(
-            onTap: () {
-              // TODO: Navigate to profile/settings
-            },
+            onTap: () => context.push('/notifications'),
             child: const CircleAvatar(
               radius: 20,
               backgroundColor: AppColors.primaryGreen,

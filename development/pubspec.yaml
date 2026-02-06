@@ -39,6 +39,9 @@ dependencies:
   # Navigation
   go_router: ^14.0.0
 
+  # Local persistence
+  shared_preferences: ^2.2.3
+
   # Notifications (Phase 2)
   flutter_local_notifications: ^17.2.0
   timezone: ^0.9.0

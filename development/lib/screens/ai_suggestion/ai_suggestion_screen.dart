@@ -257,8 +257,20 @@ class _AiSuggestionScreenState extends State<AiSuggestionScreen> {
   }
 
   void _handleViewRecipe() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Recipe details coming soon!')),
+    if (_suggestion == null) return;
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('${_suggestion!.emoji} ${_suggestion!.mealName}'),
+        content: Text(_suggestion!.description),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
     );
   }
 

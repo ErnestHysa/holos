@@ -69,15 +69,9 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
       // Fetch today's data
       final todayData = await _healthService.getTodayData(userId: 'current_user');
 
-<<<<<<< HEAD
-      // Fetch weekly data if needed (currently unused but kept for future)
-      if (_selectedTimeFilter == 'Last 7 days' || _selectedTimeFilter == 'Last 30 days') {
-=======
       // Fetch weekly data if needed
-      List<HealthData>? weeklyData;
       if (_selectedTimeFilter == 'Last 7 days' ||
           _selectedTimeFilter == 'Last 30 days') {
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
         final now = DateTime.now();
         final days = _selectedTimeFilter == 'Last 7 days' ? 7 : 30;
         final startDate = now.subtract(Duration(days: days));
@@ -161,20 +155,74 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
   }
 
   void _handleSleepDetails() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Sleep details coming soon!')),
+    _showDetailsSheet(
+      title: 'Sleep Details',
+      rows: [
+        _DetailRow('Duration', '${(_healthData?.sleepDuration ?? 0).toStringAsFixed(1)} hours'),
+        _DetailRow('Sleep Quality', '${((_healthData?.sleepQuality ?? 0) * 100).toStringAsFixed(0)}%'),
+        _DetailRow('Deep Sleep', '${(_healthData?.deepSleepPercent ?? 0).toStringAsFixed(0)}%'),
+      ],
     );
   }
 
   void _handleActivityDetails() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Activity details coming soon!')),
+    _showDetailsSheet(
+      title: 'Activity Details',
+      rows: [
+        _DetailRow('Steps', _formatNumber(_healthData?.steps ?? 0)),
+        _DetailRow('Active Calories', '${_formatNumber(_healthData?.activeCalories ?? 0)} kcal'),
+        _DetailRow('Total Calories Burned', '${_formatNumber(_healthData?.totalCaloriesBurned ?? 0)} kcal'),
+        _DetailRow('Workouts', '${_healthData?.workouts?.length ?? 0} today'),
+      ],
     );
   }
 
   void _handleStressDetails() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Stress details coming soon!')),
+    _showDetailsSheet(
+      title: 'Stress & Recovery Details',
+      rows: [
+        _DetailRow('Average Heart Rate', '${_healthData?.avgHeartRate ?? 0} bpm'),
+        _DetailRow('HRV', '${_healthData?.heartRateVariability ?? 0} ms'),
+        _DetailRow('Stress Score', '${((_healthData?.stressLevel ?? 0) * 100).toStringAsFixed(0)}%'),
+      ],
+    );
+  }
+
+  void _showDetailsSheet({required String title, required List<_DetailRow> rows}) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: AppColors.cardBackground,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (context) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: AppTextStyles.headline3),
+                const SizedBox(height: 16),
+                ...rows.map((row) => Padding(
+                      padding: const EdgeInsets.only(bottom: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(row.label, style: AppTextStyles.body),
+                          Text(
+                            row.value,
+                            style: AppTextStyles.body.copyWith(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                    )),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -655,4 +703,12 @@ class _HealthDataScreenState extends State<HealthDataScreen> {
     _healthDataSubscription?.cancel();
     super.dispose();
   }
+}
+
+
+class _DetailRow {
+  final String label;
+  final String value;
+
+  _DetailRow(this.label, this.value);
 }

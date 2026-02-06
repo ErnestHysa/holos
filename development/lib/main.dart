@@ -15,6 +15,7 @@ import 'screens/ai_suggestion/ai_suggestion_screen.dart';
 import 'screens/notifications/notifications_screen.dart';
 import 'screens/meal_planner/meal_planner_screen.dart';
 import 'screens/health_integration/health_permissions_screen.dart';
+import 'services/app_state_service.dart';
 
 /// Holos App Entry Point
 void main() async {
@@ -28,11 +29,20 @@ void main() async {
     debugPrint('Firebase initialization skipped: $e');
   }
 
-  runApp(const HolosApp());
+  final appStateService = AppStateService();
+  final onboardingComplete = await appStateService.isOnboardingComplete();
+  runApp(HolosApp(
+    initialLocation: onboardingComplete ? '/dashboard' : '/onboarding/goal',
+  ));
 }
 
 class HolosApp extends StatelessWidget {
-  const HolosApp({super.key});
+  final String initialLocation;
+
+  const HolosApp({
+    super.key,
+    required this.initialLocation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +87,7 @@ class HolosApp extends StatelessWidget {
         ),
       ),
       routerConfig: GoRouter(
-        initialLocation: '/onboarding/goal',
+        initialLocation: initialLocation,
         routes: [
           // Onboarding Routes
           GoRoute(
@@ -181,6 +191,3 @@ class HolosApp extends StatelessWidget {
     );
   }
 }
-
-// Placeholder screens - To be implemented using mockup mapping
-// All core MVP screens are now complete!

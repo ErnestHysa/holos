@@ -94,14 +94,10 @@ class _HealthConnectionScreenState extends State<HealthConnectionScreen> {
           _showHealthConnectDialog();
         }
         return false;
-<<<<<<< HEAD
-      }));
-=======
       })) ??
           false;
 
       if (!mounted) return;
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
       if (granted) {
         // Connection successful

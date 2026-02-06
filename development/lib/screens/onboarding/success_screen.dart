@@ -6,6 +6,7 @@ import '../../config/fonts.dart';
 import '../../config/strings.dart';
 import '../../widgets/common/base_card.dart';
 import '../../widgets/common/primary_button.dart';
+import '../../services/app_state_service.dart';
 
 /// Onboarding success screen - celebration screen
 /// Mapped from mockup: 20-onboarding-success.png
@@ -27,6 +28,7 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
   // For now, use a friendly default
   String get _userName => 'there'; // Will be replaced with actual user display name
 
+  final AppStateService _appStateService = AppStateService();
   final int _wellnessScore = 82;
 
   final List<ConfettiParticle> _confettiParticles = [];
@@ -94,9 +96,9 @@ class _OnboardingSuccessScreenState extends State<OnboardingSuccessScreen>
     super.dispose();
   }
 
-  void _handleGoToDashboard() {
-    // Mark onboarding as complete (TODO: Save to Firebase)
-    // User.onboardingCompleted = true;
+  Future<void> _handleGoToDashboard() async {
+    await _appStateService.setOnboardingComplete(true);
+    if (!mounted) return;
 
     // Clear navigation stack and go to dashboard
     context.go('/dashboard');

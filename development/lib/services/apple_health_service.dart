@@ -41,14 +41,8 @@ class AppleHealthService {
   // Stream subscription for health updates
   StreamSubscription<List<HealthDataPoint>>? _healthUpdateSubscription;
 
-<<<<<<< HEAD
-  // Callback for health data updates (used in subscription pattern)
-  // ignore: unused_field
-  Function(HealthData)? _onHealthDataUpdate;
-=======
   // Callback for health data updates
   void Function(HealthData)? _onHealthDataUpdate;
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
 
   /// Initialize the health service
   Future<void> initialize() async {
@@ -126,8 +120,6 @@ class AppleHealthService {
         'Background observer not supported in this version of the health package');
   }
 
-<<<<<<< HEAD
-=======
   /// Fetch latest data and notify callback
   Future<void> _fetchAndNotifyLatest() async {
     if (_onHealthDataUpdate == null) return;
@@ -142,8 +134,6 @@ class AppleHealthService {
       callback?.call(data);
     }
   }
-
->>>>>>> 98a8bb278a9e1a0ebde90c77b8804772a13d699f
   /// Get today's health data
   Future<HealthData?> getTodayData({
     required String userId,
